@@ -170,3 +170,53 @@ footer p{color:var(--text2);font-size:.85rem;margin-bottom:.5rem}
 .engine-arrow,.buyback-arrow{transform:rotate(90deg)}
 .engine-split{flex-direction:column}
 }
+
+/* Top Nav */
+.top-nav{display:flex;gap:0;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav-btn{flex:1;padding:1rem;text-align:center;font-weight:700;font-size:1rem;border:none;background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;border-bottom:3px solid transparent}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--accent);background:rgba(255,107,53,.05)}
+.nav-btn:hover{color:var(--text);background:rgba(255,255,255,.03)}
+
+/* Mint Reveal Modal */
+.reveal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn .3s}
+.reveal-modal{background:var(--surface);border-radius:24px;max-width:420px;width:100%;padding:2rem;text-align:center;position:relative;overflow:hidden}
+.reveal-badge{display:inline-block;font-size:.85rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:6px 20px;border:2px solid;border-radius:50px;margin-bottom:1rem}
+.reveal-title{font-size:1.8rem;font-weight:900;margin-bottom:1.5rem}
+.reveal-img{width:100%;max-width:320px;aspect-ratio:1;object-fit:contain;margin:0 auto 1.5rem;display:block;border-radius:16px}
+.reveal-tier-info{font-size:1rem;font-weight:600;margin-bottom:.75rem}
+.reveal-tier-name{font-size:1.2rem;font-weight:800}
+.reveal-tier-rarity{font-weight:700}
+.reveal-desc{font-size:.9rem;color:var(--text2);margin-bottom:1.5rem;line-height:1.5}
+.reveal-close{padding:.85rem 2.5rem;color:#fff;font-weight:700;font-size:1rem;border:none;border-radius:50px;cursor:pointer;transition:transform .2s}
+.reveal-close:hover{transform:scale(1.05)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* Gallery Page (all minted) */
+.gallery-page{padding:4rem 2rem;max-width:1200px;margin:0 auto;text-align:center;padding-top:6rem}
+.gallery-page h2{font-size:2.5rem;background:linear-gradient(135deg,#ff6b35,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.gallery-stats{display:flex;gap:2rem;justify-content:center;margin:2rem 0}
+.gallery-stat{padding:1rem 2rem;border:2px solid;border-radius:12px;background:var(--surface);text-align:center}
+.gallery-stat-num{display:block;font-size:2rem;font-weight:900}
+.gallery-stat-label{display:block;font-size:.8rem;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-top:.25rem}
+.all-gallery-grid{max-width:1200px}
+
+/* NFT Gallery (wallet) */
+.gallery-section{padding:4rem 2rem;max-width:1100px;margin:0 auto;text-align:center}
+.gallery-section h2{font-size:2rem;background:linear-gradient(135deg,#ff6b35,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
+.gallery-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:default;position:relative}
+.gallery-card:hover{transform:translateY(-4px)}
+.gallery-tier-badge{position:absolute;top:12px;right:12px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:20px;background:rgba(10,10,15,.8);border:1px solid currentColor;z-index:1}
+.gallery-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.gallery-info{padding:1rem}
+.gallery-info h3{font-size:1rem;margin:0 0 .25rem}
+.gallery-tier{font-size:.85rem;font-weight:600;margin:0 0 .5rem}
+.gallery-link{font-size:.8rem;color:var(--accent);text-decoration:none;display:inline-block}
+.gallery-link:hover{text-decoration:underline}
+
+@media(max-width:600px){
+.gallery-grid,.all-gallery-grid{grid-template-columns:1fr}
+.gallery-stats{gap:1rem}
+.gallery-stat{padding:.75rem 1rem}
+.nav-btn{padding:.75rem;font-size:.9rem}
+}

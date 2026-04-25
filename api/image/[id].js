@@ -10,6 +10,35 @@ const tierVisuals = {
 function generatePhoenixSVG(id, tier) {
   const v = tierVisuals[tier] || tierVisuals[1];
   const num = id + 1;
+  // Unique visual variations per ID
+  const hueShift = (id * 17) % 360;
+  const wingAngle = 10 + (id % 5) * 5;
+  const flameH = 170 + (id % 7) * 5;
+  const bodyW = 32 + (id % 4) * 2;
+  const seed = id * 1337;
+  const particleCount = 3 + (id % 4);
+  
+  // Unique accent color per phoenix within tier
+  const accentHue = (hueShift + (tier === 1 ? 15 : tier === 2 ? 300 : 50)) % 360;
+  const accent = `hsl(${accentHue}, 80%, 65%)`;
+  
+  // Background stars/particles unique to each phoenix
+  let stars = '';
+  for (let i = 0; i < 8; i++) {
+    const sx = ((seed * (i+1) * 7) % 580) + 10;
+    const sy = ((seed * (i+1) * 13) % 560) + 10;
+    const sr = 1 + (i % 3);
+    stars += `<circle cx="${sx}" cy="${sy}" r="${sr}" fill="white" opacity="${0.1 + (i%3)*0.1}"/>`;
+  }
+  
+  // Unique flame patterns
+  let flames = '';
+  for (let i = 0; i < particleCount; i++) {
+    const fx = -30 + ((id * (i+1) * 37) % 60);
+    const fy = 60 + ((id * (i+1) * 23) % 80);
+    const fs = 3 + (id % 4);
+    flames += `<circle cx="${fx}" cy="${fy}" r="${fs}" fill="${accent}" opacity="0.3"/>`;
+  }
   
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
   <defs>
@@ -32,27 +61,32 @@ function generatePhoenixSVG(id, tier) {
   
   <!-- Background -->
   <rect width="600" height="600" fill="url(#bg)"/>
+  <!-- Stars -->
+  ${stars}
   
   <!-- Glow -->
   <ellipse cx="300" cy="270" rx="180" ry="200" fill="url(#glow)"/>
   
   <!-- Phoenix body -->
   <g transform="translate(300,300)">
-    <!-- Wings -->
+    <!-- Wings with unique angle -->
     <path d="M0,-120 C-40,-140 -120,-100 -140,-30 C-150,10 -130,60 -80,80 C-60,90 -40,85 -20,70" 
-          fill="url(#phoenix)" opacity="0.9"/>
+          fill="url(#phoenix)" opacity="0.9" transform="rotate(-${wingAngle/2}, 0, 0)"/>
     <path d="M0,-120 C40,-140 120,-100 140,-30 C150,10 130,60 80,80 C60,90 40,85 20,70" 
-          fill="url(#phoenix)" opacity="0.9"/>
+          fill="url(#phoenix)" opacity="0.9" transform="rotate(${wingAngle/2}, 0, 0)"/>
     
     <!-- Body -->
-    <ellipse cx="0" cy="0" rx="35" ry="70" fill="${v.primary}" opacity="0.95"/>
+    <ellipse cx="0" cy="0" rx="${bodyW}" ry="70" fill="${v.primary}" opacity="0.95"/>
     
     <!-- Head -->
     <circle cx="0" cy="-80" r="22" fill="${v.primary}"/>
     
-    <!-- Flame crest -->
-    <path d="M0,-110 C-5,-130 -8,-155 -3,-175 C0,-165 5,-150 3,-135 C8,-150 12,-170 15,-180 C12,-160 8,-140 6,-120" 
+    <!-- Flame crest (unique height) -->
+    <path d="M0,-110 C-5,-130 -8,-155 -3,-${flameH} C0,-${flameH-10} 5,-${flameH-25} 3,-${flameH-40} C8,-${flameH-20} 12,-${flameH-5} 15,-${flameH+10} C12,-${flameH-15} 8,-${flameH-35} 6,-120" 
           fill="${v.secondary}" opacity="0.8"/>
+    
+    <!-- Unique accent flames -->
+    ${flames}
     
     <!-- Tail flames -->
     <path d="M0,60 C-15,80 -25,120 -20,160 C-18,140 -10,110 -5,90" 
@@ -60,14 +94,17 @@ function generatePhoenixSVG(id, tier) {
     <path d="M0,60 C15,80 25,120 20,160 C18,140 10,110 5,90" 
           fill="${v.secondary}" opacity="0.7"/>
     <path d="M0,60 C0,100 5,150 0,190 C-5,150 0,100 0,90" 
-          fill="${v.primary}" opacity="0.6"/>
+          fill="${accent}" opacity="0.5"/>
     
-    <!-- Eye -->
+    <!-- Eyes -->
     <circle cx="-6" cy="-82" r="3" fill="white" opacity="0.9"/>
     <circle cx="6" cy="-82" r="3" fill="white" opacity="0.9"/>
     <circle cx="-5" cy="-82" r="1.5" fill="${v.bg1}"/>
     <circle cx="7" cy="-82" r="1.5" fill="${v.bg1}"/>
   </g>
+  
+  <!-- Big number -->
+  <text x="300" y="490" text-anchor="middle" font-family="monospace" font-size="72" font-weight="900" fill="${v.primary}" opacity="0.15" letter-spacing="-2">#${num}</text>
   
   <!-- Text -->
   <text x="300" y="520" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" fill="${v.primary}" letter-spacing="4">RISE</text>

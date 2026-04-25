@@ -11,7 +11,7 @@ const tierMeta = {
     description: 'A fiery phoenix rises from the ashes. Ember tier — the spirit of relentless rebirth.',
     attributes: [
       { trait_type: 'Tier', value: 'Ember' },
-      { trait_type: 'Rarity', value: 'Common' },
+      { trait_type: 'Rarity', value: 'Ember' },
       { trait_type: 'Max Supply', value: 400 },
       { trait_type: 'Element', value: 'Fire' },
     ],
@@ -23,7 +23,7 @@ const tierMeta = {
     description: 'A blaze phoenix — forged in infernal heat. Rare and fierce.',
     attributes: [
       { trait_type: 'Tier', value: 'Blaze' },
-      { trait_type: 'Rarity', value: 'Rare' },
+      { trait_type: 'Rarity', value: 'Blaze' },
       { trait_type: 'Max Supply', value: 75 },
       { trait_type: 'Element', value: 'Inferno' },
     ],
@@ -35,7 +35,7 @@ const tierMeta = {
     description: 'The Genesis Phoenix — the origin of all flame. Legendary and immortal.',
     attributes: [
       { trait_type: 'Tier', value: 'Genesis' },
-      { trait_type: 'Rarity', value: 'Legendary' },
+      { trait_type: 'Rarity', value: 'Genesis' },
       { trait_type: 'Max Supply', value: 25 },
       { trait_type: 'Element', value: 'Primordial' },
     ],
@@ -64,8 +64,10 @@ export default function handler(req, res) {
     name: `${meta.name} #${numId + 1}`,
     symbol: 'RISE',
     description: meta.description,
-    image: `https://rise-mint-app.vercel.app/api/image/${numId}`,
-    external_url: 'https://rise-mint-app.vercel.app',
+    const tierNum = numId < 400 ? 1 : numId < 475 ? 2 : 3;
+    const imageFile = tierNum === 1 ? 'phoenix-ember.jpg' : tierNum === 2 ? 'phoenix-blaze.jpg' : 'phoenix-genesis.jpg';
+    image: `https://rise-phoenix-fix.vercel.app/${imageFile}`,
+    external_url: 'https://rise-phoenix-fix.vercel.app',
     attributes: [
       ...meta.attributes,
       { trait_type: 'Number', value: numId + 1 },
@@ -74,7 +76,7 @@ export default function handler(req, res) {
     properties: {
       category: 'image',
       files: [
-        { uri: `https://rise-mint-app.vercel.app/api/image/${numId}`, type: 'image/png' },
+        { uri: `https://rise-phoenix-fix.vercel.app/${imageFile}`, type: 'image/jpeg' },
       ],
       creators: [
         { address: 'DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG', share: 100 },

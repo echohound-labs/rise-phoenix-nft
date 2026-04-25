@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RISE Phoenix — Test</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦅</text></svg>">
+  </head>
+  <body>
+    <div id="root">
+      <script>
+        window.onerror = function(msg, url, line, col, err) {
+          document.getElementById('root').innerHTML = '<div style="padding:2rem;text-align:center;color:#ff6b35;background:#0a0a0f;min-height:100vh;font-family:system-ui"><h1>🔥 JS Error</h1><p style="color:#aaa;max-width:600px;word-break:break-all">' + (msg || 'Unknown error') + '</p><p style="color:#666;font-size:0.75em;margin-top:1rem">' + (url || '') + ':' + line + ':' + col + '</p></div>';
+          return true;
+        };
+        window.onunhandledrejection = function(e) {
+          document.getElementById('root').innerHTML = '<div style="padding:2rem;text-align:center;color:#ff6b35;background:#0a0a0f;min-height:100vh;font-family:system-ui"><h1>🔥 Async Error</h1><p style="color:#aaa;max-width:600px;word-break:break-all">' + (e?.reason?.message || e?.reason || 'Unknown error') + '</p></div>';
+        };
+      </script>
+    </div>
+    <script type="module" src="/src/test-main.jsx"></script>
+  </body>
+</html>
