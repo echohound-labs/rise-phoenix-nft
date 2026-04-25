@@ -84,7 +84,8 @@ const PALETTES = [
 function MintReveal({ mintNumber, onClose }) {
   if (mintNumber === null) return null;
   const palette = PALETTES[mintNumber % PALETTES.length];
-  const imgUrl = `/nft/${mintNumber}.jpg`;
+  const IPFS_BASE = 'https://bafybeibmrfdvd5zcf3rb4ot7tpdombbnwqglnrbgeybo62rasfqa3ixwoa.ipfs.w3s.link';
+  const imgUrl = `${IPFS_BASE}/${mintNumber}.jpg`;
 
   return (
     <div className="reveal-overlay" onClick={onClose}>
@@ -330,7 +331,7 @@ function NFTGallery() {
             const uri = data.slice(offset, offset + uriLen).toString('utf8').replace(/\0+$/, '');
             if (symbol === 'RISE' || name.startsWith('RISE Phoenix')) {
               // Try to fetch JSON metadata for image
-              let image = '/nft/0.jpg';
+              let image = `${'https://bafybeibmrfdvd5zcf3rb4ot7tpdombbnwqglnrbgeybo62rasfqa3ixwoa.ipfs.w3s.link'}/0.jpg`;
               try {
                 const res = await fetch(uri);
                 const json = await res.json();
@@ -393,9 +394,9 @@ function NFTGallery() {
 function phoenixImg(id) {
   // Use sample images for site preview, full collection served from CDN
   const samples = [0,1,2,3,4,10,50,100,200,499];
-  if (samples.includes(id)) return `/nft/${id}.jpg`;
-  // For non-sample IDs, use the closest sample (rotation)
-  return `/nft/${samples[id % samples.length]}.jpg`;
+  const IPFS = 'https://bafybeibmrfdvd5zcf3rb4ot7tpdombbnwqglnrbgeybo62rasfqa3ixwoa.ipfs.w3s.link';
+  if (samples.includes(id)) return `${IPFS}/${id}.jpg`;
+  return `${IPFS}/${id}.jpg`;
 }
 
 function AllGallery() {
@@ -523,7 +524,7 @@ function App() {
               <div className="tier-row">
                 {[0, 1, 2, 3, 4].map((i) => (
                   <div key={i} className="gacha-card" style={{ boxShadow: `0 0 30px ${PALETTES[i * 10].accent}4D` }}>
-                    <img src={`/nft/${i * 10}.jpg`} alt={`Phoenix sample ${i+1}`} style={{ width: '100%', borderRadius: 12, marginBottom: 12 }} />
+                    <img src={`https://bafybeibmrfdvd5zcf3rb4ot7tpdombbnwqglnrbgeybo62rasfqa3ixwoa.ipfs.w3s.link/${i * 10}.jpg`} alt={`Phoenix sample ${i+1}`} style={{ width: '100%', borderRadius: 12, marginBottom: 12 }} />
                     <div className="gacha-rarity" style={{ color: PALETTES[i * 10].accent }}>1 OF 1</div>
                     <div className="gacha-name" style={{ color: PALETTES[i * 10].accent }}>{PALETTES[i * 10].name}</div>
                     <div className="gacha-supply">Unique #{i * 10 + 1} of 500</div>
@@ -544,7 +545,7 @@ function App() {
               <h2>Same Bird. Different Fire.</h2>
               <p className="section-sub">Every phoenix shares the same soul. Each one burns a different color in a different cosmos. 500 one-of-ones.</p>
               <div className="vibe-preview">
-                <img src="/nft/0.jpg" alt="RISE Phoenix" className="vibe-img" />
+                <img src="https://bafybeibmrfdvd5zcf3rb4ot7tpdombbnwqglnrbgeybo62rasfqa3ixwoa.ipfs.w3s.link/0.jpg" alt="RISE Phoenix" className="vibe-img" />
               </div>
             </section>
 
@@ -602,7 +603,7 @@ function App() {
               <h2>Mint Your Phoenix — Series 1</h2>
               <p className="section-sub">10 XNT · 500 total · Every phoenix is 1-of-1 · Powered by Geiger Entropy ☢️</p>
               <div className="mint-card">
-                <img src="/nft/0.jpg" alt="RISE Phoenix" className="mint-hero-img" />
+                <img src="https://bafybeibmrfdvd5zcf3rb4ot7tpdombbnwqglnrbgeybo62rasfqa3ixwoa.ipfs.w3s.link/0.jpg" alt="RISE Phoenix" className="mint-hero-img" />
                 <div className="mint-info">
                   <div className="mint-specs">
                     <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">Series 1</span></div>
