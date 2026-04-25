@@ -21,16 +21,15 @@ import {
   TOKEN_PROGRAM_ID,
   ASSOCIATED_TOKEN_PROGRAM_ID,
   getAssociatedTokenAddressSync,
-  createAssociatedTokenAccountInstruction,
-  createInitializeMintInstruction,
-  MINT_SIZE,
 } from '@solana/spl-token';
+import { createCreateMetadataAccountV3Instruction, PROGRAM_ID as METADATA_PROGRAM_ID } from '@metaplex-foundation/mpl-token-metadata';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import './App.css';
 
-const RISE_RECEIVER = new PublicKey('G3YeRfM65HuWkLQztPcGSudoR37gNHvaeXqYn79Ac3x7');
+const RISE_RECEIVER = new PublicKey('DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG');
 const RISE_PROGRAM = new PublicKey('2TAHRJHb5WWuxTcXQLitwn5K6T2nZMe9papa3c3Ed8wg');
 const MINT_STATE_PDA = new PublicKey('JSTXYDC4ATHBQbanzoEdkTyX3uYiuKfSdKiTE1eGyXv');
+const METAPLEX_METADATA = METADATA_PROGRAM_ID;
 const RPC = 'https://rpc.mainnet.x1.xyz';
 const MINT_PRICE = 10;
 
@@ -118,11 +117,12 @@ function MintButton() {
       // Anchor discriminator for 'mint' instruction
       const mintDiscriminator = new Uint8Array([51, 57, 225, 47, 182, 146, 137, 166]);
 
+      // Mint instruction — contract creates ATA via CPI if needed
       const ix = new TransactionInstruction({
         keys: [
           { pubkey: MINT_STATE_PDA, isSigner: false, isWritable: true },         // mint_state
           { pubkey: mintRequestPDA, isSigner: false, isWritable: true },         // mint_request
-          { pubkey: nftMint, isSigner: false, isWritable: true },                // nft_mint
+          { pubkey: nftMint, isSigner: true, isWritable: true },                 // nft_mint (keypair signer)
           { pubkey: minterAta, isSigner: false, isWritable: true },               // minter_ata
           { pubkey: wallet.publicKey, isSigner: true, isWritable: true },          // minter
           { pubkey: RISE_RECEIVER, isSigner: false, isWritable: true },           // treasury
@@ -135,7 +135,41 @@ function MintButton() {
         data: mintDiscriminator,
       });
 
-      const tx = new Transaction().add(ix);
+      // Create Metaplex metadata for the NFT so wallets can display it
+      const [metadataPDA] = PublicKey.findProgramAddressSync(
+        [Buffer.from('metadata'), METADATA_PROGRAM_ID.toBuffer(), nftMint.toBuffer()],
+        METADATA_PROGRAM_ID
+      );
+
+      const metadataIx = createCreateMetadataAccountV3Instruction(
+        {
+          metadata: metadataPDA,
+          mint: nftMint,
+          mintAuthority: wallet.publicKey,
+          payer: wallet.publicKey,
+          updateAuthority: wallet.publicKey,
+        },
+        {
+          createMetadataAccountArgsV3: {
+            name: `RISE Phoenix #${mintNumber + 1}`,
+            symbol: 'RISE',
+            uri: 'https://rise-mint-app.vercel.app/api/metadata/' + mintNumber,
+            sellerFeeBasisPoints: 500,
+            creators: [
+              {
+                address: wallet.publicKey,
+                verified: false,
+                share: 100,
+              },
+            ],
+            collection: null,
+            uses: null,
+            collectionDetails: null,
+          },
+        }
+      );
+
+      const tx = new Transaction().add(ix, metadataIx);
       const { blockhash } = await connection.getLatestBlockhash();
       tx.recentBlockhash = blockhash;
       tx.feePayer = wallet.publicKey;
