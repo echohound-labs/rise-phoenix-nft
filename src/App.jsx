@@ -578,10 +578,10 @@ function App() {
               <p className="section-sub">Same bird. Different fire. Every phoenix has its own color palette and cosmic background. 30 palettes. 5 background styles. 500 one-of-ones.</p>
               <div className="tier-row">
                 {[0, 1, 2, 3, 4].map((i) => (
-                  <div key={i} className="gacha-card" style={{ boxShadow: `0 0 30px ${PALETTES[i * 10].accent}4D` }}>
+                  <div key={i} className="gacha-card" style={{ boxShadow: `0 0 30px ${PALETTES[(i * 10) % PALETTES.length].accent}4D` }}>
                     <img src={`https://bafybeibmrfdvd5zcf3rb4ot7tpdombbnwqglnrbgeybo62rasfqa3ixwoa.ipfs.w3s.link/${i * 10}.jpg`} alt={`Phoenix sample ${i+1}`} style={{ width: '100%', borderRadius: 12, marginBottom: 12 }} />
-                    <div className="gacha-rarity" style={{ color: PALETTES[i * 10].accent }}>1 OF 1</div>
-                    <div className="gacha-name" style={{ color: PALETTES[i * 10].accent }}>{PALETTES[i * 10].name}</div>
+                    <div className="gacha-rarity" style={{ color: PALETTES[(i * 10) % PALETTES.length].accent }}>1 OF 1</div>
+                    <div className="gacha-name" style={{ color: PALETTES[(i * 10) % PALETTES.length].accent }}>{PALETTES[(i * 10) % PALETTES.length].name}</div>
                     <div className="gacha-supply">Unique #{i * 10 + 1} of 500</div>
                   </div>
                 ))}
