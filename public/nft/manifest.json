@@ -1,0 +1,4502 @@
+[
+  {
+    "id": 0,
+    "number": 1,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.7,
+    "brightness": 0.85,
+    "file": "0.jpg"
+  },
+  {
+    "id": 1,
+    "number": 2,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.7,
+    "brightness": 0.87,
+    "file": "1.jpg"
+  },
+  {
+    "id": 2,
+    "number": 3,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.7,
+    "brightness": 0.89,
+    "file": "2.jpg"
+  },
+  {
+    "id": 3,
+    "number": 4,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.7,
+    "brightness": 0.9099999999999999,
+    "file": "3.jpg"
+  },
+  {
+    "id": 4,
+    "number": 5,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.7,
+    "brightness": 0.9299999999999999,
+    "file": "4.jpg"
+  },
+  {
+    "id": 5,
+    "number": 6,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.7,
+    "brightness": 0.95,
+    "file": "5.jpg"
+  },
+  {
+    "id": 6,
+    "number": 7,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.7,
+    "brightness": 0.97,
+    "file": "6.jpg"
+  },
+  {
+    "id": 7,
+    "number": 8,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.7,
+    "brightness": 0.85,
+    "file": "7.jpg"
+  },
+  {
+    "id": 8,
+    "number": 9,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.7,
+    "brightness": 0.87,
+    "file": "8.jpg"
+  },
+  {
+    "id": 9,
+    "number": 10,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.7,
+    "brightness": 0.89,
+    "file": "9.jpg"
+  },
+  {
+    "id": 10,
+    "number": 11,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.7,
+    "brightness": 0.9099999999999999,
+    "file": "10.jpg"
+  },
+  {
+    "id": 11,
+    "number": 12,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.7,
+    "brightness": 0.9299999999999999,
+    "file": "11.jpg"
+  },
+  {
+    "id": 12,
+    "number": 13,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.7,
+    "brightness": 0.95,
+    "file": "12.jpg"
+  },
+  {
+    "id": 13,
+    "number": 14,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.7,
+    "brightness": 0.97,
+    "file": "13.jpg"
+  },
+  {
+    "id": 14,
+    "number": 15,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.7,
+    "brightness": 0.85,
+    "file": "14.jpg"
+  },
+  {
+    "id": 15,
+    "number": 16,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.7,
+    "brightness": 0.87,
+    "file": "15.jpg"
+  },
+  {
+    "id": 16,
+    "number": 17,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.7,
+    "brightness": 0.89,
+    "file": "16.jpg"
+  },
+  {
+    "id": 17,
+    "number": 18,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.7,
+    "brightness": 0.9099999999999999,
+    "file": "17.jpg"
+  },
+  {
+    "id": 18,
+    "number": 19,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.7,
+    "brightness": 0.9299999999999999,
+    "file": "18.jpg"
+  },
+  {
+    "id": 19,
+    "number": 20,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.7,
+    "brightness": 0.95,
+    "file": "19.jpg"
+  },
+  {
+    "id": 20,
+    "number": 21,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.725,
+    "brightness": 0.97,
+    "file": "20.jpg"
+  },
+  {
+    "id": 21,
+    "number": 22,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.725,
+    "brightness": 0.85,
+    "file": "21.jpg"
+  },
+  {
+    "id": 22,
+    "number": 23,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.725,
+    "brightness": 0.87,
+    "file": "22.jpg"
+  },
+  {
+    "id": 23,
+    "number": 24,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.725,
+    "brightness": 0.89,
+    "file": "23.jpg"
+  },
+  {
+    "id": 24,
+    "number": 25,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.725,
+    "brightness": 0.9099999999999999,
+    "file": "24.jpg"
+  },
+  {
+    "id": 25,
+    "number": 26,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.725,
+    "brightness": 0.9299999999999999,
+    "file": "25.jpg"
+  },
+  {
+    "id": 26,
+    "number": 27,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.725,
+    "brightness": 0.95,
+    "file": "26.jpg"
+  },
+  {
+    "id": 27,
+    "number": 28,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.725,
+    "brightness": 0.97,
+    "file": "27.jpg"
+  },
+  {
+    "id": 28,
+    "number": 29,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.725,
+    "brightness": 0.85,
+    "file": "28.jpg"
+  },
+  {
+    "id": 29,
+    "number": 30,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.725,
+    "brightness": 0.87,
+    "file": "29.jpg"
+  },
+  {
+    "id": 30,
+    "number": 31,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.725,
+    "brightness": 0.89,
+    "file": "30.jpg"
+  },
+  {
+    "id": 31,
+    "number": 32,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.725,
+    "brightness": 0.9099999999999999,
+    "file": "31.jpg"
+  },
+  {
+    "id": 32,
+    "number": 33,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.725,
+    "brightness": 0.9299999999999999,
+    "file": "32.jpg"
+  },
+  {
+    "id": 33,
+    "number": 34,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.725,
+    "brightness": 0.95,
+    "file": "33.jpg"
+  },
+  {
+    "id": 34,
+    "number": 35,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.725,
+    "brightness": 0.97,
+    "file": "34.jpg"
+  },
+  {
+    "id": 35,
+    "number": 36,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.725,
+    "brightness": 0.85,
+    "file": "35.jpg"
+  },
+  {
+    "id": 36,
+    "number": 37,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.725,
+    "brightness": 0.87,
+    "file": "36.jpg"
+  },
+  {
+    "id": 37,
+    "number": 38,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.725,
+    "brightness": 0.89,
+    "file": "37.jpg"
+  },
+  {
+    "id": 38,
+    "number": 39,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.725,
+    "brightness": 0.9099999999999999,
+    "file": "38.jpg"
+  },
+  {
+    "id": 39,
+    "number": 40,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.725,
+    "brightness": 0.9299999999999999,
+    "file": "39.jpg"
+  },
+  {
+    "id": 40,
+    "number": 41,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.75,
+    "brightness": 0.95,
+    "file": "40.jpg"
+  },
+  {
+    "id": 41,
+    "number": 42,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.75,
+    "brightness": 0.97,
+    "file": "41.jpg"
+  },
+  {
+    "id": 42,
+    "number": 43,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.75,
+    "brightness": 0.85,
+    "file": "42.jpg"
+  },
+  {
+    "id": 43,
+    "number": 44,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.75,
+    "brightness": 0.87,
+    "file": "43.jpg"
+  },
+  {
+    "id": 44,
+    "number": 45,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.75,
+    "brightness": 0.89,
+    "file": "44.jpg"
+  },
+  {
+    "id": 45,
+    "number": 46,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.75,
+    "brightness": 0.9099999999999999,
+    "file": "45.jpg"
+  },
+  {
+    "id": 46,
+    "number": 47,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.75,
+    "brightness": 0.9299999999999999,
+    "file": "46.jpg"
+  },
+  {
+    "id": 47,
+    "number": 48,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.75,
+    "brightness": 0.95,
+    "file": "47.jpg"
+  },
+  {
+    "id": 48,
+    "number": 49,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.75,
+    "brightness": 0.97,
+    "file": "48.jpg"
+  },
+  {
+    "id": 49,
+    "number": 50,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.75,
+    "brightness": 0.85,
+    "file": "49.jpg"
+  },
+  {
+    "id": 50,
+    "number": 51,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.75,
+    "brightness": 0.87,
+    "file": "50.jpg"
+  },
+  {
+    "id": 51,
+    "number": 52,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.75,
+    "brightness": 0.89,
+    "file": "51.jpg"
+  },
+  {
+    "id": 52,
+    "number": 53,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.75,
+    "brightness": 0.9099999999999999,
+    "file": "52.jpg"
+  },
+  {
+    "id": 53,
+    "number": 54,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.75,
+    "brightness": 0.9299999999999999,
+    "file": "53.jpg"
+  },
+  {
+    "id": 54,
+    "number": 55,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.75,
+    "brightness": 0.95,
+    "file": "54.jpg"
+  },
+  {
+    "id": 55,
+    "number": 56,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.75,
+    "brightness": 0.97,
+    "file": "55.jpg"
+  },
+  {
+    "id": 56,
+    "number": 57,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.75,
+    "brightness": 0.85,
+    "file": "56.jpg"
+  },
+  {
+    "id": 57,
+    "number": 58,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.75,
+    "brightness": 0.87,
+    "file": "57.jpg"
+  },
+  {
+    "id": 58,
+    "number": 59,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.75,
+    "brightness": 0.89,
+    "file": "58.jpg"
+  },
+  {
+    "id": 59,
+    "number": 60,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.75,
+    "brightness": 0.9099999999999999,
+    "file": "59.jpg"
+  },
+  {
+    "id": 60,
+    "number": 61,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "60.jpg"
+  },
+  {
+    "id": 61,
+    "number": 62,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.95,
+    "file": "61.jpg"
+  },
+  {
+    "id": 62,
+    "number": 63,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.97,
+    "file": "62.jpg"
+  },
+  {
+    "id": 63,
+    "number": 64,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.85,
+    "file": "63.jpg"
+  },
+  {
+    "id": 64,
+    "number": 65,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.87,
+    "file": "64.jpg"
+  },
+  {
+    "id": 65,
+    "number": 66,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.89,
+    "file": "65.jpg"
+  },
+  {
+    "id": 66,
+    "number": 67,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "66.jpg"
+  },
+  {
+    "id": 67,
+    "number": 68,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "67.jpg"
+  },
+  {
+    "id": 68,
+    "number": 69,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.95,
+    "file": "68.jpg"
+  },
+  {
+    "id": 69,
+    "number": 70,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.97,
+    "file": "69.jpg"
+  },
+  {
+    "id": 70,
+    "number": 71,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.85,
+    "file": "70.jpg"
+  },
+  {
+    "id": 71,
+    "number": 72,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.87,
+    "file": "71.jpg"
+  },
+  {
+    "id": 72,
+    "number": 73,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.89,
+    "file": "72.jpg"
+  },
+  {
+    "id": 73,
+    "number": 74,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "73.jpg"
+  },
+  {
+    "id": 74,
+    "number": 75,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "74.jpg"
+  },
+  {
+    "id": 75,
+    "number": 76,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.95,
+    "file": "75.jpg"
+  },
+  {
+    "id": 76,
+    "number": 77,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.97,
+    "file": "76.jpg"
+  },
+  {
+    "id": 77,
+    "number": 78,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.85,
+    "file": "77.jpg"
+  },
+  {
+    "id": 78,
+    "number": 79,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.87,
+    "file": "78.jpg"
+  },
+  {
+    "id": 79,
+    "number": 80,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.7749999999999999,
+    "brightness": 0.89,
+    "file": "79.jpg"
+  },
+  {
+    "id": 80,
+    "number": 81,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "80.jpg"
+  },
+  {
+    "id": 81,
+    "number": 82,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "81.jpg"
+  },
+  {
+    "id": 82,
+    "number": 83,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.95,
+    "file": "82.jpg"
+  },
+  {
+    "id": 83,
+    "number": 84,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.97,
+    "file": "83.jpg"
+  },
+  {
+    "id": 84,
+    "number": 85,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.85,
+    "file": "84.jpg"
+  },
+  {
+    "id": 85,
+    "number": 86,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.87,
+    "file": "85.jpg"
+  },
+  {
+    "id": 86,
+    "number": 87,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.89,
+    "file": "86.jpg"
+  },
+  {
+    "id": 87,
+    "number": 88,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "87.jpg"
+  },
+  {
+    "id": 88,
+    "number": 89,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "88.jpg"
+  },
+  {
+    "id": 89,
+    "number": 90,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.95,
+    "file": "89.jpg"
+  },
+  {
+    "id": 90,
+    "number": 91,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.97,
+    "file": "90.jpg"
+  },
+  {
+    "id": 91,
+    "number": 92,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.85,
+    "file": "91.jpg"
+  },
+  {
+    "id": 92,
+    "number": 93,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.87,
+    "file": "92.jpg"
+  },
+  {
+    "id": 93,
+    "number": 94,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.89,
+    "file": "93.jpg"
+  },
+  {
+    "id": 94,
+    "number": 95,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "94.jpg"
+  },
+  {
+    "id": 95,
+    "number": 96,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "95.jpg"
+  },
+  {
+    "id": 96,
+    "number": 97,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.95,
+    "file": "96.jpg"
+  },
+  {
+    "id": 97,
+    "number": 98,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.97,
+    "file": "97.jpg"
+  },
+  {
+    "id": 98,
+    "number": 99,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.85,
+    "file": "98.jpg"
+  },
+  {
+    "id": 99,
+    "number": 100,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.7999999999999999,
+    "brightness": 0.87,
+    "file": "99.jpg"
+  },
+  {
+    "id": 100,
+    "number": 101,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.825,
+    "brightness": 0.89,
+    "file": "100.jpg"
+  },
+  {
+    "id": 101,
+    "number": 102,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.825,
+    "brightness": 0.9099999999999999,
+    "file": "101.jpg"
+  },
+  {
+    "id": 102,
+    "number": 103,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.825,
+    "brightness": 0.9299999999999999,
+    "file": "102.jpg"
+  },
+  {
+    "id": 103,
+    "number": 104,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.825,
+    "brightness": 0.95,
+    "file": "103.jpg"
+  },
+  {
+    "id": 104,
+    "number": 105,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.825,
+    "brightness": 0.97,
+    "file": "104.jpg"
+  },
+  {
+    "id": 105,
+    "number": 106,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.825,
+    "brightness": 0.85,
+    "file": "105.jpg"
+  },
+  {
+    "id": 106,
+    "number": 107,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.825,
+    "brightness": 0.87,
+    "file": "106.jpg"
+  },
+  {
+    "id": 107,
+    "number": 108,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.825,
+    "brightness": 0.89,
+    "file": "107.jpg"
+  },
+  {
+    "id": 108,
+    "number": 109,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.825,
+    "brightness": 0.9099999999999999,
+    "file": "108.jpg"
+  },
+  {
+    "id": 109,
+    "number": 110,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.825,
+    "brightness": 0.9299999999999999,
+    "file": "109.jpg"
+  },
+  {
+    "id": 110,
+    "number": 111,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.825,
+    "brightness": 0.95,
+    "file": "110.jpg"
+  },
+  {
+    "id": 111,
+    "number": 112,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.825,
+    "brightness": 0.97,
+    "file": "111.jpg"
+  },
+  {
+    "id": 112,
+    "number": 113,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.825,
+    "brightness": 0.85,
+    "file": "112.jpg"
+  },
+  {
+    "id": 113,
+    "number": 114,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.825,
+    "brightness": 0.87,
+    "file": "113.jpg"
+  },
+  {
+    "id": 114,
+    "number": 115,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.825,
+    "brightness": 0.89,
+    "file": "114.jpg"
+  },
+  {
+    "id": 115,
+    "number": 116,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.825,
+    "brightness": 0.9099999999999999,
+    "file": "115.jpg"
+  },
+  {
+    "id": 116,
+    "number": 117,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.825,
+    "brightness": 0.9299999999999999,
+    "file": "116.jpg"
+  },
+  {
+    "id": 117,
+    "number": 118,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.825,
+    "brightness": 0.95,
+    "file": "117.jpg"
+  },
+  {
+    "id": 118,
+    "number": 119,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.825,
+    "brightness": 0.97,
+    "file": "118.jpg"
+  },
+  {
+    "id": 119,
+    "number": 120,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.825,
+    "brightness": 0.85,
+    "file": "119.jpg"
+  },
+  {
+    "id": 120,
+    "number": 121,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.85,
+    "brightness": 0.87,
+    "file": "120.jpg"
+  },
+  {
+    "id": 121,
+    "number": 122,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.85,
+    "brightness": 0.89,
+    "file": "121.jpg"
+  },
+  {
+    "id": 122,
+    "number": 123,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.85,
+    "brightness": 0.9099999999999999,
+    "file": "122.jpg"
+  },
+  {
+    "id": 123,
+    "number": 124,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.85,
+    "brightness": 0.9299999999999999,
+    "file": "123.jpg"
+  },
+  {
+    "id": 124,
+    "number": 125,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.85,
+    "brightness": 0.95,
+    "file": "124.jpg"
+  },
+  {
+    "id": 125,
+    "number": 126,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.85,
+    "brightness": 0.97,
+    "file": "125.jpg"
+  },
+  {
+    "id": 126,
+    "number": 127,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.85,
+    "brightness": 0.85,
+    "file": "126.jpg"
+  },
+  {
+    "id": 127,
+    "number": 128,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.85,
+    "brightness": 0.87,
+    "file": "127.jpg"
+  },
+  {
+    "id": 128,
+    "number": 129,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.85,
+    "brightness": 0.89,
+    "file": "128.jpg"
+  },
+  {
+    "id": 129,
+    "number": 130,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.85,
+    "brightness": 0.9099999999999999,
+    "file": "129.jpg"
+  },
+  {
+    "id": 130,
+    "number": 131,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.85,
+    "brightness": 0.9299999999999999,
+    "file": "130.jpg"
+  },
+  {
+    "id": 131,
+    "number": 132,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.85,
+    "brightness": 0.95,
+    "file": "131.jpg"
+  },
+  {
+    "id": 132,
+    "number": 133,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.85,
+    "brightness": 0.97,
+    "file": "132.jpg"
+  },
+  {
+    "id": 133,
+    "number": 134,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.85,
+    "brightness": 0.85,
+    "file": "133.jpg"
+  },
+  {
+    "id": 134,
+    "number": 135,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.85,
+    "brightness": 0.87,
+    "file": "134.jpg"
+  },
+  {
+    "id": 135,
+    "number": 136,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.85,
+    "brightness": 0.89,
+    "file": "135.jpg"
+  },
+  {
+    "id": 136,
+    "number": 137,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.85,
+    "brightness": 0.9099999999999999,
+    "file": "136.jpg"
+  },
+  {
+    "id": 137,
+    "number": 138,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.85,
+    "brightness": 0.9299999999999999,
+    "file": "137.jpg"
+  },
+  {
+    "id": 138,
+    "number": 139,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.85,
+    "brightness": 0.95,
+    "file": "138.jpg"
+  },
+  {
+    "id": 139,
+    "number": 140,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.85,
+    "brightness": 0.97,
+    "file": "139.jpg"
+  },
+  {
+    "id": 140,
+    "number": 141,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.875,
+    "brightness": 0.85,
+    "file": "140.jpg"
+  },
+  {
+    "id": 141,
+    "number": 142,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.875,
+    "brightness": 0.87,
+    "file": "141.jpg"
+  },
+  {
+    "id": 142,
+    "number": 143,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.875,
+    "brightness": 0.89,
+    "file": "142.jpg"
+  },
+  {
+    "id": 143,
+    "number": 144,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.875,
+    "brightness": 0.9099999999999999,
+    "file": "143.jpg"
+  },
+  {
+    "id": 144,
+    "number": 145,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.875,
+    "brightness": 0.9299999999999999,
+    "file": "144.jpg"
+  },
+  {
+    "id": 145,
+    "number": 146,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.875,
+    "brightness": 0.95,
+    "file": "145.jpg"
+  },
+  {
+    "id": 146,
+    "number": 147,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.875,
+    "brightness": 0.97,
+    "file": "146.jpg"
+  },
+  {
+    "id": 147,
+    "number": 148,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.875,
+    "brightness": 0.85,
+    "file": "147.jpg"
+  },
+  {
+    "id": 148,
+    "number": 149,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.875,
+    "brightness": 0.87,
+    "file": "148.jpg"
+  },
+  {
+    "id": 149,
+    "number": 150,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.875,
+    "brightness": 0.89,
+    "file": "149.jpg"
+  },
+  {
+    "id": 150,
+    "number": 151,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.875,
+    "brightness": 0.9099999999999999,
+    "file": "150.jpg"
+  },
+  {
+    "id": 151,
+    "number": 152,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.875,
+    "brightness": 0.9299999999999999,
+    "file": "151.jpg"
+  },
+  {
+    "id": 152,
+    "number": 153,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.875,
+    "brightness": 0.95,
+    "file": "152.jpg"
+  },
+  {
+    "id": 153,
+    "number": 154,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.875,
+    "brightness": 0.97,
+    "file": "153.jpg"
+  },
+  {
+    "id": 154,
+    "number": 155,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.875,
+    "brightness": 0.85,
+    "file": "154.jpg"
+  },
+  {
+    "id": 155,
+    "number": 156,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.875,
+    "brightness": 0.87,
+    "file": "155.jpg"
+  },
+  {
+    "id": 156,
+    "number": 157,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.875,
+    "brightness": 0.89,
+    "file": "156.jpg"
+  },
+  {
+    "id": 157,
+    "number": 158,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.875,
+    "brightness": 0.9099999999999999,
+    "file": "157.jpg"
+  },
+  {
+    "id": 158,
+    "number": 159,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.875,
+    "brightness": 0.9299999999999999,
+    "file": "158.jpg"
+  },
+  {
+    "id": 159,
+    "number": 160,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.875,
+    "brightness": 0.95,
+    "file": "159.jpg"
+  },
+  {
+    "id": 160,
+    "number": 161,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.97,
+    "file": "160.jpg"
+  },
+  {
+    "id": 161,
+    "number": 162,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.85,
+    "file": "161.jpg"
+  },
+  {
+    "id": 162,
+    "number": 163,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.87,
+    "file": "162.jpg"
+  },
+  {
+    "id": 163,
+    "number": 164,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.89,
+    "file": "163.jpg"
+  },
+  {
+    "id": 164,
+    "number": 165,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "164.jpg"
+  },
+  {
+    "id": 165,
+    "number": 166,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "165.jpg"
+  },
+  {
+    "id": 166,
+    "number": 167,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.95,
+    "file": "166.jpg"
+  },
+  {
+    "id": 167,
+    "number": 168,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.97,
+    "file": "167.jpg"
+  },
+  {
+    "id": 168,
+    "number": 169,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.85,
+    "file": "168.jpg"
+  },
+  {
+    "id": 169,
+    "number": 170,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.87,
+    "file": "169.jpg"
+  },
+  {
+    "id": 170,
+    "number": 171,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.89,
+    "file": "170.jpg"
+  },
+  {
+    "id": 171,
+    "number": 172,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "171.jpg"
+  },
+  {
+    "id": 172,
+    "number": 173,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "172.jpg"
+  },
+  {
+    "id": 173,
+    "number": 174,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.95,
+    "file": "173.jpg"
+  },
+  {
+    "id": 174,
+    "number": 175,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.97,
+    "file": "174.jpg"
+  },
+  {
+    "id": 175,
+    "number": 176,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.85,
+    "file": "175.jpg"
+  },
+  {
+    "id": 176,
+    "number": 177,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.87,
+    "file": "176.jpg"
+  },
+  {
+    "id": 177,
+    "number": 178,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.89,
+    "file": "177.jpg"
+  },
+  {
+    "id": 178,
+    "number": 179,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "178.jpg"
+  },
+  {
+    "id": 179,
+    "number": 180,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.8999999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "179.jpg"
+  },
+  {
+    "id": 180,
+    "number": 181,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.95,
+    "file": "180.jpg"
+  },
+  {
+    "id": 181,
+    "number": 182,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.97,
+    "file": "181.jpg"
+  },
+  {
+    "id": 182,
+    "number": 183,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.85,
+    "file": "182.jpg"
+  },
+  {
+    "id": 183,
+    "number": 184,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.87,
+    "file": "183.jpg"
+  },
+  {
+    "id": 184,
+    "number": 185,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.89,
+    "file": "184.jpg"
+  },
+  {
+    "id": 185,
+    "number": 186,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "185.jpg"
+  },
+  {
+    "id": 186,
+    "number": 187,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "186.jpg"
+  },
+  {
+    "id": 187,
+    "number": 188,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.95,
+    "file": "187.jpg"
+  },
+  {
+    "id": 188,
+    "number": 189,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.97,
+    "file": "188.jpg"
+  },
+  {
+    "id": 189,
+    "number": 190,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.85,
+    "file": "189.jpg"
+  },
+  {
+    "id": 190,
+    "number": 191,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.87,
+    "file": "190.jpg"
+  },
+  {
+    "id": 191,
+    "number": 192,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.89,
+    "file": "191.jpg"
+  },
+  {
+    "id": 192,
+    "number": 193,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "192.jpg"
+  },
+  {
+    "id": 193,
+    "number": 194,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.9299999999999999,
+    "file": "193.jpg"
+  },
+  {
+    "id": 194,
+    "number": 195,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.95,
+    "file": "194.jpg"
+  },
+  {
+    "id": 195,
+    "number": 196,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.97,
+    "file": "195.jpg"
+  },
+  {
+    "id": 196,
+    "number": 197,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.85,
+    "file": "196.jpg"
+  },
+  {
+    "id": 197,
+    "number": 198,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.87,
+    "file": "197.jpg"
+  },
+  {
+    "id": 198,
+    "number": 199,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.89,
+    "file": "198.jpg"
+  },
+  {
+    "id": 199,
+    "number": 200,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.9249999999999999,
+    "brightness": 0.9099999999999999,
+    "file": "199.jpg"
+  },
+  {
+    "id": 200,
+    "number": 201,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.95,
+    "brightness": 0.9299999999999999,
+    "file": "200.jpg"
+  },
+  {
+    "id": 201,
+    "number": 202,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.95,
+    "brightness": 0.95,
+    "file": "201.jpg"
+  },
+  {
+    "id": 202,
+    "number": 203,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.95,
+    "brightness": 0.97,
+    "file": "202.jpg"
+  },
+  {
+    "id": 203,
+    "number": 204,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.95,
+    "brightness": 0.85,
+    "file": "203.jpg"
+  },
+  {
+    "id": 204,
+    "number": 205,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.95,
+    "brightness": 0.87,
+    "file": "204.jpg"
+  },
+  {
+    "id": 205,
+    "number": 206,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.95,
+    "brightness": 0.89,
+    "file": "205.jpg"
+  },
+  {
+    "id": 206,
+    "number": 207,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.95,
+    "brightness": 0.9099999999999999,
+    "file": "206.jpg"
+  },
+  {
+    "id": 207,
+    "number": 208,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.95,
+    "brightness": 0.9299999999999999,
+    "file": "207.jpg"
+  },
+  {
+    "id": 208,
+    "number": 209,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.95,
+    "brightness": 0.95,
+    "file": "208.jpg"
+  },
+  {
+    "id": 209,
+    "number": 210,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.95,
+    "brightness": 0.97,
+    "file": "209.jpg"
+  },
+  {
+    "id": 210,
+    "number": 211,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.95,
+    "brightness": 0.85,
+    "file": "210.jpg"
+  },
+  {
+    "id": 211,
+    "number": 212,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.95,
+    "brightness": 0.87,
+    "file": "211.jpg"
+  },
+  {
+    "id": 212,
+    "number": 213,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.95,
+    "brightness": 0.89,
+    "file": "212.jpg"
+  },
+  {
+    "id": 213,
+    "number": 214,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.95,
+    "brightness": 0.9099999999999999,
+    "file": "213.jpg"
+  },
+  {
+    "id": 214,
+    "number": 215,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.95,
+    "brightness": 0.9299999999999999,
+    "file": "214.jpg"
+  },
+  {
+    "id": 215,
+    "number": 216,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.95,
+    "brightness": 0.95,
+    "file": "215.jpg"
+  },
+  {
+    "id": 216,
+    "number": 217,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.95,
+    "brightness": 0.97,
+    "file": "216.jpg"
+  },
+  {
+    "id": 217,
+    "number": 218,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.95,
+    "brightness": 0.85,
+    "file": "217.jpg"
+  },
+  {
+    "id": 218,
+    "number": 219,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.95,
+    "brightness": 0.87,
+    "file": "218.jpg"
+  },
+  {
+    "id": 219,
+    "number": 220,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.95,
+    "brightness": 0.89,
+    "file": "219.jpg"
+  },
+  {
+    "id": 220,
+    "number": 221,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 0.975,
+    "brightness": 0.9099999999999999,
+    "file": "220.jpg"
+  },
+  {
+    "id": 221,
+    "number": 222,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 0.975,
+    "brightness": 0.9299999999999999,
+    "file": "221.jpg"
+  },
+  {
+    "id": 222,
+    "number": 223,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 0.975,
+    "brightness": 0.95,
+    "file": "222.jpg"
+  },
+  {
+    "id": 223,
+    "number": 224,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 0.975,
+    "brightness": 0.97,
+    "file": "223.jpg"
+  },
+  {
+    "id": 224,
+    "number": 225,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 0.975,
+    "brightness": 0.85,
+    "file": "224.jpg"
+  },
+  {
+    "id": 225,
+    "number": 226,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 0.975,
+    "brightness": 0.87,
+    "file": "225.jpg"
+  },
+  {
+    "id": 226,
+    "number": 227,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 0.975,
+    "brightness": 0.89,
+    "file": "226.jpg"
+  },
+  {
+    "id": 227,
+    "number": 228,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 0.975,
+    "brightness": 0.9099999999999999,
+    "file": "227.jpg"
+  },
+  {
+    "id": 228,
+    "number": 229,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 0.975,
+    "brightness": 0.9299999999999999,
+    "file": "228.jpg"
+  },
+  {
+    "id": 229,
+    "number": 230,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 0.975,
+    "brightness": 0.95,
+    "file": "229.jpg"
+  },
+  {
+    "id": 230,
+    "number": 231,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 0.975,
+    "brightness": 0.97,
+    "file": "230.jpg"
+  },
+  {
+    "id": 231,
+    "number": 232,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 0.975,
+    "brightness": 0.85,
+    "file": "231.jpg"
+  },
+  {
+    "id": 232,
+    "number": 233,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 0.975,
+    "brightness": 0.87,
+    "file": "232.jpg"
+  },
+  {
+    "id": 233,
+    "number": 234,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 0.975,
+    "brightness": 0.89,
+    "file": "233.jpg"
+  },
+  {
+    "id": 234,
+    "number": 235,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 0.975,
+    "brightness": 0.9099999999999999,
+    "file": "234.jpg"
+  },
+  {
+    "id": 235,
+    "number": 236,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 0.975,
+    "brightness": 0.9299999999999999,
+    "file": "235.jpg"
+  },
+  {
+    "id": 236,
+    "number": 237,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 0.975,
+    "brightness": 0.95,
+    "file": "236.jpg"
+  },
+  {
+    "id": 237,
+    "number": 238,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 0.975,
+    "brightness": 0.97,
+    "file": "237.jpg"
+  },
+  {
+    "id": 238,
+    "number": 239,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 0.975,
+    "brightness": 0.85,
+    "file": "238.jpg"
+  },
+  {
+    "id": 239,
+    "number": 240,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 0.975,
+    "brightness": 0.87,
+    "file": "239.jpg"
+  },
+  {
+    "id": 240,
+    "number": 241,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 1,
+    "brightness": 0.89,
+    "file": "240.jpg"
+  },
+  {
+    "id": 241,
+    "number": 242,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 1,
+    "brightness": 0.9099999999999999,
+    "file": "241.jpg"
+  },
+  {
+    "id": 242,
+    "number": 243,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 1,
+    "brightness": 0.9299999999999999,
+    "file": "242.jpg"
+  },
+  {
+    "id": 243,
+    "number": 244,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 1,
+    "brightness": 0.95,
+    "file": "243.jpg"
+  },
+  {
+    "id": 244,
+    "number": 245,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 1,
+    "brightness": 0.97,
+    "file": "244.jpg"
+  },
+  {
+    "id": 245,
+    "number": 246,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 1,
+    "brightness": 0.85,
+    "file": "245.jpg"
+  },
+  {
+    "id": 246,
+    "number": 247,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 1,
+    "brightness": 0.87,
+    "file": "246.jpg"
+  },
+  {
+    "id": 247,
+    "number": 248,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 1,
+    "brightness": 0.89,
+    "file": "247.jpg"
+  },
+  {
+    "id": 248,
+    "number": 249,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 1,
+    "brightness": 0.9099999999999999,
+    "file": "248.jpg"
+  },
+  {
+    "id": 249,
+    "number": 250,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 1,
+    "brightness": 0.9299999999999999,
+    "file": "249.jpg"
+  },
+  {
+    "id": 250,
+    "number": 251,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 1,
+    "brightness": 0.95,
+    "file": "250.jpg"
+  },
+  {
+    "id": 251,
+    "number": 252,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 1,
+    "brightness": 0.97,
+    "file": "251.jpg"
+  },
+  {
+    "id": 252,
+    "number": 253,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 1,
+    "brightness": 0.85,
+    "file": "252.jpg"
+  },
+  {
+    "id": 253,
+    "number": 254,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 1,
+    "brightness": 0.87,
+    "file": "253.jpg"
+  },
+  {
+    "id": 254,
+    "number": 255,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 1,
+    "brightness": 0.89,
+    "file": "254.jpg"
+  },
+  {
+    "id": 255,
+    "number": 256,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 1,
+    "brightness": 0.9099999999999999,
+    "file": "255.jpg"
+  },
+  {
+    "id": 256,
+    "number": 257,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 1,
+    "brightness": 0.9299999999999999,
+    "file": "256.jpg"
+  },
+  {
+    "id": 257,
+    "number": 258,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 1,
+    "brightness": 0.95,
+    "file": "257.jpg"
+  },
+  {
+    "id": 258,
+    "number": 259,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 1,
+    "brightness": 0.97,
+    "file": "258.jpg"
+  },
+  {
+    "id": 259,
+    "number": 260,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 1,
+    "brightness": 0.85,
+    "file": "259.jpg"
+  },
+  {
+    "id": 260,
+    "number": 261,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 1.025,
+    "brightness": 0.87,
+    "file": "260.jpg"
+  },
+  {
+    "id": 261,
+    "number": 262,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 1.025,
+    "brightness": 0.89,
+    "file": "261.jpg"
+  },
+  {
+    "id": 262,
+    "number": 263,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 1.025,
+    "brightness": 0.9099999999999999,
+    "file": "262.jpg"
+  },
+  {
+    "id": 263,
+    "number": 264,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 1.025,
+    "brightness": 0.9299999999999999,
+    "file": "263.jpg"
+  },
+  {
+    "id": 264,
+    "number": 265,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 1.025,
+    "brightness": 0.95,
+    "file": "264.jpg"
+  },
+  {
+    "id": 265,
+    "number": 266,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 1.025,
+    "brightness": 0.97,
+    "file": "265.jpg"
+  },
+  {
+    "id": 266,
+    "number": 267,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 1.025,
+    "brightness": 0.85,
+    "file": "266.jpg"
+  },
+  {
+    "id": 267,
+    "number": 268,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 1.025,
+    "brightness": 0.87,
+    "file": "267.jpg"
+  },
+  {
+    "id": 268,
+    "number": 269,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 1.025,
+    "brightness": 0.89,
+    "file": "268.jpg"
+  },
+  {
+    "id": 269,
+    "number": 270,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 1.025,
+    "brightness": 0.9099999999999999,
+    "file": "269.jpg"
+  },
+  {
+    "id": 270,
+    "number": 271,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 1.025,
+    "brightness": 0.9299999999999999,
+    "file": "270.jpg"
+  },
+  {
+    "id": 271,
+    "number": 272,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 1.025,
+    "brightness": 0.95,
+    "file": "271.jpg"
+  },
+  {
+    "id": 272,
+    "number": 273,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 1.025,
+    "brightness": 0.97,
+    "file": "272.jpg"
+  },
+  {
+    "id": 273,
+    "number": 274,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 1.025,
+    "brightness": 0.85,
+    "file": "273.jpg"
+  },
+  {
+    "id": 274,
+    "number": 275,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 1.025,
+    "brightness": 0.87,
+    "file": "274.jpg"
+  },
+  {
+    "id": 275,
+    "number": 276,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 1.025,
+    "brightness": 0.89,
+    "file": "275.jpg"
+  },
+  {
+    "id": 276,
+    "number": 277,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 1.025,
+    "brightness": 0.9099999999999999,
+    "file": "276.jpg"
+  },
+  {
+    "id": 277,
+    "number": 278,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 1.025,
+    "brightness": 0.9299999999999999,
+    "file": "277.jpg"
+  },
+  {
+    "id": 278,
+    "number": 279,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 1.025,
+    "brightness": 0.95,
+    "file": "278.jpg"
+  },
+  {
+    "id": 279,
+    "number": 280,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 1.025,
+    "brightness": 0.97,
+    "file": "279.jpg"
+  },
+  {
+    "id": 280,
+    "number": 281,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 1.05,
+    "brightness": 0.85,
+    "file": "280.jpg"
+  },
+  {
+    "id": 281,
+    "number": 282,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 1.05,
+    "brightness": 0.87,
+    "file": "281.jpg"
+  },
+  {
+    "id": 282,
+    "number": 283,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 1.05,
+    "brightness": 0.89,
+    "file": "282.jpg"
+  },
+  {
+    "id": 283,
+    "number": 284,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 1.05,
+    "brightness": 0.9099999999999999,
+    "file": "283.jpg"
+  },
+  {
+    "id": 284,
+    "number": 285,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 1.05,
+    "brightness": 0.9299999999999999,
+    "file": "284.jpg"
+  },
+  {
+    "id": 285,
+    "number": 286,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 1.05,
+    "brightness": 0.95,
+    "file": "285.jpg"
+  },
+  {
+    "id": 286,
+    "number": 287,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 1.05,
+    "brightness": 0.97,
+    "file": "286.jpg"
+  },
+  {
+    "id": 287,
+    "number": 288,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 1.05,
+    "brightness": 0.85,
+    "file": "287.jpg"
+  },
+  {
+    "id": 288,
+    "number": 289,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 1.05,
+    "brightness": 0.87,
+    "file": "288.jpg"
+  },
+  {
+    "id": 289,
+    "number": 290,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 1.05,
+    "brightness": 0.89,
+    "file": "289.jpg"
+  },
+  {
+    "id": 290,
+    "number": 291,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 1.05,
+    "brightness": 0.9099999999999999,
+    "file": "290.jpg"
+  },
+  {
+    "id": 291,
+    "number": 292,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 1.05,
+    "brightness": 0.9299999999999999,
+    "file": "291.jpg"
+  },
+  {
+    "id": 292,
+    "number": 293,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 1.05,
+    "brightness": 0.95,
+    "file": "292.jpg"
+  },
+  {
+    "id": 293,
+    "number": 294,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 1.05,
+    "brightness": 0.97,
+    "file": "293.jpg"
+  },
+  {
+    "id": 294,
+    "number": 295,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 1.05,
+    "brightness": 0.85,
+    "file": "294.jpg"
+  },
+  {
+    "id": 295,
+    "number": 296,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 1.05,
+    "brightness": 0.87,
+    "file": "295.jpg"
+  },
+  {
+    "id": 296,
+    "number": 297,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 1.05,
+    "brightness": 0.89,
+    "file": "296.jpg"
+  },
+  {
+    "id": 297,
+    "number": 298,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 1.05,
+    "brightness": 0.9099999999999999,
+    "file": "297.jpg"
+  },
+  {
+    "id": 298,
+    "number": 299,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 1.05,
+    "brightness": 0.9299999999999999,
+    "file": "298.jpg"
+  },
+  {
+    "id": 299,
+    "number": 300,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 1.05,
+    "brightness": 0.95,
+    "file": "299.jpg"
+  },
+  {
+    "id": 300,
+    "number": 301,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 1.075,
+    "brightness": 0.97,
+    "file": "300.jpg"
+  },
+  {
+    "id": 301,
+    "number": 302,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 1.075,
+    "brightness": 0.85,
+    "file": "301.jpg"
+  },
+  {
+    "id": 302,
+    "number": 303,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 1.075,
+    "brightness": 0.87,
+    "file": "302.jpg"
+  },
+  {
+    "id": 303,
+    "number": 304,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 1.075,
+    "brightness": 0.89,
+    "file": "303.jpg"
+  },
+  {
+    "id": 304,
+    "number": 305,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 1.075,
+    "brightness": 0.9099999999999999,
+    "file": "304.jpg"
+  },
+  {
+    "id": 305,
+    "number": 306,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 1.075,
+    "brightness": 0.9299999999999999,
+    "file": "305.jpg"
+  },
+  {
+    "id": 306,
+    "number": 307,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 1.075,
+    "brightness": 0.95,
+    "file": "306.jpg"
+  },
+  {
+    "id": 307,
+    "number": 308,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 1.075,
+    "brightness": 0.97,
+    "file": "307.jpg"
+  },
+  {
+    "id": 308,
+    "number": 309,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 1.075,
+    "brightness": 0.85,
+    "file": "308.jpg"
+  },
+  {
+    "id": 309,
+    "number": 310,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 1.075,
+    "brightness": 0.87,
+    "file": "309.jpg"
+  },
+  {
+    "id": 310,
+    "number": 311,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 1.075,
+    "brightness": 0.89,
+    "file": "310.jpg"
+  },
+  {
+    "id": 311,
+    "number": 312,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 1.075,
+    "brightness": 0.9099999999999999,
+    "file": "311.jpg"
+  },
+  {
+    "id": 312,
+    "number": 313,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 1.075,
+    "brightness": 0.9299999999999999,
+    "file": "312.jpg"
+  },
+  {
+    "id": 313,
+    "number": 314,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 1.075,
+    "brightness": 0.95,
+    "file": "313.jpg"
+  },
+  {
+    "id": 314,
+    "number": 315,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 1.075,
+    "brightness": 0.97,
+    "file": "314.jpg"
+  },
+  {
+    "id": 315,
+    "number": 316,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 1.075,
+    "brightness": 0.85,
+    "file": "315.jpg"
+  },
+  {
+    "id": 316,
+    "number": 317,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 1.075,
+    "brightness": 0.87,
+    "file": "316.jpg"
+  },
+  {
+    "id": 317,
+    "number": 318,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 1.075,
+    "brightness": 0.89,
+    "file": "317.jpg"
+  },
+  {
+    "id": 318,
+    "number": 319,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 1.075,
+    "brightness": 0.9099999999999999,
+    "file": "318.jpg"
+  },
+  {
+    "id": 319,
+    "number": 320,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 1.075,
+    "brightness": 0.9299999999999999,
+    "file": "319.jpg"
+  },
+  {
+    "id": 320,
+    "number": 321,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 1.1,
+    "brightness": 0.95,
+    "file": "320.jpg"
+  },
+  {
+    "id": 321,
+    "number": 322,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 1.1,
+    "brightness": 0.97,
+    "file": "321.jpg"
+  },
+  {
+    "id": 322,
+    "number": 323,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 1.1,
+    "brightness": 0.85,
+    "file": "322.jpg"
+  },
+  {
+    "id": 323,
+    "number": 324,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 1.1,
+    "brightness": 0.87,
+    "file": "323.jpg"
+  },
+  {
+    "id": 324,
+    "number": 325,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 1.1,
+    "brightness": 0.89,
+    "file": "324.jpg"
+  },
+  {
+    "id": 325,
+    "number": 326,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 1.1,
+    "brightness": 0.9099999999999999,
+    "file": "325.jpg"
+  },
+  {
+    "id": 326,
+    "number": 327,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 1.1,
+    "brightness": 0.9299999999999999,
+    "file": "326.jpg"
+  },
+  {
+    "id": 327,
+    "number": 328,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 1.1,
+    "brightness": 0.95,
+    "file": "327.jpg"
+  },
+  {
+    "id": 328,
+    "number": 329,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 1.1,
+    "brightness": 0.97,
+    "file": "328.jpg"
+  },
+  {
+    "id": 329,
+    "number": 330,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 1.1,
+    "brightness": 0.85,
+    "file": "329.jpg"
+  },
+  {
+    "id": 330,
+    "number": 331,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 1.1,
+    "brightness": 0.87,
+    "file": "330.jpg"
+  },
+  {
+    "id": 331,
+    "number": 332,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 1.1,
+    "brightness": 0.89,
+    "file": "331.jpg"
+  },
+  {
+    "id": 332,
+    "number": 333,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 1.1,
+    "brightness": 0.9099999999999999,
+    "file": "332.jpg"
+  },
+  {
+    "id": 333,
+    "number": 334,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 1.1,
+    "brightness": 0.9299999999999999,
+    "file": "333.jpg"
+  },
+  {
+    "id": 334,
+    "number": 335,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 1.1,
+    "brightness": 0.95,
+    "file": "334.jpg"
+  },
+  {
+    "id": 335,
+    "number": 336,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 1.1,
+    "brightness": 0.97,
+    "file": "335.jpg"
+  },
+  {
+    "id": 336,
+    "number": 337,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 1.1,
+    "brightness": 0.85,
+    "file": "336.jpg"
+  },
+  {
+    "id": 337,
+    "number": 338,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 1.1,
+    "brightness": 0.87,
+    "file": "337.jpg"
+  },
+  {
+    "id": 338,
+    "number": 339,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 1.1,
+    "brightness": 0.89,
+    "file": "338.jpg"
+  },
+  {
+    "id": 339,
+    "number": 340,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 1.1,
+    "brightness": 0.9099999999999999,
+    "file": "339.jpg"
+  },
+  {
+    "id": 340,
+    "number": 341,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 1.125,
+    "brightness": 0.9299999999999999,
+    "file": "340.jpg"
+  },
+  {
+    "id": 341,
+    "number": 342,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 1.125,
+    "brightness": 0.95,
+    "file": "341.jpg"
+  },
+  {
+    "id": 342,
+    "number": 343,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 1.125,
+    "brightness": 0.97,
+    "file": "342.jpg"
+  },
+  {
+    "id": 343,
+    "number": 344,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 1.125,
+    "brightness": 0.85,
+    "file": "343.jpg"
+  },
+  {
+    "id": 344,
+    "number": 345,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 1.125,
+    "brightness": 0.87,
+    "file": "344.jpg"
+  },
+  {
+    "id": 345,
+    "number": 346,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 1.125,
+    "brightness": 0.89,
+    "file": "345.jpg"
+  },
+  {
+    "id": 346,
+    "number": 347,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 1.125,
+    "brightness": 0.9099999999999999,
+    "file": "346.jpg"
+  },
+  {
+    "id": 347,
+    "number": 348,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 1.125,
+    "brightness": 0.9299999999999999,
+    "file": "347.jpg"
+  },
+  {
+    "id": 348,
+    "number": 349,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 1.125,
+    "brightness": 0.95,
+    "file": "348.jpg"
+  },
+  {
+    "id": 349,
+    "number": 350,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 1.125,
+    "brightness": 0.97,
+    "file": "349.jpg"
+  },
+  {
+    "id": 350,
+    "number": 351,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 1.125,
+    "brightness": 0.85,
+    "file": "350.jpg"
+  },
+  {
+    "id": 351,
+    "number": 352,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 1.125,
+    "brightness": 0.87,
+    "file": "351.jpg"
+  },
+  {
+    "id": 352,
+    "number": 353,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 1.125,
+    "brightness": 0.89,
+    "file": "352.jpg"
+  },
+  {
+    "id": 353,
+    "number": 354,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 1.125,
+    "brightness": 0.9099999999999999,
+    "file": "353.jpg"
+  },
+  {
+    "id": 354,
+    "number": 355,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 1.125,
+    "brightness": 0.9299999999999999,
+    "file": "354.jpg"
+  },
+  {
+    "id": 355,
+    "number": 356,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 1.125,
+    "brightness": 0.95,
+    "file": "355.jpg"
+  },
+  {
+    "id": 356,
+    "number": 357,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 1.125,
+    "brightness": 0.97,
+    "file": "356.jpg"
+  },
+  {
+    "id": 357,
+    "number": 358,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 1.125,
+    "brightness": 0.85,
+    "file": "357.jpg"
+  },
+  {
+    "id": 358,
+    "number": 359,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 1.125,
+    "brightness": 0.87,
+    "file": "358.jpg"
+  },
+  {
+    "id": 359,
+    "number": 360,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 1.125,
+    "brightness": 0.89,
+    "file": "359.jpg"
+  },
+  {
+    "id": 360,
+    "number": 361,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 1.15,
+    "brightness": 0.9099999999999999,
+    "file": "360.jpg"
+  },
+  {
+    "id": 361,
+    "number": 362,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 1.15,
+    "brightness": 0.9299999999999999,
+    "file": "361.jpg"
+  },
+  {
+    "id": 362,
+    "number": 363,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 1.15,
+    "brightness": 0.95,
+    "file": "362.jpg"
+  },
+  {
+    "id": 363,
+    "number": 364,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 1.15,
+    "brightness": 0.97,
+    "file": "363.jpg"
+  },
+  {
+    "id": 364,
+    "number": 365,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 1.15,
+    "brightness": 0.85,
+    "file": "364.jpg"
+  },
+  {
+    "id": 365,
+    "number": 366,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 1.15,
+    "brightness": 0.87,
+    "file": "365.jpg"
+  },
+  {
+    "id": 366,
+    "number": 367,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 1.15,
+    "brightness": 0.89,
+    "file": "366.jpg"
+  },
+  {
+    "id": 367,
+    "number": 368,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 1.15,
+    "brightness": 0.9099999999999999,
+    "file": "367.jpg"
+  },
+  {
+    "id": 368,
+    "number": 369,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 1.15,
+    "brightness": 0.9299999999999999,
+    "file": "368.jpg"
+  },
+  {
+    "id": 369,
+    "number": 370,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 1.15,
+    "brightness": 0.95,
+    "file": "369.jpg"
+  },
+  {
+    "id": 370,
+    "number": 371,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 1.15,
+    "brightness": 0.97,
+    "file": "370.jpg"
+  },
+  {
+    "id": 371,
+    "number": 372,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 1.15,
+    "brightness": 0.85,
+    "file": "371.jpg"
+  },
+  {
+    "id": 372,
+    "number": 373,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 1.15,
+    "brightness": 0.87,
+    "file": "372.jpg"
+  },
+  {
+    "id": 373,
+    "number": 374,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 1.15,
+    "brightness": 0.89,
+    "file": "373.jpg"
+  },
+  {
+    "id": 374,
+    "number": 375,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 1.15,
+    "brightness": 0.9099999999999999,
+    "file": "374.jpg"
+  },
+  {
+    "id": 375,
+    "number": 376,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 1.15,
+    "brightness": 0.9299999999999999,
+    "file": "375.jpg"
+  },
+  {
+    "id": 376,
+    "number": 377,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 1.15,
+    "brightness": 0.95,
+    "file": "376.jpg"
+  },
+  {
+    "id": 377,
+    "number": 378,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 1.15,
+    "brightness": 0.97,
+    "file": "377.jpg"
+  },
+  {
+    "id": 378,
+    "number": 379,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 1.15,
+    "brightness": 0.85,
+    "file": "378.jpg"
+  },
+  {
+    "id": 379,
+    "number": 380,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 1.15,
+    "brightness": 0.87,
+    "file": "379.jpg"
+  },
+  {
+    "id": 380,
+    "number": 381,
+    "tier": "Ember",
+    "hue": 0,
+    "saturation": 1.175,
+    "brightness": 0.89,
+    "file": "380.jpg"
+  },
+  {
+    "id": 381,
+    "number": 382,
+    "tier": "Ember",
+    "hue": 3,
+    "saturation": 1.175,
+    "brightness": 0.9099999999999999,
+    "file": "381.jpg"
+  },
+  {
+    "id": 382,
+    "number": 383,
+    "tier": "Ember",
+    "hue": 6,
+    "saturation": 1.175,
+    "brightness": 0.9299999999999999,
+    "file": "382.jpg"
+  },
+  {
+    "id": 383,
+    "number": 384,
+    "tier": "Ember",
+    "hue": 9,
+    "saturation": 1.175,
+    "brightness": 0.95,
+    "file": "383.jpg"
+  },
+  {
+    "id": 384,
+    "number": 385,
+    "tier": "Ember",
+    "hue": 12,
+    "saturation": 1.175,
+    "brightness": 0.97,
+    "file": "384.jpg"
+  },
+  {
+    "id": 385,
+    "number": 386,
+    "tier": "Ember",
+    "hue": 15,
+    "saturation": 1.175,
+    "brightness": 0.85,
+    "file": "385.jpg"
+  },
+  {
+    "id": 386,
+    "number": 387,
+    "tier": "Ember",
+    "hue": 18,
+    "saturation": 1.175,
+    "brightness": 0.87,
+    "file": "386.jpg"
+  },
+  {
+    "id": 387,
+    "number": 388,
+    "tier": "Ember",
+    "hue": 21,
+    "saturation": 1.175,
+    "brightness": 0.89,
+    "file": "387.jpg"
+  },
+  {
+    "id": 388,
+    "number": 389,
+    "tier": "Ember",
+    "hue": 24,
+    "saturation": 1.175,
+    "brightness": 0.9099999999999999,
+    "file": "388.jpg"
+  },
+  {
+    "id": 389,
+    "number": 390,
+    "tier": "Ember",
+    "hue": 27,
+    "saturation": 1.175,
+    "brightness": 0.9299999999999999,
+    "file": "389.jpg"
+  },
+  {
+    "id": 390,
+    "number": 391,
+    "tier": "Ember",
+    "hue": 30,
+    "saturation": 1.175,
+    "brightness": 0.95,
+    "file": "390.jpg"
+  },
+  {
+    "id": 391,
+    "number": 392,
+    "tier": "Ember",
+    "hue": 33,
+    "saturation": 1.175,
+    "brightness": 0.97,
+    "file": "391.jpg"
+  },
+  {
+    "id": 392,
+    "number": 393,
+    "tier": "Ember",
+    "hue": 36,
+    "saturation": 1.175,
+    "brightness": 0.85,
+    "file": "392.jpg"
+  },
+  {
+    "id": 393,
+    "number": 394,
+    "tier": "Ember",
+    "hue": 39,
+    "saturation": 1.175,
+    "brightness": 0.87,
+    "file": "393.jpg"
+  },
+  {
+    "id": 394,
+    "number": 395,
+    "tier": "Ember",
+    "hue": 42,
+    "saturation": 1.175,
+    "brightness": 0.89,
+    "file": "394.jpg"
+  },
+  {
+    "id": 395,
+    "number": 396,
+    "tier": "Ember",
+    "hue": 45,
+    "saturation": 1.175,
+    "brightness": 0.9099999999999999,
+    "file": "395.jpg"
+  },
+  {
+    "id": 396,
+    "number": 397,
+    "tier": "Ember",
+    "hue": 48,
+    "saturation": 1.175,
+    "brightness": 0.9299999999999999,
+    "file": "396.jpg"
+  },
+  {
+    "id": 397,
+    "number": 398,
+    "tier": "Ember",
+    "hue": 51,
+    "saturation": 1.175,
+    "brightness": 0.95,
+    "file": "397.jpg"
+  },
+  {
+    "id": 398,
+    "number": 399,
+    "tier": "Ember",
+    "hue": 54,
+    "saturation": 1.175,
+    "brightness": 0.97,
+    "file": "398.jpg"
+  },
+  {
+    "id": 399,
+    "number": 400,
+    "tier": "Ember",
+    "hue": 57,
+    "saturation": 1.175,
+    "brightness": 0.85,
+    "file": "399.jpg"
+  },
+  {
+    "id": 400,
+    "number": 401,
+    "tier": "Blaze",
+    "hue": 180,
+    "saturation": 0.9,
+    "brightness": 0.9,
+    "file": "400.jpg"
+  },
+  {
+    "id": 401,
+    "number": 402,
+    "tier": "Blaze",
+    "hue": 185,
+    "saturation": 0.96,
+    "brightness": 0.9400000000000001,
+    "file": "401.jpg"
+  },
+  {
+    "id": 402,
+    "number": 403,
+    "tier": "Blaze",
+    "hue": 190,
+    "saturation": 1.02,
+    "brightness": 0.98,
+    "file": "402.jpg"
+  },
+  {
+    "id": 403,
+    "number": 404,
+    "tier": "Blaze",
+    "hue": 195,
+    "saturation": 1.08,
+    "brightness": 0.9,
+    "file": "403.jpg"
+  },
+  {
+    "id": 404,
+    "number": 405,
+    "tier": "Blaze",
+    "hue": 200,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9400000000000001,
+    "file": "404.jpg"
+  },
+  {
+    "id": 405,
+    "number": 406,
+    "tier": "Blaze",
+    "hue": 205,
+    "saturation": 0.9,
+    "brightness": 0.98,
+    "file": "405.jpg"
+  },
+  {
+    "id": 406,
+    "number": 407,
+    "tier": "Blaze",
+    "hue": 210,
+    "saturation": 0.96,
+    "brightness": 0.9,
+    "file": "406.jpg"
+  },
+  {
+    "id": 407,
+    "number": 408,
+    "tier": "Blaze",
+    "hue": 215,
+    "saturation": 1.02,
+    "brightness": 0.9400000000000001,
+    "file": "407.jpg"
+  },
+  {
+    "id": 408,
+    "number": 409,
+    "tier": "Blaze",
+    "hue": 220,
+    "saturation": 1.08,
+    "brightness": 0.98,
+    "file": "408.jpg"
+  },
+  {
+    "id": 409,
+    "number": 410,
+    "tier": "Blaze",
+    "hue": 225,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9,
+    "file": "409.jpg"
+  },
+  {
+    "id": 410,
+    "number": 411,
+    "tier": "Blaze",
+    "hue": 230,
+    "saturation": 0.9,
+    "brightness": 0.9400000000000001,
+    "file": "410.jpg"
+  },
+  {
+    "id": 411,
+    "number": 412,
+    "tier": "Blaze",
+    "hue": 235,
+    "saturation": 0.96,
+    "brightness": 0.98,
+    "file": "411.jpg"
+  },
+  {
+    "id": 412,
+    "number": 413,
+    "tier": "Blaze",
+    "hue": 180,
+    "saturation": 1.02,
+    "brightness": 0.9,
+    "file": "412.jpg"
+  },
+  {
+    "id": 413,
+    "number": 414,
+    "tier": "Blaze",
+    "hue": 185,
+    "saturation": 1.08,
+    "brightness": 0.9400000000000001,
+    "file": "413.jpg"
+  },
+  {
+    "id": 414,
+    "number": 415,
+    "tier": "Blaze",
+    "hue": 190,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.98,
+    "file": "414.jpg"
+  },
+  {
+    "id": 415,
+    "number": 416,
+    "tier": "Blaze",
+    "hue": 195,
+    "saturation": 0.9,
+    "brightness": 0.9,
+    "file": "415.jpg"
+  },
+  {
+    "id": 416,
+    "number": 417,
+    "tier": "Blaze",
+    "hue": 200,
+    "saturation": 0.96,
+    "brightness": 0.9400000000000001,
+    "file": "416.jpg"
+  },
+  {
+    "id": 417,
+    "number": 418,
+    "tier": "Blaze",
+    "hue": 205,
+    "saturation": 1.02,
+    "brightness": 0.98,
+    "file": "417.jpg"
+  },
+  {
+    "id": 418,
+    "number": 419,
+    "tier": "Blaze",
+    "hue": 210,
+    "saturation": 1.08,
+    "brightness": 0.9,
+    "file": "418.jpg"
+  },
+  {
+    "id": 419,
+    "number": 420,
+    "tier": "Blaze",
+    "hue": 215,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9400000000000001,
+    "file": "419.jpg"
+  },
+  {
+    "id": 420,
+    "number": 421,
+    "tier": "Blaze",
+    "hue": 220,
+    "saturation": 0.9,
+    "brightness": 0.98,
+    "file": "420.jpg"
+  },
+  {
+    "id": 421,
+    "number": 422,
+    "tier": "Blaze",
+    "hue": 225,
+    "saturation": 0.96,
+    "brightness": 0.9,
+    "file": "421.jpg"
+  },
+  {
+    "id": 422,
+    "number": 423,
+    "tier": "Blaze",
+    "hue": 230,
+    "saturation": 1.02,
+    "brightness": 0.9400000000000001,
+    "file": "422.jpg"
+  },
+  {
+    "id": 423,
+    "number": 424,
+    "tier": "Blaze",
+    "hue": 235,
+    "saturation": 1.08,
+    "brightness": 0.98,
+    "file": "423.jpg"
+  },
+  {
+    "id": 424,
+    "number": 425,
+    "tier": "Blaze",
+    "hue": 180,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9,
+    "file": "424.jpg"
+  },
+  {
+    "id": 425,
+    "number": 426,
+    "tier": "Blaze",
+    "hue": 185,
+    "saturation": 0.9,
+    "brightness": 0.9400000000000001,
+    "file": "425.jpg"
+  },
+  {
+    "id": 426,
+    "number": 427,
+    "tier": "Blaze",
+    "hue": 190,
+    "saturation": 0.96,
+    "brightness": 0.98,
+    "file": "426.jpg"
+  },
+  {
+    "id": 427,
+    "number": 428,
+    "tier": "Blaze",
+    "hue": 195,
+    "saturation": 1.02,
+    "brightness": 0.9,
+    "file": "427.jpg"
+  },
+  {
+    "id": 428,
+    "number": 429,
+    "tier": "Blaze",
+    "hue": 200,
+    "saturation": 1.08,
+    "brightness": 0.9400000000000001,
+    "file": "428.jpg"
+  },
+  {
+    "id": 429,
+    "number": 430,
+    "tier": "Blaze",
+    "hue": 205,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.98,
+    "file": "429.jpg"
+  },
+  {
+    "id": 430,
+    "number": 431,
+    "tier": "Blaze",
+    "hue": 210,
+    "saturation": 0.9,
+    "brightness": 0.9,
+    "file": "430.jpg"
+  },
+  {
+    "id": 431,
+    "number": 432,
+    "tier": "Blaze",
+    "hue": 215,
+    "saturation": 0.96,
+    "brightness": 0.9400000000000001,
+    "file": "431.jpg"
+  },
+  {
+    "id": 432,
+    "number": 433,
+    "tier": "Blaze",
+    "hue": 220,
+    "saturation": 1.02,
+    "brightness": 0.98,
+    "file": "432.jpg"
+  },
+  {
+    "id": 433,
+    "number": 434,
+    "tier": "Blaze",
+    "hue": 225,
+    "saturation": 1.08,
+    "brightness": 0.9,
+    "file": "433.jpg"
+  },
+  {
+    "id": 434,
+    "number": 435,
+    "tier": "Blaze",
+    "hue": 230,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9400000000000001,
+    "file": "434.jpg"
+  },
+  {
+    "id": 435,
+    "number": 436,
+    "tier": "Blaze",
+    "hue": 235,
+    "saturation": 0.9,
+    "brightness": 0.98,
+    "file": "435.jpg"
+  },
+  {
+    "id": 436,
+    "number": 437,
+    "tier": "Blaze",
+    "hue": 180,
+    "saturation": 0.96,
+    "brightness": 0.9,
+    "file": "436.jpg"
+  },
+  {
+    "id": 437,
+    "number": 438,
+    "tier": "Blaze",
+    "hue": 185,
+    "saturation": 1.02,
+    "brightness": 0.9400000000000001,
+    "file": "437.jpg"
+  },
+  {
+    "id": 438,
+    "number": 439,
+    "tier": "Blaze",
+    "hue": 190,
+    "saturation": 1.08,
+    "brightness": 0.98,
+    "file": "438.jpg"
+  },
+  {
+    "id": 439,
+    "number": 440,
+    "tier": "Blaze",
+    "hue": 195,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9,
+    "file": "439.jpg"
+  },
+  {
+    "id": 440,
+    "number": 441,
+    "tier": "Blaze",
+    "hue": 200,
+    "saturation": 0.9,
+    "brightness": 0.9400000000000001,
+    "file": "440.jpg"
+  },
+  {
+    "id": 441,
+    "number": 442,
+    "tier": "Blaze",
+    "hue": 205,
+    "saturation": 0.96,
+    "brightness": 0.98,
+    "file": "441.jpg"
+  },
+  {
+    "id": 442,
+    "number": 443,
+    "tier": "Blaze",
+    "hue": 210,
+    "saturation": 1.02,
+    "brightness": 0.9,
+    "file": "442.jpg"
+  },
+  {
+    "id": 443,
+    "number": 444,
+    "tier": "Blaze",
+    "hue": 215,
+    "saturation": 1.08,
+    "brightness": 0.9400000000000001,
+    "file": "443.jpg"
+  },
+  {
+    "id": 444,
+    "number": 445,
+    "tier": "Blaze",
+    "hue": 220,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.98,
+    "file": "444.jpg"
+  },
+  {
+    "id": 445,
+    "number": 446,
+    "tier": "Blaze",
+    "hue": 225,
+    "saturation": 0.9,
+    "brightness": 0.9,
+    "file": "445.jpg"
+  },
+  {
+    "id": 446,
+    "number": 447,
+    "tier": "Blaze",
+    "hue": 230,
+    "saturation": 0.96,
+    "brightness": 0.9400000000000001,
+    "file": "446.jpg"
+  },
+  {
+    "id": 447,
+    "number": 448,
+    "tier": "Blaze",
+    "hue": 235,
+    "saturation": 1.02,
+    "brightness": 0.98,
+    "file": "447.jpg"
+  },
+  {
+    "id": 448,
+    "number": 449,
+    "tier": "Blaze",
+    "hue": 180,
+    "saturation": 1.08,
+    "brightness": 0.9,
+    "file": "448.jpg"
+  },
+  {
+    "id": 449,
+    "number": 450,
+    "tier": "Blaze",
+    "hue": 185,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9400000000000001,
+    "file": "449.jpg"
+  },
+  {
+    "id": 450,
+    "number": 451,
+    "tier": "Blaze",
+    "hue": 190,
+    "saturation": 0.9,
+    "brightness": 0.98,
+    "file": "450.jpg"
+  },
+  {
+    "id": 451,
+    "number": 452,
+    "tier": "Blaze",
+    "hue": 195,
+    "saturation": 0.96,
+    "brightness": 0.9,
+    "file": "451.jpg"
+  },
+  {
+    "id": 452,
+    "number": 453,
+    "tier": "Blaze",
+    "hue": 200,
+    "saturation": 1.02,
+    "brightness": 0.9400000000000001,
+    "file": "452.jpg"
+  },
+  {
+    "id": 453,
+    "number": 454,
+    "tier": "Blaze",
+    "hue": 205,
+    "saturation": 1.08,
+    "brightness": 0.98,
+    "file": "453.jpg"
+  },
+  {
+    "id": 454,
+    "number": 455,
+    "tier": "Blaze",
+    "hue": 210,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9,
+    "file": "454.jpg"
+  },
+  {
+    "id": 455,
+    "number": 456,
+    "tier": "Blaze",
+    "hue": 215,
+    "saturation": 0.9,
+    "brightness": 0.9400000000000001,
+    "file": "455.jpg"
+  },
+  {
+    "id": 456,
+    "number": 457,
+    "tier": "Blaze",
+    "hue": 220,
+    "saturation": 0.96,
+    "brightness": 0.98,
+    "file": "456.jpg"
+  },
+  {
+    "id": 457,
+    "number": 458,
+    "tier": "Blaze",
+    "hue": 225,
+    "saturation": 1.02,
+    "brightness": 0.9,
+    "file": "457.jpg"
+  },
+  {
+    "id": 458,
+    "number": 459,
+    "tier": "Blaze",
+    "hue": 230,
+    "saturation": 1.08,
+    "brightness": 0.9400000000000001,
+    "file": "458.jpg"
+  },
+  {
+    "id": 459,
+    "number": 460,
+    "tier": "Blaze",
+    "hue": 235,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.98,
+    "file": "459.jpg"
+  },
+  {
+    "id": 460,
+    "number": 461,
+    "tier": "Blaze",
+    "hue": 180,
+    "saturation": 0.9,
+    "brightness": 0.9,
+    "file": "460.jpg"
+  },
+  {
+    "id": 461,
+    "number": 462,
+    "tier": "Blaze",
+    "hue": 185,
+    "saturation": 0.96,
+    "brightness": 0.9400000000000001,
+    "file": "461.jpg"
+  },
+  {
+    "id": 462,
+    "number": 463,
+    "tier": "Blaze",
+    "hue": 190,
+    "saturation": 1.02,
+    "brightness": 0.98,
+    "file": "462.jpg"
+  },
+  {
+    "id": 463,
+    "number": 464,
+    "tier": "Blaze",
+    "hue": 195,
+    "saturation": 1.08,
+    "brightness": 0.9,
+    "file": "463.jpg"
+  },
+  {
+    "id": 464,
+    "number": 465,
+    "tier": "Blaze",
+    "hue": 200,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9400000000000001,
+    "file": "464.jpg"
+  },
+  {
+    "id": 465,
+    "number": 466,
+    "tier": "Blaze",
+    "hue": 205,
+    "saturation": 0.9,
+    "brightness": 0.98,
+    "file": "465.jpg"
+  },
+  {
+    "id": 466,
+    "number": 467,
+    "tier": "Blaze",
+    "hue": 210,
+    "saturation": 0.96,
+    "brightness": 0.9,
+    "file": "466.jpg"
+  },
+  {
+    "id": 467,
+    "number": 468,
+    "tier": "Blaze",
+    "hue": 215,
+    "saturation": 1.02,
+    "brightness": 0.9400000000000001,
+    "file": "467.jpg"
+  },
+  {
+    "id": 468,
+    "number": 469,
+    "tier": "Blaze",
+    "hue": 220,
+    "saturation": 1.08,
+    "brightness": 0.98,
+    "file": "468.jpg"
+  },
+  {
+    "id": 469,
+    "number": 470,
+    "tier": "Blaze",
+    "hue": 225,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.9,
+    "file": "469.jpg"
+  },
+  {
+    "id": 470,
+    "number": 471,
+    "tier": "Blaze",
+    "hue": 230,
+    "saturation": 0.9,
+    "brightness": 0.9400000000000001,
+    "file": "470.jpg"
+  },
+  {
+    "id": 471,
+    "number": 472,
+    "tier": "Blaze",
+    "hue": 235,
+    "saturation": 0.96,
+    "brightness": 0.98,
+    "file": "471.jpg"
+  },
+  {
+    "id": 472,
+    "number": 473,
+    "tier": "Blaze",
+    "hue": 180,
+    "saturation": 1.02,
+    "brightness": 0.9,
+    "file": "472.jpg"
+  },
+  {
+    "id": 473,
+    "number": 474,
+    "tier": "Blaze",
+    "hue": 185,
+    "saturation": 1.08,
+    "brightness": 0.9400000000000001,
+    "file": "473.jpg"
+  },
+  {
+    "id": 474,
+    "number": 475,
+    "tier": "Blaze",
+    "hue": 190,
+    "saturation": 1.1400000000000001,
+    "brightness": 0.98,
+    "file": "474.jpg"
+  },
+  {
+    "id": 475,
+    "number": 476,
+    "tier": "Genesis",
+    "hue": 0,
+    "saturation": 0.8,
+    "brightness": 1,
+    "file": "475.jpg"
+  },
+  {
+    "id": 476,
+    "number": 477,
+    "tier": "Genesis",
+    "hue": 2,
+    "saturation": 0.88,
+    "brightness": 1.02,
+    "file": "476.jpg"
+  },
+  {
+    "id": 477,
+    "number": 478,
+    "tier": "Genesis",
+    "hue": 4,
+    "saturation": 0.9600000000000001,
+    "brightness": 1.04,
+    "file": "477.jpg"
+  },
+  {
+    "id": 478,
+    "number": 479,
+    "tier": "Genesis",
+    "hue": 6,
+    "saturation": 1.04,
+    "brightness": 1.06,
+    "file": "478.jpg"
+  },
+  {
+    "id": 479,
+    "number": 480,
+    "tier": "Genesis",
+    "hue": 8,
+    "saturation": 1.12,
+    "brightness": 1.08,
+    "file": "479.jpg"
+  },
+  {
+    "id": 480,
+    "number": 481,
+    "tier": "Genesis",
+    "hue": 10,
+    "saturation": 1.2000000000000002,
+    "brightness": 1.1,
+    "file": "480.jpg"
+  },
+  {
+    "id": 481,
+    "number": 482,
+    "tier": "Genesis",
+    "hue": 12,
+    "saturation": 1.28,
+    "brightness": 1.12,
+    "file": "481.jpg"
+  },
+  {
+    "id": 482,
+    "number": 483,
+    "tier": "Genesis",
+    "hue": 14,
+    "saturation": 1.36,
+    "brightness": 1.1400000000000001,
+    "file": "482.jpg"
+  },
+  {
+    "id": 483,
+    "number": 484,
+    "tier": "Genesis",
+    "hue": 16,
+    "saturation": 1.44,
+    "brightness": 1.16,
+    "file": "483.jpg"
+  },
+  {
+    "id": 484,
+    "number": 485,
+    "tier": "Genesis",
+    "hue": 18,
+    "saturation": 1.52,
+    "brightness": 1.18,
+    "file": "484.jpg"
+  },
+  {
+    "id": 485,
+    "number": 486,
+    "tier": "Genesis",
+    "hue": 20,
+    "saturation": 1.6,
+    "brightness": 1.2,
+    "file": "485.jpg"
+  },
+  {
+    "id": 486,
+    "number": 487,
+    "tier": "Genesis",
+    "hue": 22,
+    "saturation": 1.6800000000000002,
+    "brightness": 1.22,
+    "file": "486.jpg"
+  },
+  {
+    "id": 487,
+    "number": 488,
+    "tier": "Genesis",
+    "hue": 24,
+    "saturation": 1.76,
+    "brightness": 1.24,
+    "file": "487.jpg"
+  },
+  {
+    "id": 488,
+    "number": 489,
+    "tier": "Genesis",
+    "hue": 26,
+    "saturation": 1.84,
+    "brightness": 1.26,
+    "file": "488.jpg"
+  },
+  {
+    "id": 489,
+    "number": 490,
+    "tier": "Genesis",
+    "hue": 28,
+    "saturation": 1.9200000000000002,
+    "brightness": 1.28,
+    "file": "489.jpg"
+  },
+  {
+    "id": 490,
+    "number": 491,
+    "tier": "Genesis",
+    "hue": 30,
+    "saturation": 2,
+    "brightness": 1.3,
+    "file": "490.jpg"
+  },
+  {
+    "id": 491,
+    "number": 492,
+    "tier": "Genesis",
+    "hue": 32,
+    "saturation": 2.08,
+    "brightness": 1.32,
+    "file": "491.jpg"
+  },
+  {
+    "id": 492,
+    "number": 493,
+    "tier": "Genesis",
+    "hue": 34,
+    "saturation": 2.16,
+    "brightness": 1.34,
+    "file": "492.jpg"
+  },
+  {
+    "id": 493,
+    "number": 494,
+    "tier": "Genesis",
+    "hue": 36,
+    "saturation": 2.24,
+    "brightness": 1.3599999999999999,
+    "file": "493.jpg"
+  },
+  {
+    "id": 494,
+    "number": 495,
+    "tier": "Genesis",
+    "hue": 38,
+    "saturation": 2.3200000000000003,
+    "brightness": 1.38,
+    "file": "494.jpg"
+  },
+  {
+    "id": 495,
+    "number": 496,
+    "tier": "Genesis",
+    "hue": 40,
+    "saturation": 2.4000000000000004,
+    "brightness": 1.4,
+    "file": "495.jpg"
+  },
+  {
+    "id": 496,
+    "number": 497,
+    "tier": "Genesis",
+    "hue": 42,
+    "saturation": 2.48,
+    "brightness": 1.42,
+    "file": "496.jpg"
+  },
+  {
+    "id": 497,
+    "number": 498,
+    "tier": "Genesis",
+    "hue": 44,
+    "saturation": 2.56,
+    "brightness": 1.44,
+    "file": "497.jpg"
+  },
+  {
+    "id": 498,
+    "number": 499,
+    "tier": "Genesis",
+    "hue": 46,
+    "saturation": 2.64,
+    "brightness": 1.46,
+    "file": "498.jpg"
+  },
+  {
+    "id": 499,
+    "number": 500,
+    "tier": "Genesis",
+    "hue": 48,
+    "saturation": 2.7199999999999998,
+    "brightness": 1.48,
+    "file": "499.jpg"
+  }
+]
