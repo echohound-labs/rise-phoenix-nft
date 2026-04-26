@@ -20,7 +20,7 @@ import {
   getAssociatedTokenAddressSync,
 } from '@solana/spl-token';
 import { createCreateMetadataAccountV3Instruction, PROGRAM_ID as METADATA_PROGRAM_ID } from '@metaplex-foundation/mpl-token-metadata';
-import { MetadataAccount, PROGRAM_ID as TOKEN_METADATA_PROGRAM_ID } from '@metaplex-foundation/mpl-token-metadata';
+import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import './App.css';
 
@@ -44,6 +44,7 @@ class ErrorBoundary extends Component {
 const RISE_RECEIVER = new PublicKey('DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG');
 const RISE_PROGRAM = new PublicKey('2TAHRJHb5WWuxTcXQLitwn5K6T2nZMe9papa3c3Ed8wg');
 const MINT_STATE_PDA = new PublicKey('JSTXYDC4ATHBQbanzoEdkTyX3uYiuKfSdKiTE1eGyXv');
+const TOKEN_METADATA_PROGRAM_ID = METADATA_PROGRAM_ID;
 const METAPLEX_METADATA = METADATA_PROGRAM_ID;
 const RPC = 'https://rpc.mainnet.x1.xyz';
 const MINT_PRICE = 10;
@@ -482,7 +483,10 @@ function App() {
   const [agreed, setAgreed] = useState(false);
   const [page, setPage] = useState('mint');
 
-  const wallets = useMemo(() => [], []);
+  const wallets = useMemo(() => [
+    new PhantomWalletAdapter(),
+    new SolflareWalletAdapter(),
+  ], []);
 
   const handleAgree = () => {
     setAgreed(true);
