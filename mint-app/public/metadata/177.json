@@ -1,0 +1,42 @@
+{
+  "name": "RISE Phoenix #177",
+  "symbol": "RISE",
+  "description": "A rare RISE Phoenix \u2014 500 unique dark fantasy phoenixes rising from the flames on X1 Network.",
+  "image": "https://rise-phoenix.vercel.app/images/177.png",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Cosmos"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Classic"
+    },
+    {
+      "trait_type": "Wings",
+      "value": "Spread"
+    },
+    {
+      "trait_type": "Fire Color",
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Calm"
+    },
+    {
+      "trait_type": "Aura",
+      "value": "Smoke"
+    }
+  ],
+  "properties": {
+    "category": "image",
+    "rarity": "rare",
+    "files": [
+      {
+        "uri": "177.png",
+        "type": "image/png"
+      }
+    ]
+  }
+}

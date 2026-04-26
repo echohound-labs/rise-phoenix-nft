@@ -1,0 +1,42 @@
+{
+  "name": "RISE Phoenix #324",
+  "symbol": "RISE",
+  "description": "A epic RISE Phoenix \u2014 500 unique dark fantasy phoenixes rising from the flames on X1 Network.",
+  "image": "https://rise-phoenix.vercel.app/images/324.png",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Inferno"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Armored"
+    },
+    {
+      "trait_type": "Wings",
+      "value": "Molten"
+    },
+    {
+      "trait_type": "Fire Color",
+      "value": "White"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Calm"
+    },
+    {
+      "trait_type": "Aura",
+      "value": "Smoke"
+    }
+  ],
+  "properties": {
+    "category": "image",
+    "rarity": "epic",
+    "files": [
+      {
+        "uri": "324.png",
+        "type": "image/png"
+      }
+    ]
+  }
+}

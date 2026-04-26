@@ -1,0 +1,242 @@
+{
+  "background": [
+    {
+      "name": "Void",
+      "rarity": "common",
+      "prompt": "pure black void with faint purple nebula wisps, dark fantasy background, no phoenix, transparent where phoenix goes",
+      "filename": "background_void.png"
+    },
+    {
+      "name": "Inferno",
+      "rarity": "common",
+      "prompt": "raging hellfire background with lava cracks, dark fantasy, dramatic orange and red, no phoenix, transparent center",
+      "filename": "background_inferno.png"
+    },
+    {
+      "name": "Storm",
+      "rarity": "common",
+      "prompt": "violent lightning storm with dark purple clouds, dark fantasy background, no phoenix, transparent center",
+      "filename": "background_storm.png"
+    },
+    {
+      "name": "Cosmos",
+      "rarity": "rare",
+      "prompt": "deep space cosmos with stars and galaxies, dark fantasy background, midnight blue, no phoenix, transparent center",
+      "filename": "background_cosmos.png"
+    },
+    {
+      "name": "Golden",
+      "rarity": "rare",
+      "prompt": "golden heavenly light rays breaking through darkness, dark fantasy background, no phoenix, transparent center",
+      "filename": "background_golden.png"
+    },
+    {
+      "name": "Blood",
+      "rarity": "epic",
+      "prompt": "blood red mystical fog with ancient runes floating, dark fantasy background, no phoenix, transparent center",
+      "filename": "background_blood.png"
+    },
+    {
+      "name": "Frost",
+      "rarity": "epic",
+      "prompt": "frozen wasteland with ice crystals and blue mist, dark fantasy background, no phoenix, transparent center",
+      "filename": "background_frost.png"
+    },
+    {
+      "name": "Eclipse",
+      "rarity": "legendary",
+      "prompt": "solar eclipse with corona flares and dark energy, dark fantasy background, spectacular, no phoenix, transparent center",
+      "filename": "background_eclipse.png"
+    }
+  ],
+  "body": [
+    {
+      "name": "Classic",
+      "rarity": "common",
+      "prompt": "phoenix body elegant and regal, dark fantasy style, fiery feathers, transparent background, just the body no wings no background",
+      "filename": "body_classic.png"
+    },
+    {
+      "name": "Armored",
+      "rarity": "common",
+      "prompt": "phoenix body covered in ornate dark metal armor plates, dark fantasy style, transparent background, just the body no wings",
+      "filename": "body_armored.png"
+    },
+    {
+      "name": "Ethereal",
+      "rarity": "rare",
+      "prompt": "phoenix body made of translucent ghostly fire, ethereal and spectral, dark fantasy style, transparent background, just the body no wings",
+      "filename": "body_ethereal.png"
+    },
+    {
+      "name": "Shadow",
+      "rarity": "rare",
+      "prompt": "phoenix body made of living shadow and dark smoke, barely visible form, dark fantasy style, transparent background, just the body no wings",
+      "filename": "body_shadow.png"
+    },
+    {
+      "name": "Crystal",
+      "rarity": "epic",
+      "prompt": "phoenix body made of molten crystal and gemstone, refracting light, dark fantasy style, transparent background, just the body no wings",
+      "filename": "body_crystal.png"
+    },
+    {
+      "name": "Bone",
+      "rarity": "epic",
+      "prompt": "phoenix body as skeletal remains still burning with inner fire, dark fantasy style, transparent background, just the body no wings",
+      "filename": "body_bone.png"
+    },
+    {
+      "name": "Divine",
+      "rarity": "legendary",
+      "prompt": "phoenix body radiating divine golden light, holy fire, magnificent, dark fantasy style, transparent background, just the body no wings",
+      "filename": "body_divine.png"
+    }
+  ],
+  "wings": [
+    {
+      "name": "Spread",
+      "rarity": "common",
+      "prompt": "phoenix wings spread wide and majestic, fire trailing from tips, dark fantasy style, transparent background, just the wings",
+      "filename": "wings_spread.png"
+    },
+    {
+      "name": "Folded",
+      "rarity": "common",
+      "prompt": "phoenix wings folded close to body, smoldering embers, dark fantasy style, transparent background, just the wings",
+      "filename": "wings_folded.png"
+    },
+    {
+      "name": "Torn",
+      "rarity": "rare",
+      "prompt": "battle-scarred phoenix wings with tears and fire leaking through, dark fantasy style, transparent background, just the wings",
+      "filename": "wings_torn.png"
+    },
+    {
+      "name": "Molten",
+      "rarity": "rare",
+      "prompt": "phoenix wings dripping with molten lava and liquid fire, dark fantasy style, transparent background, just the wings",
+      "filename": "wings_molten.png"
+    },
+    {
+      "name": "Spectral",
+      "rarity": "epic",
+      "prompt": "phoenix wings as ghostly transparent energy, phased out, dark fantasy style, transparent background, just the wings",
+      "filename": "wings_spectral.png"
+    },
+    {
+      "name": "Celestial",
+      "rarity": "legendary",
+      "prompt": "phoenix wings made of starlight and cosmic energy, galaxy patterns, dark fantasy style, transparent background, just the wings",
+      "filename": "wings_celestial.png"
+    }
+  ],
+  "fire_color": [
+    {
+      "name": "Red",
+      "rarity": "common",
+      "prompt": "intense red fire and flames aura, dark fantasy style, transparent background, just fire effect overlay",
+      "filename": "fire_color_red.png"
+    },
+    {
+      "name": "Blue",
+      "rarity": "common",
+      "prompt": "cold blue spirit fire aura, dark fantasy style, transparent background, just fire effect overlay",
+      "filename": "fire_color_blue.png"
+    },
+    {
+      "name": "Gold",
+      "rarity": "rare",
+      "prompt": "radiant golden divine fire aura, dark fantasy style, transparent background, just fire effect overlay",
+      "filename": "fire_color_gold.png"
+    },
+    {
+      "name": "Purple",
+      "rarity": "rare",
+      "prompt": "mystical purple arcane fire aura, dark fantasy style, transparent background, just fire effect overlay",
+      "filename": "fire_color_purple.png"
+    },
+    {
+      "name": "White",
+      "rarity": "epic",
+      "prompt": "pure white holy fire aura blinding light, dark fantasy style, transparent background, just fire effect overlay",
+      "filename": "fire_color_white.png"
+    },
+    {
+      "name": "Black",
+      "rarity": "legendary",
+      "prompt": "void black fire that consumes light itself, dark anti-flame, dark fantasy style, transparent background, just fire effect overlay",
+      "filename": "fire_color_black.png"
+    }
+  ],
+  "eyes": [
+    {
+      "name": "Blazing",
+      "rarity": "common",
+      "prompt": "blazing fiery phoenix eyes, intense burning gaze, dark fantasy style, transparent background, just the eyes",
+      "filename": "eyes_blazing.png"
+    },
+    {
+      "name": "Calm",
+      "rarity": "common",
+      "prompt": "calm ancient knowing phoenix eyes, wise and deep, dark fantasy style, transparent background, just the eyes",
+      "filename": "eyes_calm.png"
+    },
+    {
+      "name": "Fierce",
+      "rarity": "rare",
+      "prompt": "fierce predatory phoenix eyes, aggressive and powerful, dark fantasy style, transparent background, just the eyes",
+      "filename": "eyes_fierce.png"
+    },
+    {
+      "name": "Ancient",
+      "rarity": "rare",
+      "prompt": "ancient phoenix eyes with galaxy patterns in iris, dark fantasy style, transparent background, just the eyes",
+      "filename": "eyes_ancient.png"
+    },
+    {
+      "name": "Cosmic",
+      "rarity": "epic",
+      "prompt": "cosmic phoenix eyes containing miniature galaxies, dark fantasy style, transparent background, just the eyes",
+      "filename": "eyes_cosmic.png"
+    },
+    {
+      "name": "Void",
+      "rarity": "legendary",
+      "prompt": "void phoenix eyes pure black with white rim, terrifying, dark fantasy style, transparent background, just the eyes",
+      "filename": "eyes_void.png"
+    }
+  ],
+  "aura": [
+    {
+      "name": "Lightning",
+      "rarity": "rare",
+      "prompt": "crackling lightning aura around phoenix, energy discharge, dark fantasy style, transparent background, aura effect only",
+      "filename": "aura_lightning.png"
+    },
+    {
+      "name": "Smoke",
+      "rarity": "common",
+      "prompt": "dark swirling smoke aura around phoenix, mysterious, dark fantasy style, transparent background, aura effect only",
+      "filename": "aura_smoke.png"
+    },
+    {
+      "name": "Stardust",
+      "rarity": "epic",
+      "prompt": "sparkling stardust aura around phoenix, cosmic particles, dark fantasy style, transparent background, aura effect only",
+      "filename": "aura_stardust.png"
+    },
+    {
+      "name": "Blood",
+      "rarity": "epic",
+      "prompt": "dripping blood mist aura around phoenix, dark and threatening, dark fantasy style, transparent background, aura effect only",
+      "filename": "aura_blood.png"
+    },
+    {
+      "name": "Halo",
+      "rarity": "legendary",
+      "prompt": "divine golden halo above phoenix, holy radiance, dark fantasy style, transparent background, aura effect only",
+      "filename": "aura_halo.png"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "RISE Phoenix #68",
+  "symbol": "RISE",
+  "description": "A legendary RISE Phoenix \u2014 500 unique dark fantasy phoenixes rising from the flames on X1 Network.",
+  "image": "https://rise-phoenix.vercel.app/images/68.png",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Void"
+    },
+    {
+      "trait_type": "Body",
+      "value": "Armored"
+    },
+    {
+      "trait_type": "Wings",
+      "value": "Torn"
+    },
+    {
+      "trait_type": "Fire Color",
+      "value": "Purple"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Ancient"
+    }
+  ],
+  "properties": {
+    "category": "image",
+    "rarity": "legendary",
+    "files": [
+      {
+        "uri": "68.png",
+        "type": "image/png"
+      }
+    ]
+  }
+}

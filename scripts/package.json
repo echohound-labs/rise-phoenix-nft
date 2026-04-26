@@ -1,0 +1,19 @@
+{
+  "name": "rise-phoenix-mint",
+  "version": "1.0.0",
+  "description": "RISE Phoenix NFT Collection Minter for Solaris Prime",
+  "type": "module",
+  "scripts": {
+    "create-collection": "node create-collection.js",
+    "mint-nft": "node mint-nft.js",
+    "mint-batch": "node mint-batch.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.87.0",
+    "@solana/spl-token": "^0.3.9",
+    "@metaplex-foundation/mpl-token-metadata": "^3.2.0",
+    "@metaplex-foundation/umi": "^0.9.0",
+    "@metaplex-foundation/umi-bundle-defaults": "^0.9.0",
+    "@metaplex-foundation/umi-web3js-adapters": "^0.9.0"
+  }
+}
