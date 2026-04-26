@@ -517,8 +517,59 @@ function App() {
               </div>
             </section>
 
+            {/* Tier Showcase — Ember / Blaze / Genesis */}
+            <section className="tier-showcase" id="tiers">
+              <h2>Three Tiers. Three Fires. One Legend.</h2>
+              <p className="section-sub">Every phoenix is a 1-of-1 — but some burn brighter than others.</p>
+              <div className="tier-cards">
+                <div className="tier-card tier-ember">
+                  <div className="tier-card-badge common">COMMON</div>
+                  <img src="/tiers/ember.jpg" alt="Ember Phoenix" className="tier-card-img" />
+                  <div className="tier-card-info">
+                    <h3 style={{ color: '#ff6b35' }}>EMBER</h3>
+                    <p className="tier-card-desc">The spark that starts it all. Fiery orange phoenix, cosmic backdrop, clean metallic frame.</p>
+                    <div className="tier-card-stats">
+                      <span>🔥 Common Tier</span>
+                      <span>10 XNT</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="tier-card tier-blaze">
+                  <div className="tier-card-badge rare">RARE</div>
+                  <img src="/tiers/blaze.jpg" alt="Blaze Phoenix" className="tier-card-img" />
+                  <div className="tier-card-info">
+                    <h3 style={{ color: '#8800ff' }}>BLAZE</h3>
+                    <p className="tier-card-desc">The flame intensifies. Enhanced effects, deeper cosmic palette, glowing circuit accents.</p>
+                    <div className="tier-card-stats">
+                      <span>🔥 Rare Tier</span>
+                      <span>10 XNT</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="tier-card tier-genesis">
+                  <div className="tier-card-badge legendary">LEGENDARY</div>
+                  <img src="/tiers/genesis.jpg" alt="Genesis Phoenix" className="tier-card-img" />
+                  <div className="tier-card-info">
+                    <h3 style={{ color: '#ffdd00' }}>GENESIS</h3>
+                    <p className="tier-card-desc">The origin fire. Galaxy interior, holographic foil border, cosmic-tech fusion — the rarest phoenix of all.</p>
+                    <div className="tier-card-stats">
+                      <span>🔥 Legendary Tier</span>
+                      <span>10 XNT</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="entropy-note" style={{ marginTop: '2rem' }}>
+                <span className="entropy-icon">☢️</span>
+                <div>
+                  <strong>Which one will you get?</strong>
+                  <p>Mint order is determined by the Geiger Entropy Oracle — quantum randomness you can verify on-chain. You don't choose the fire. The fire chooses you.</p>
+                </div>
+              </div>
+            </section>
+
             {/* Collection */}
-            <section className="tiers-section" id="tiers">
+            <section className="tiers-section" id="collection">
               <h2>500 Unique Phoenixes. Zero Duplicates.</h2>
               <p className="section-sub">Same bird. Different fire. Every phoenix has its own color palette and cosmic background. 30 palettes. 5 background styles. 500 one-of-ones.</p>
               <div className="tier-row">

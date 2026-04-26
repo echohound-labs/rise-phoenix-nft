@@ -214,9 +214,34 @@ footer p{color:var(--text2);font-size:.85rem;margin-bottom:.5rem}
 .gallery-link{font-size:.8rem;color:var(--accent);text-decoration:none;display:inline-block}
 .gallery-link:hover{text-decoration:underline}
 
+/* Tier Showcase */
+.tier-showcase{padding:4rem 2rem;max-width:1200px;margin:0 auto;text-align:center}
+.tier-showcase h2{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.tier-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2.5rem}
+.tier-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .3s,box-shadow .3s;position:relative}
+.tier-card:hover{transform:translateY(-8px) scale(1.02)}
+.tier-ember{border-color:#ff6b3540;box-shadow:0 0 30px rgba(255,107,53,.1)}
+.tier-ember:hover{box-shadow:0 0 50px rgba(255,107,53,.25)}
+.tier-blaze{border-color:#8800ff40;box-shadow:0 0 30px rgba(136,0,255,.1)}
+.tier-blaze:hover{box-shadow:0 0 50px rgba(136,0,255,.25)}
+.tier-genesis{border-color:#ffdd0040;box-shadow:0 0 30px rgba(255,221,0,.15)}
+.tier-genesis:hover{box-shadow:0 0 60px rgba(255,221,0,.35)}
+.tier-card-badge{position:absolute;top:16px;right:16px;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;padding:6px 14px;border-radius:30px;z-index:2}
+.tier-card-badge.common{color:#ff6b35;background:rgba(255,107,53,.12);border:1px solid #ff6b35}
+.tier-card-badge.rare{color:#8800ff;background:rgba(136,0,255,.12);border:1px solid #8800ff}
+.tier-card-badge.legendary{color:#ffdd00;background:rgba(255,221,0,.12);border:1px solid #ffdd00}
+.tier-card-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-bottom:1px solid var(--border)}
+.tier-card-info{padding:1.5rem}
+.tier-card-info h3{font-size:1.4rem;font-weight:800;margin:0 0 .5rem;letter-spacing:1px}
+.tier-card-desc{font-size:.9rem;color:var(--text2);line-height:1.5;margin:0 0 1rem}
+.tier-card-stats{display:flex;justify-content:space-between;align-items:center;padding-top:.75rem;border-top:1px solid var(--border)}
+.tier-card-stats span{font-size:.85rem;font-weight:600;color:var(--text2)}
+
 @media(max-width:600px){
 .gallery-grid,.all-gallery-grid{grid-template-columns:1fr}
 .gallery-stats{gap:1rem}
 .gallery-stat{padding:.75rem 1rem}
 .nav-btn{padding:.75rem;font-size:.9rem}
+.tier-cards{grid-template-columns:1fr}
+.tier-card{max-width:360px;margin:0 auto}
 }

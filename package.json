@@ -8,10 +8,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "echo skip",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "vercel-build": "echo skip"
+    "vercel-build": "vite build"
   },
   "dependencies": {
     "@metaplex-foundation/mpl-token-metadata": "^2.13.0",
