@@ -279,11 +279,11 @@ function DisclaimerModal({ open, onClose }) {
 function ColorShowcase() {
   return (
     <div className="color-grid">
-      {COLOR_VARIANTS.map((v, i) => (
+      {PALETTES.map((v, i) => (
         <div
           key={i}
           className="color-swatch"
-          style={{ background: v.bg, boxShadow: `0 0 20px ${v.glow}, inset 0 0 30px ${v.glow}` }}
+          style={{ background: '#0a0a1a', boxShadow: `0 0 20px ${v.accent}, inset 0 0 30px ${v.accent}33` }}
         >
           <div className="swatch-accent" style={{ background: v.accent }} />
           <span className="swatch-name" style={{ color: v.accent }}>{v.name}</span>
