@@ -633,7 +633,7 @@ function App() {
                       <button className="disclaimer-btn" onClick={() => setShowDisclaimer(true)}>Read Disclaimer</button>
                     </div>
                   ) : (
-                    <MintButton onMintSuccess={() => setPage('gallery')} />
+                    <MintButton onMintSuccess={() => {}} />
                   )}
                 </div>
               </div>
