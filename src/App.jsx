@@ -640,7 +640,33 @@ function App() {
                     </div>
                   ) : (
                                         <>
-                      <div className="wallet-area"><WalletMultiButton /></div>
+                      <div className="wallet-area">
+                        <WalletMultiButton />
+                        <button
+                          className="x1-wallet-btn"
+                          onClick={async () => {
+                            if (!window.x1Wallet) {
+                              alert('X1 Wallet not found. Please install the X1 Wallet browser extension.');
+                              return;
+                            }
+                            await window.x1Wallet.connect();
+                          }}
+                          style={{
+                            marginTop: '10px',
+                            width: '100%',
+                            padding: '12px 20px',
+                            background: 'linear-gradient(135deg, #00c2ff, #0057ff)',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '16px',
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          ⚡ Connect X1 Wallet
+                        </button>
+                      </div>
                       <MintButton onMintSuccess={() => setPage('gallery')} />
                     </>
                   )}
