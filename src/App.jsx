@@ -465,10 +465,17 @@ function App() {
   const [agreed, setAgreed] = useState(false);
   const [page, setPage] = useState('mint');
 
-  const wallets = useMemo(() => [
-    new PhantomWalletAdapter(),
-    new SolflareWalletAdapter(),
-  ], []);
+  const wallets = useMemo(() => {
+    const adapters = [
+      new PhantomWalletAdapter(),
+      new SolflareWalletAdapter(),
+    ];
+    // Add X1 Wallet if available
+    if (typeof window !== 'undefined' && window.x1Wallet) {
+      adapters.push(window.x1Wallet);
+    }
+    return adapters;
+  }, []);
 
   const handleAgree = () => {
     setAgreed(true);
