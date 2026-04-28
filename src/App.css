@@ -58,7 +58,6 @@ a{color:var(--accent);text-decoration:none}
 /* Mint Section */
 .mint-section{padding:4rem 2rem;max-width:1100px;margin:0 auto}
 .mint-section h2{text-align:center;font-size:2.5rem;font-weight:800;margin-bottom:.5rem}
-.wallet-area{display:flex;justify-content:center;margin-bottom:2rem}
 .disclaimer-banner{text-align:center;margin-bottom:2rem;padding:1.5rem;background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.15);border-radius:12px}
 .disclaimer-banner p{color:var(--accent2);margin-bottom:1rem}
 .disclaimer-btn{padding:.75rem 2rem;background:var(--accent2);color:#000;font-weight:700;border:none;border-radius:50px;cursor:pointer;font-size:.95rem}
@@ -81,7 +80,7 @@ a{color:var(--accent);text-decoration:none}
 .tier-perks li::before{content:'✦';position:absolute;left:0;color:var(--accent);font-size:.8rem}
 
 .mint-area{margin-top:1rem;text-align:center}
-.mint-btn{padding:.75rem 2rem;color:#fff;font-weight:700;font-size:1rem;border:none;border-radius:50px;cursor:pointer;width:100%;transition:transform .2s,box-shadow .2s}
+.mint-btn{padding:.75rem 2rem;background:linear-gradient(135deg,var(--accent),#ff8c42);color:#fff;font-weight:700;font-size:1rem;border:none;border-radius:50px;cursor:pointer;width:100%;transition:transform .2s,box-shadow .2s}
 .mint-btn:hover{transform:translateY(-2px);box-shadow:var(--glow)}
 .mint-btn:disabled{opacity:.6;cursor:wait}
 .mint-success{margin-top:.5rem;color:#22c55e;font-size:.85rem}
@@ -172,10 +171,14 @@ footer p{color:var(--text2);font-size:.85rem;margin-bottom:.5rem}
 }
 
 /* Top Nav */
-.top-nav{display:flex;gap:0;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.nav-btn{flex:1;padding:1rem;text-align:center;font-weight:700;font-size:1rem;border:none;background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;border-bottom:3px solid transparent}
+.top-nav{display:flex;align-items:center;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:0 1.5rem}
+.nav-brand{font-size:1.1rem;font-weight:900;color:var(--accent);letter-spacing:1px;margin-right:auto}
+.nav-links{display:flex}
+.nav-btn{padding:.85rem 1.25rem;text-align:center;font-weight:700;font-size:.95rem;border:none;background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;border-bottom:3px solid transparent}
 .nav-btn.active{color:var(--accent);border-bottom-color:var(--accent);background:rgba(255,107,53,.05)}
 .nav-btn:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.nav-wallet{margin-left:1rem}
+.nav-wallet .wallet-adapter-button{background:linear-gradient(135deg,var(--accent),#ff8c42)!important;border-radius:50px!important;font-weight:700!important}
 
 /* Mint Reveal Modal */
 .reveal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn .3s}

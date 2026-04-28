@@ -20,7 +20,7 @@ import {
   getAssociatedTokenAddressSync,
 } from '@solana/spl-token';
 import { createCreateMetadataAccountV3Instruction, PROGRAM_ID as METADATA_PROGRAM_ID } from '@metaplex-foundation/mpl-token-metadata';
-import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { BackpackWalletAdapter } from '@solana/wallet-adapter-backpack';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import './App.css';
 
@@ -465,17 +465,7 @@ function App() {
   const [agreed, setAgreed] = useState(false);
   const [page, setPage] = useState('mint');
 
-  const wallets = useMemo(() => {
-    const adapters = [
-      new PhantomWalletAdapter(),
-      new SolflareWalletAdapter(),
-    ];
-    // Add X1 Wallet if available
-    if (typeof window !== 'undefined' && window.x1Wallet) {
-      adapters.push(window.x1Wallet);
-    }
-    return adapters;
-  }, []);
+  const wallets = useMemo(() => [new BackpackWalletAdapter()], []);
 
   const handleAgree = () => {
     setAgreed(true);
@@ -488,8 +478,12 @@ function App() {
         <WalletModalProvider>
           <div className="app">
             <nav className="top-nav">
-              <button className={`nav-btn ${page === 'mint' ? 'active' : ''}`} onClick={() => setPage('mint')}>🔥 Mint</button>
-              <button className={`nav-btn ${page === 'gallery' ? 'active' : ''}`} onClick={() => setPage('gallery')}>🦅 Gallery</button>
+              <div className="nav-brand">🔥 RISE Phoenix</div>
+              <div className="nav-links">
+                <button className={`nav-btn ${page === 'mint' ? 'active' : ''}`} onClick={() => setPage('mint')}>Mint</button>
+                <button className={`nav-btn ${page === 'gallery' ? 'active' : ''}`} onClick={() => setPage('gallery')}>Gallery</button>
+              </div>
+              <div className="nav-wallet"><WalletMultiButton /></div>
             </nav>
             {/* page === 'gallery' {page === 'gallery' && <AllGallery />}{page === 'gallery' && <AllGallery />} <AllGallery /> */}
             {page === 'mint' && <>
@@ -639,36 +633,7 @@ function App() {
                       <button className="disclaimer-btn" onClick={() => setShowDisclaimer(true)}>Read Disclaimer</button>
                     </div>
                   ) : (
-                                        <>
-                      <div className="wallet-area">
-                        <WalletMultiButton />
-                        <button
-                          className="x1-wallet-btn"
-                          onClick={async () => {
-                            if (!window.x1Wallet) {
-                              alert('X1 Wallet not found. Please install the X1 Wallet browser extension.');
-                              return;
-                            }
-                            await window.x1Wallet.connect();
-                          }}
-                          style={{
-                            marginTop: '10px',
-                            width: '100%',
-                            padding: '12px 20px',
-                            background: 'linear-gradient(135deg, #00c2ff, #0057ff)',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '8px',
-                            fontSize: '16px',
-                            fontWeight: '600',
-                            cursor: 'pointer',
-                          }}
-                        >
-                          ⚡ Connect X1 Wallet
-                        </button>
-                      </div>
-                      <MintButton onMintSuccess={() => setPage('gallery')} />
-                    </>
+                    <MintButton onMintSuccess={() => setPage('gallery')} />
                   )}
                 </div>
               </div>
