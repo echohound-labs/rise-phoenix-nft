@@ -42,8 +42,8 @@ class ErrorBoundary extends Component {
 }
 
 const RISE_RECEIVER = new PublicKey('DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG');
-const RISE_PROGRAM = new PublicKey('2TAHRJHb5WWuxTcXQLitwn5K6T2nZMe9papa3c3Ed8wg');
-const MINT_STATE_PDA = new PublicKey('JSTXYDC4ATHBQbanzoEdkTyX3uYiuKfSdKiTE1eGyXv');
+const RISE_PROGRAM = new PublicKey('5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb');
+const MINT_STATE_PDA = new PublicKey('GyBELkR4XF4o297rGyZXgk1ESjPfVzLkWT4tuLJ8VVJk');
 const TOKEN_METADATA_PROGRAM_ID = METADATA_PROGRAM_ID;
 const METAPLEX_METADATA = METADATA_PROGRAM_ID;
 const RPC = 'https://rpc.mainnet.x1.xyz';
