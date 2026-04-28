@@ -375,11 +375,7 @@ function NFTGallery() {
 }
 
 function phoenixImg(id) {
-  // Use sample images for site preview, full collection served from CDN
-  const samples = [0,1,2,3,4,10,50,100,200,499];
-  const IPFS = '/nft';
-  if (samples.includes(id)) return `${IPFS}/${id}.jpg`;
-  return `${IPFS}/${id}.jpg`;
+  return `https://rise-phoenix-nft.vercel.app/api/image/${id}`;
 }
 
 function AllGallery() {
