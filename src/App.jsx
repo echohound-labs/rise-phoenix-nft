@@ -375,7 +375,7 @@ function NFTGallery() {
 }
 
 function phoenixImg(id) {
-  return `https://rise-phoenix-nft.vercel.app/api/image/${id}`;
+  return `/nft/${id}.jpg`;
 }
 
 function AllGallery() {
