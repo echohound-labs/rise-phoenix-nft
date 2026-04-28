@@ -341,6 +341,7 @@ function NFTGallery() {
               // Extract number from name for palette
               const numMatch = name.match(/#(\d+)/);
               const numId = numMatch ? parseInt(numMatch[1]) - 1 : 0;
+              const tierName = numId < 400 ? "Ember" : numId < 475 ? "Blaze" : "Genesis";
               const palette = PALETTES[numId % PALETTES.length];
               phoenixNfts.push({
                 mint: mint.toBase58(),
@@ -349,6 +350,7 @@ function NFTGallery() {
                 uri,
                 image,
                 palette,
+                tierName,
               });
             }
           } catch (e) { continue; }
@@ -380,7 +382,7 @@ function NFTGallery() {
             <img src={nft.image} alt={nft.name} className="gallery-img" />
             <div className="gallery-info">
               <h3 style={{ color: nft.palette.accent }}>{nft.name}</h3>
-              <p className="gallery-tier" style={{ color: nft.palette.accent }}>{nft.palette.name}</p>
+              <p className="gallery-tier" style={{ color: nft.palette.accent }}>{nft.tierName} Tier</p>
               <a href={`https://explorer.x1.xyz/address/${nft.mint}`} target="_blank" rel="noopener noreferrer" className="gallery-link">
                 View on Explorer ↗
               </a>
@@ -469,7 +471,7 @@ function AllGallery() {
             <img src={nft.image} alt={`Phoenix #${nft.number}`} className="gallery-img" />
             <div className="gallery-info">
               <h3 style={{ color: nft.palette.accent }}>RISE Phoenix #{nft.number}</h3>
-              <p className="gallery-tier" style={{ color: nft.palette.accent }}>{nft.palette.name}</p>
+              <p className="gallery-tier" style={{ color: nft.palette.accent }}>{nft.tierName} Tier</p>
             </div>
           </div>
         ))}
