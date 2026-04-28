@@ -527,7 +527,7 @@ function App() {
               <p className="section-sub">Every phoenix is a 1-of-1 — but some burn brighter than others.</p>
               <div className="tier-cards">
                 <div className="tier-card tier-ember">
-                  <div className="tier-card-badge common">RARE</div>
+                  <div className="tier-card-badge common">COMMON</div>
                   <img src="/ember-base.jpg" alt="Ember Phoenix" className="tier-card-img" />
                   <div className="tier-card-info">
                     <h3 style={{ color: '#ff6b35' }}>EMBER</h3>
@@ -545,7 +545,7 @@ function App() {
                     <h3 style={{ color: '#8800ff' }}>BLAZE</h3>
                     <p className="tier-card-desc">75 rare Storm Phoenixes cracking with electric energy. Blue lightning, steel frame, pure power.</p>
                     <div className="tier-card-stats">
-                      <span>🔥 Rare Tier</span>
+                      <span>⚡ Epic Tier</span>
                       <span>10 XNT</span>
                     </div>
                   </div>
@@ -575,14 +575,14 @@ function App() {
             {/* Collection */}
             <section className="tiers-section" id="collection">
               <h2>500 Unique Phoenixes. Zero Duplicates.</h2>
-              <p className="section-sub">Same bird. Different fire. Every phoenix has its own color palette and cosmic background. 30 palettes. 5 background styles. 500 one-of-ones.</p>
+              <p className="section-sub">3 tiers. 500 unique phoenixes. Every card burns a different color — Ember, Blaze, or Genesis. Powered by Geiger Entropy Oracle ☢️</p>
               <div className="tier-row">
                 {[0, 1, 2, 3, 4].map((i) => (
-                  <div key={i} className="gacha-card" style={{ boxShadow: `0 0 30px ${PALETTES[(i * 10) % PALETTES.length].accent}4D` }}>
-                    <img src={`/nft/${i * 10}.jpg`} alt={`Phoenix sample ${i+1}`} style={{ width: '100%', borderRadius: 12, marginBottom: 12 }} />
-                    <div className="gacha-rarity" style={{ color: PALETTES[(i * 10) % PALETTES.length].accent }}>1 OF 1</div>
-                    <div className="gacha-name" style={{ color: PALETTES[(i * 10) % PALETTES.length].accent }}>{PALETTES[(i * 10) % PALETTES.length].name}</div>
-                    <div className="gacha-supply">Unique #{i * 10 + 1} of 500</div>
+                  <div key={i} className="gacha-card" style={{ boxShadow: `0 0 30px ${["#ff4400","#0088ff","#ffcc00","#aa00ff","#00ff88"][i]}4D` }}>
+                    <img src={["/nft/0.jpg","/nft/400.jpg","/nft/475.jpg","/nft/50.jpg","/nft/425.jpg"][i]} alt={`Phoenix sample ${i+1}`} style={{ width: '100%', borderRadius: 12, marginBottom: 12 }} />
+                    <div className="gacha-rarity" style={{ color: ["#ff4400","#0088ff","#ffcc00","#aa00ff","#00ff88"][i] }}>1 OF 1</div>
+                    <div className="gacha-name" style={{ color: ["#ff4400","#0088ff","#ffcc00","#aa00ff","#00ff88"][i] }}>{["Ember","Blaze","Genesis","Ember","Blaze"][i]}</div>
+                    <div className="gacha-supply">{["Common Tier","Epic Tier","Legendary Tier","Common Tier","Epic Tier"][i]}</div>
                   </div>
                 ))}
               </div>
@@ -667,7 +667,7 @@ function App() {
                     <div className="mint-spec"><span className="mint-spec-label">Randomness</span><span className="mint-spec-value">☢️ Geiger Oracle</span></div>
                   </div>
                   <ul className="mint-perks">
-                    <li>Every phoenix is a 1-of-1 — 30 color palettes, 5 background styles, zero duplicates</li>
+                    <li>Every phoenix is a 1-of-1 — 3 tiers, 500 unique color variants, zero duplicates</li>
                     <li>Mint order determined by quantum radioactive decay on-chain — verifiable, not manipulable</li>
                     <li>100% of mint revenue → buy back and burn RISE</li>
                   </ul>
