@@ -378,7 +378,7 @@ function NFTGallery() {
       <div className="gallery-grid">
         {nfts.map((nft) => (
           <div key={nft.mint} className="gallery-card" style={{ boxShadow: `0 0 25px ${nft.palette.accent}4D` }}>
-            <div className="gallery-tier-badge" style={{ color: nft.palette.accent }}>1 OF 1</div>
+            
             <img src={nft.image} alt={nft.name} className="gallery-img" />
             <div className="gallery-info">
               <h3 style={{ color: nft.palette.accent }}>{nft.name}</h3>
@@ -467,7 +467,7 @@ function AllGallery() {
       <div className="gallery-grid all-gallery-grid">
         {nfts.map((nft) => (
           <div key={nft.id} className="gallery-card" style={{ boxShadow: `0 0 25px ${nft.palette.accent}4D` }}>
-            <div className="gallery-tier-badge" style={{ color: nft.palette.accent }}>1 OF 1</div>
+            
             <img src={nft.image} alt={`Phoenix #${nft.number}`} className="gallery-img" />
             <div className="gallery-info">
               <h3 style={{ color: nft.palette.accent }}>RISE Phoenix #{nft.number}</h3>
@@ -504,7 +504,7 @@ function App() {
               <button className={`nav-btn ${page === 'mint' ? 'active' : ''}`} onClick={() => setPage('mint')}>🔥 Mint</button>
               <button className={`nav-btn ${page === 'gallery' ? 'active' : ''}`} onClick={() => setPage('gallery')}>🦅 Gallery</button>
             </nav>
-            {page === 'gallery' && <AllGallery />}
+            {/* page === 'gallery' {page === 'gallery' && <AllGallery />}{page === 'gallery' && <AllGallery />} <AllGallery /> */}
             {page === 'mint' && <>
             {/* Hero */}
             <section className="hero">
@@ -529,7 +529,7 @@ function App() {
               <p className="section-sub">Every phoenix is a 1-of-1 — but some burn brighter than others.</p>
               <div className="tier-cards">
                 <div className="tier-card tier-ember">
-                  <div className="tier-card-badge common">COMMON</div>
+                  
                   <img src="/ember-base.jpg" alt="Ember Phoenix" className="tier-card-img" />
                   <div className="tier-card-info">
                     <h3 style={{ color: '#ff6b35' }}>EMBER</h3>
@@ -541,7 +541,7 @@ function App() {
                   </div>
                 </div>
                 <div className="tier-card tier-blaze">
-                  <div className="tier-card-badge rare">RARE</div>
+                  
                   <img src="/blaze-base.jpg" alt="Blaze Phoenix" className="tier-card-img" />
                   <div className="tier-card-info">
                     <h3 style={{ color: '#8800ff' }}>BLAZE</h3>
@@ -553,7 +553,7 @@ function App() {
                   </div>
                 </div>
                 <div className="tier-card tier-genesis">
-                  <div className="tier-card-badge legendary">LEGENDARY</div>
+                  
                   <img src="/genesis-base.jpg" alt="Genesis Phoenix" className="tier-card-img" />
                   <div className="tier-card-info">
                     <h3 style={{ color: '#ffdd00' }}>GENESIS</h3>
@@ -579,10 +579,9 @@ function App() {
               <h2>500 Unique Phoenixes. Zero Duplicates.</h2>
               <p className="section-sub">3 tiers. 500 unique phoenixes. Every card burns a different color — Ember, Blaze, or Genesis. Powered by Geiger Entropy Oracle ☢️</p>
               <div className="tier-row">
-                {[0, 1, 2, 3, 4].map((i) => (
+                {[0, 1, 2].map((i) => (
                   <div key={i} className="gacha-card" style={{ boxShadow: `0 0 30px ${["#ff4400","#0088ff","#ffcc00","#aa00ff","#00ff88"][i]}4D` }}>
                     <img src={["/nft/0.jpg","/nft/400.jpg","/nft/475.jpg","/nft/50.jpg","/nft/425.jpg"][i]} alt={`Phoenix sample ${i+1}`} style={{ width: '100%', borderRadius: 12, marginBottom: 12 }} />
-                    <div className="gacha-rarity" style={{ color: ["#ff4400","#0088ff","#ffcc00","#aa00ff","#00ff88"][i] }}>1 OF 1</div>
                     <div className="gacha-name" style={{ color: ["#ff4400","#0088ff","#ffcc00","#aa00ff","#00ff88"][i] }}>{["Ember","Blaze","Genesis","Ember","Blaze"][i]}</div>
                     <div className="gacha-supply">{["Common Tier","Epic Tier","Legendary Tier","Common Tier","Epic Tier"][i]}</div>
                   </div>
