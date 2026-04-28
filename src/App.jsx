@@ -485,7 +485,7 @@ function App() {
               </div>
               <div className="nav-wallet"><WalletMultiButton /></div>
             </nav>
-            {/* page === 'gallery' {page === 'gallery' && <AllGallery />}{page === 'gallery' && <AllGallery />} <AllGallery /> */}
+            {page === 'gallery' && <AllGallery />}
             {page === 'mint' && <>
             {/* Hero */}
             <section className="hero">
