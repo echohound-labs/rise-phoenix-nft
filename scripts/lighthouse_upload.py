@@ -13,10 +13,10 @@ import sys
 from pathlib import Path
 
 LIGHTHOUSE_API_KEY = "4741b2a6.e590189e3c0c4d1a9998c49610c1f22c"
-LIGHTHOUSE_UPLOAD_URL = "https://node.lighthouse.storage/api/v0/add"
+LIGHTHOUSE_UPLOAD_URL = "https://upload.lighthouse.storage/api/v0/add"
 
 BASE_DIR = Path(__file__).parent.parent
-IMAGES_DIR = BASE_DIR / "mint-app" / "public" / "images"
+IMAGES_DIR = BASE_DIR / "public" / "nft"
 METADATA_DIR = BASE_DIR / "art" / "metadata"
 CID_MAP_FILE = BASE_DIR / "art" / "cid_map.json"
 
@@ -120,7 +120,7 @@ def main():
         print(f"❌ Metadata directory not found: {METADATA_DIR}")
         sys.exit(1)
     
-    img_count = len(list(IMAGES_DIR.glob("*.png")))
+    img_count = len(list(IMAGES_DIR.glob("*.jpg")))
     meta_count = len(list(METADATA_DIR.glob("*.json")))
     print(f"📂 Images: {img_count} PNGs in {IMAGES_DIR}")
     print(f"📂 Metadata: {meta_count} JSONs in {METADATA_DIR}")

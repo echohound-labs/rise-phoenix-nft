@@ -2,7 +2,7 @@
   "name": "RISE Phoenix #416",
   "symbol": "RISE",
   "description": "A rare RISE Phoenix \u2014 500 unique dark fantasy phoenixes rising from the flames on X1 Network.",
-  "image": "https://rise-phoenix.vercel.app/images/416.png",
+  "image": "ipfs://QmVzfwQ9aG9YxKRuvo8rw4hpj6u5vrTgPMe65yJzELfa82",
   "attributes": [
     {
       "trait_type": "Background",
@@ -27,7 +27,7 @@
   ],
   "properties": {
     "category": "image",
-    "rarity": "rare",
+    "rarity": "ember",
     "files": [
       {
         "uri": "416.png",

@@ -2,7 +2,7 @@
   "name": "RISE Phoenix #115",
   "symbol": "RISE",
   "description": "A common RISE Phoenix \u2014 500 unique dark fantasy phoenixes rising from the flames on X1 Network.",
-  "image": "https://rise-phoenix.vercel.app/images/115.png",
+  "image": "ipfs://QmZP5HehK5uD6un5jStrY7GDDXcfbm2NnBtrD25asVNHP7",
   "attributes": [
     {
       "trait_type": "Background",
@@ -31,7 +31,7 @@
   ],
   "properties": {
     "category": "image",
-    "rarity": "common",
+    "rarity": "ember",
     "files": [
       {
         "uri": "115.png",

@@ -16,27 +16,26 @@ const GENESIS_BASE = path.join(__dirname, '..', 'public', 'genesis-base.jpg');
 // Each gets unique integer hue + saturation combo
 function getTransform(id) {
   if (id < 400) {
-    // Ember: warm hues rotated 0-59 degrees (stays in red-orange-yellow family)
-    // 20 unique hue positions, 20 saturation levels = 400 unique combos
+    // Ember: full 360 degree hue rotation for maximum variety
     const huePos = id % 20;
     const satPos = Math.floor(id / 20);
-    const hueShift = huePos * 3;          // 0, 3, 6, ... 57
-    const satBoost = 0.7 + satPos * 0.025; // 0.7, 0.725, ... 1.175
-    const bright = 0.85 + (id % 7) * 0.02; // slight brightness variation
+    const hueShift = huePos * 18;          // 0, 18, 36... full 360 degrees
+    const satBoost = 0.8 + satPos * 0.03;
+    const bright = 0.85 + (id % 7) * 0.02;
     return { hueShift, satBoost, bright };
   }
   if (id < 475) {
-    // Blaze: purple/blue hues rotated 0-74 degrees within cool spectrum
+    // Blaze: full 360 degree rotation
     const offset = id - 400;
-    const hueShift = (offset * 5) % 60 + 180; // 180-239 range (cool tones)
+    const hueShift = (offset * 5) % 360;
     const satBoost = 0.9 + (offset % 5) * 0.06;
     const bright = 0.9 + (offset % 3) * 0.04;
     return { hueShift, satBoost, bright };
   }
-  // Genesis: subtle gold shifts, high prestige
+  // Genesis: full rotation with high saturation
   const offset = id - 475;
-  const hueShift = offset * 2;            // 0-48 subtle shifts
-  const satBoost = 0.8 + offset * 0.08;   // 0.8-2.8
+  const hueShift = offset * 15;
+  const satBoost = 1.0 + offset * 0.05;
   const bright = 1.0 + offset * 0.02;
   return { hueShift, satBoost, bright };
 }
@@ -49,6 +48,7 @@ async function generateVariant(basePath, id, transform) {
         saturation: transform.satBoost,
         hue: Math.round(transform.hueShift) // must be integer
       })
+      .modulate({ brightness: 0.9 + (id % 5) * 0.08 })
       .jpeg({ quality: 85 })
       .toFile(path.join(OUT, `${id}.jpg`));
     return true;

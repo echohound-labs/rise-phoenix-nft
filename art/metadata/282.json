@@ -2,7 +2,7 @@
   "name": "RISE Phoenix #282",
   "symbol": "RISE",
   "description": "A epic RISE Phoenix \u2014 500 unique dark fantasy phoenixes rising from the flames on X1 Network.",
-  "image": "https://rise-phoenix.vercel.app/images/282.png",
+  "image": "ipfs://QmWN68NWcYxv2Aqmb9uRTJ5Zx7uqq2X1bLYThQC6vb8WZt",
   "attributes": [
     {
       "trait_type": "Background",
@@ -27,7 +27,7 @@
   ],
   "properties": {
     "category": "image",
-    "rarity": "epic",
+    "rarity": "blaze",
     "files": [
       {
         "uri": "282.png",
