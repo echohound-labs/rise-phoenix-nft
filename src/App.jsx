@@ -525,7 +525,7 @@ function App() {
 
             {/* Tier Showcase — Ember / Blaze / Genesis */}
             <section className="tier-showcase" id="tiers">
-              <h2>Three Tiers. Three Fires. One Legend.</h2>
+              <h2>Three Tiers. Three Phoenixes. One Legend.</h2>
               <p className="section-sub">Every phoenix is a 1-of-1 — but some burn brighter than others.</p>
               <div className="tier-cards">
                 <div className="tier-card tier-ember">
@@ -575,35 +575,9 @@ function App() {
             </section>
 
             {/* Collection */}
-            <section className="tiers-section" id="collection">
-              <h2>500 Unique Phoenixes. Zero Duplicates.</h2>
-              <p className="section-sub">3 tiers. 500 unique phoenixes. Every card burns a different color — Ember, Blaze, or Genesis. Powered by Geiger Entropy Oracle ☢️</p>
-              <div className="tier-row">
-                {[0, 1, 2].map((i) => (
-                  <div key={i} className="gacha-card" style={{ boxShadow: `0 0 30px ${["#ff4400","#0088ff","#ffcc00","#aa00ff","#00ff88"][i]}4D` }}>
-                    <img src={["/nft/0.jpg","/nft/400.jpg","/nft/475.jpg","/nft/50.jpg","/nft/425.jpg"][i]} alt={`Phoenix sample ${i+1}`} style={{ width: '100%', borderRadius: 12, marginBottom: 12 }} />
-                    <div className="gacha-name" style={{ color: ["#ff4400","#0088ff","#ffcc00","#aa00ff","#00ff88"][i] }}>{["Ember","Blaze","Genesis","Ember","Blaze"][i]}</div>
-                    <div className="gacha-supply">{["Common Tier","Epic Tier","Legendary Tier","Common Tier","Epic Tier"][i]}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="entropy-note">
-                <span className="entropy-icon">☢️</span>
-                <div>
-                  <strong>Verifiable Randomness</strong>
-                  <p>Mint order determined by the Geiger Entropy Oracle — quantum mechanical radioactive decay, locked by VDF, bound to X1 SlotHash. No one can predict, rig, or game which phoenix you get. <a href="https://github.com/echohound-labs/geiger-entropy-oracle" target="_blank" rel="noopener noreferrer">Read the docs →</a></p>
-                </div>
-              </div>
-            </section>
 
-            {/* Phoenix Vibe Preview */}
-            <section className="vibe-section">
-              <h2>Same Bird. Different Fire.</h2>
-              <p className="section-sub">Every phoenix shares the same soul. Each one burns a different color in a different cosmos. 500 one-of-ones.</p>
-              <div className="vibe-preview">
-                <img src="/nft/0.jpg" alt="RISE Phoenix" className="vibe-img" />
-              </div>
-            </section>
+
+
 
             {/* Tokenomics */}
             <section className="tokenomics" id="tokenomics">
