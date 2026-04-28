@@ -140,92 +140,54 @@ function MintButton({ onMintSuccess }) {
       // Read total_minted from MintState
       const mintStateAccount = await connection.getAccountInfo(MINT_STATE_PDA);
       let mintNumber = 0;
-      if (mintStateAccount && mintStateAccount.data.length >= 85) {
-        const dv = new DataView(mintStateAccount.data.buffer || mintStateAccount.data);
-        mintNumber = dv.getUint32(84, true);
+      if (mintStateAccount && mintStateAccount.data.length >= 8) {
+        const data = mintStateAccount.data;
+        mintNumber = data[8] | (data[9] << 8) | (data[10] << 16) | (data[11] << 24);
       }
 
-      const mintNumBytes = new Uint8Array(4);
-      new DataView(mintNumBytes.buffer).setUint32(0, mintNumber, true);
-
-      // Derive PDAs
-      const mintRequestSeeds = [
-        new TextEncoder().encode('mint_request'),
-        wallet.publicKey.toBytes(),
-        mintNumBytes,
-      ];
-      const [mintRequestPDA] = PublicKey.findProgramAddressSync(mintRequestSeeds, RISE_PROGRAM);
-
-      // Create a new keypair for the NFT mint
+      // Generate new NFT mint keypair
       const nftMintKeypair = Keypair.generate();
       const nftMint = nftMintKeypair.publicKey;
 
-      // Derive the minter's ATA for this NFT mint
-      const minterAta = getAssociatedTokenAddressSync(nftMint, wallet.publicKey, false, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID);
+      // Derive metadata PDA
+      const METADATA_PROGRAM_PUBKEY = new PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
+      const [metadataPDA] = PublicKey.findProgramAddressSync(
+        [Buffer.from('metadata'), METADATA_PROGRAM_PUBKEY.toBuffer(), nftMint.toBuffer()],
+        METADATA_PROGRAM_PUBKEY
+      );
 
-      // Anchor discriminator for 'mint' instruction
-      const mintDiscriminator = new Uint8Array([51, 57, 225, 47, 182, 146, 137, 166]);
+      // Derive minter ATA
+      const minterAta = getAssociatedTokenAddressSync(nftMint, wallet.publicKey);
 
-      // Mint instruction — contract creates ATA via CPI if needed
+      // Build Anchor discriminator for mint_phoenix
+      const discriminator = Buffer.from([208, 178, 215, 136, 161, 240, 220, 24]);
+
+      // Build instruction data
+      const data = discriminator;
+
       const ix = new TransactionInstruction({
         keys: [
-          { pubkey: MINT_STATE_PDA, isSigner: false, isWritable: true },         // mint_state
-          { pubkey: mintRequestPDA, isSigner: false, isWritable: true },         // mint_request
-          { pubkey: nftMint, isSigner: true, isWritable: true },                 // nft_mint (keypair signer)
-          { pubkey: minterAta, isSigner: false, isWritable: true },               // minter_ata
-          { pubkey: wallet.publicKey, isSigner: true, isWritable: true },          // minter
-          { pubkey: RISE_RECEIVER, isSigner: false, isWritable: true },           // treasury
-          { pubkey: new PublicKey('SysvarC1ock11111111111111111111111111111111'), isSigner: false, isWritable: false }, // clock
-          { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },  // system_program
-          { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },       // token_program
-          { pubkey: ASSOCIATED_TOKEN_PROGRAM_ID, isSigner: false, isWritable: false }, // associated_token_program
+          { pubkey: MINT_STATE_PDA, isSigner: false, isWritable: true },
+          { pubkey: wallet.publicKey, isSigner: true, isWritable: true },
+          { pubkey: nftMint, isSigner: true, isWritable: true },
+          { pubkey: minterAta, isSigner: false, isWritable: true },
+          { pubkey: metadataPDA, isSigner: false, isWritable: true },
+          { pubkey: RISE_RECEIVER, isSigner: false, isWritable: true },
+          { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
+          { pubkey: ASSOCIATED_TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
+          { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
+          { pubkey: METADATA_PROGRAM_PUBKEY, isSigner: false, isWritable: false },
+          { pubkey: new PublicKey('SysvarRent111111111111111111111111111111111'), isSigner: false, isWritable: false },
         ],
         programId: RISE_PROGRAM,
-        data: mintDiscriminator,
+        data,
       });
 
-      // Create Metaplex metadata for the NFT so wallets can display it
-      const [metadataPDA] = PublicKey.findProgramAddressSync(
-        [Buffer.from('metadata'), METADATA_PROGRAM_ID.toBuffer(), nftMint.toBuffer()],
-        METADATA_PROGRAM_ID
-      );
-
-      const metadataIx = createCreateMetadataAccountV3Instruction(
-        {
-          metadata: metadataPDA,
-          mint: nftMint,
-          mintAuthority: wallet.publicKey,
-          payer: wallet.publicKey,
-          updateAuthority: wallet.publicKey,
-        },
-        {
-          createMetadataAccountArgsV3: {
-            data: {
-              name: `RISE Phoenix #${mintNumber + 1}`,
-              symbol: 'RISE',
-              uri: 'https://rise-phoenix-x1.vercel.app/api/metadata/' + mintNumber,
-              sellerFeeBasisPoints: 500,
-              creators: [
-                {
-                  address: wallet.publicKey,
-                  verified: false,
-                  share: 100,
-                },
-              ],
-              collection: null,
-              uses: null,
-            },
-            isMutable: true,
-            collectionDetails: null,
-          },
-        }
-      );
-
-      const tx = new Transaction().add(ix, metadataIx);
+      const tx = new Transaction().add(ix);
       const { blockhash } = await connection.getLatestBlockhash();
       tx.recentBlockhash = blockhash;
       tx.feePayer = wallet.publicKey;
-      tx.partialSign(nftMintKeypair); // NFT mint keypair is a signer
+      tx.partialSign(nftMintKeypair);
       const signed = await wallet.signTransaction(tx);
       const sig = await connection.sendRawTransaction(signed.serialize());
       await connection.confirmTransaction(sig, 'confirmed');

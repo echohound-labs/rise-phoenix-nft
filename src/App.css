@@ -98,7 +98,7 @@ a{color:var(--accent);text-decoration:none}
 .buyback-arrow{font-size:1.5rem;color:var(--accent)}
 
 /* Footer */
-footer{padding:2rem;text-align:center;border-top:1px solid var(--border)}
+footer{padding:2rem;text-align:center;border-top:1px solid var(--border);background:#0a0a0f}
 footer p{color:var(--text2);font-size:.85rem;margin-bottom:.5rem}
 .footer-disclaimer{font-size:.8rem!important;color:#8888aa!important;max-width:700px;margin:0 auto .75rem!important}
 .footer-disclaimer a{color:var(--accent2)}
