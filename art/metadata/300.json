@@ -1,37 +1,29 @@
 {
-  "name": "RISE Phoenix #300",
+  "name": "RISE Phoenix #301",
   "symbol": "RISE",
-  "description": "A rare RISE Phoenix \u2014 500 unique dark fantasy phoenixes rising from the flames on X1 Network.",
+  "description": "A unique RISE Phoenix \u2014 500 1-of-1 phoenixes rising from the flames on X1 Network. Every one is different.",
   "image": "ipfs://QmcvTZBbuMGxerh2FWUJfZ85soT2K6bZt65VWwWN6iHAog",
+  "external_url": "https://rise-phoenix-nft.vercel.app",
   "attributes": [
     {
-      "trait_type": "Background",
-      "value": "Cosmos"
+      "trait_type": "Tier",
+      "value": "Ember"
     },
     {
-      "trait_type": "Body",
-      "value": "Classic"
+      "trait_type": "Edition",
+      "value": "Series 1"
     },
     {
-      "trait_type": "Wings",
-      "value": "Folded"
-    },
-    {
-      "trait_type": "Fire Color",
-      "value": "Gold"
-    },
-    {
-      "trait_type": "Eyes",
-      "value": "Calm"
+      "trait_type": "Number",
+      "value": 301
     }
   ],
   "properties": {
     "category": "image",
-    "rarity": "ember",
     "files": [
       {
-        "uri": "300.png",
-        "type": "image/png"
+        "uri": "ipfs://QmcvTZBbuMGxerh2FWUJfZ85soT2K6bZt65VWwWN6iHAog",
+        "type": "image/jpeg"
       }
     ]
   }

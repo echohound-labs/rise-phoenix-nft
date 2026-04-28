@@ -1,37 +1,29 @@
 {
-  "name": "RISE Phoenix #267",
+  "name": "RISE Phoenix #268",
   "symbol": "RISE",
-  "description": "A epic RISE Phoenix \u2014 500 unique dark fantasy phoenixes rising from the flames on X1 Network.",
+  "description": "A unique RISE Phoenix \u2014 500 1-of-1 phoenixes rising from the flames on X1 Network. Every one is different.",
   "image": "ipfs://QmYYB4kkXKs7eDdqeydPVrgcNXsJyhQkKWPXtJ7KNKoaLd",
+  "external_url": "https://rise-phoenix-nft.vercel.app",
   "attributes": [
     {
-      "trait_type": "Background",
-      "value": "Storm"
+      "trait_type": "Tier",
+      "value": "Ember"
     },
     {
-      "trait_type": "Body",
-      "value": "Crystal"
+      "trait_type": "Edition",
+      "value": "Series 1"
     },
     {
-      "trait_type": "Wings",
-      "value": "Spread"
-    },
-    {
-      "trait_type": "Fire Color",
-      "value": "Blue"
-    },
-    {
-      "trait_type": "Eyes",
-      "value": "Calm"
+      "trait_type": "Number",
+      "value": 268
     }
   ],
   "properties": {
     "category": "image",
-    "rarity": "blaze",
     "files": [
       {
-        "uri": "267.png",
-        "type": "image/png"
+        "uri": "ipfs://QmYYB4kkXKs7eDdqeydPVrgcNXsJyhQkKWPXtJ7KNKoaLd",
+        "type": "image/jpeg"
       }
     ]
   }
