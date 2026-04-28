@@ -527,11 +527,11 @@ function App() {
               <p className="section-sub">Every phoenix is a 1-of-1 — but some burn brighter than others.</p>
               <div className="tier-cards">
                 <div className="tier-card tier-ember">
-                  <div className="tier-card-badge common">COMMON</div>
-                  <img src="/tiers/ember.jpg" alt="Ember Phoenix" className="tier-card-img" />
+                  <div className="tier-card-badge common">RARE</div>
+                  <img src="/ember-base.jpg" alt="Ember Phoenix" className="tier-card-img" />
                   <div className="tier-card-info">
                     <h3 style={{ color: '#ff6b35' }}>EMBER</h3>
-                    <p className="tier-card-desc">The spark that starts it all. Fiery orange phoenix, cosmic backdrop, clean metallic frame.</p>
+                    <p className="tier-card-desc">400 unique Fire Phoenixes. Each one burns a different color — from inferno red to acid green to deep violet. No two are alike.</p>
                     <div className="tier-card-stats">
                       <span>🔥 Common Tier</span>
                       <span>10 XNT</span>
@@ -540,10 +540,10 @@ function App() {
                 </div>
                 <div className="tier-card tier-blaze">
                   <div className="tier-card-badge rare">RARE</div>
-                  <img src="/tiers/blaze.jpg" alt="Blaze Phoenix" className="tier-card-img" />
+                  <img src="/blaze-base.jpg" alt="Blaze Phoenix" className="tier-card-img" />
                   <div className="tier-card-info">
                     <h3 style={{ color: '#8800ff' }}>BLAZE</h3>
-                    <p className="tier-card-desc">The flame intensifies. Enhanced effects, deeper cosmic palette, glowing circuit accents.</p>
+                    <p className="tier-card-desc">75 rare Storm Phoenixes cracking with electric energy. Blue lightning, steel frame, pure power.</p>
                     <div className="tier-card-stats">
                       <span>🔥 Rare Tier</span>
                       <span>10 XNT</span>
@@ -552,10 +552,10 @@ function App() {
                 </div>
                 <div className="tier-card tier-genesis">
                   <div className="tier-card-badge legendary">LEGENDARY</div>
-                  <img src="/tiers/genesis.jpg" alt="Genesis Phoenix" className="tier-card-img" />
+                  <img src="/genesis-base.jpg" alt="Genesis Phoenix" className="tier-card-img" />
                   <div className="tier-card-info">
                     <h3 style={{ color: '#ffdd00' }}>GENESIS</h3>
-                    <p className="tier-card-desc">The origin fire. Galaxy interior, holographic foil border, cosmic-tech fusion — the rarest phoenix of all.</p>
+                    <p className="tier-card-desc">Only 25 ever minted. Golden cosmic phoenix with holographic frame — the most sought after in the collection.</p>
                     <div className="tier-card-stats">
                       <span>🔥 Legendary Tier</span>
                       <span>10 XNT</span>
