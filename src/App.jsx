@@ -20,7 +20,7 @@ import {
   getAssociatedTokenAddressSync,
 } from '@solana/spl-token';
 import { createCreateMetadataAccountV3Instruction, PROGRAM_ID as METADATA_PROGRAM_ID } from '@metaplex-foundation/mpl-token-metadata';
-import { BackpackWalletAdapter } from '@solana/wallet-adapter-backpack';
+import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import './App.css';
 
@@ -465,7 +465,7 @@ function App() {
   const [agreed, setAgreed] = useState(false);
   const [page, setPage] = useState('mint');
 
-  const wallets = useMemo(() => [new BackpackWalletAdapter()], []);
+  const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
 
   const handleAgree = () => {
     setAgreed(true);
