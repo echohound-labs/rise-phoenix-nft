@@ -535,7 +535,7 @@ function App() {
                     <h3 style={{ color: '#ff6b35' }}>EMBER</h3>
                     <p className="tier-card-desc">400 unique Fire Phoenixes. Each one burns a different color — from inferno red to acid green to deep violet. No two are alike.</p>
                     <div className="tier-card-stats">
-                      <span>🔥 Common Tier</span>
+                      <span>🔥 Rare Tier</span>
                       <span>10 XNT</span>
                     </div>
                   </div>
@@ -559,7 +559,7 @@ function App() {
                     <h3 style={{ color: '#ffdd00' }}>GENESIS</h3>
                     <p className="tier-card-desc">Only 25 ever minted. Golden cosmic phoenix with holographic frame — the most sought after in the collection.</p>
                     <div className="tier-card-stats">
-                      <span>🔥 Legendary Tier</span>
+                      <span>✨ Legendary Tier</span>
                       <span>10 XNT</span>
                     </div>
                   </div>
@@ -633,7 +633,7 @@ function App() {
               <h2>Mint Your Phoenix — Series 1</h2>
               <p className="section-sub">10 XNT · 500 total · Every phoenix is 1-of-1 · Powered by Geiger Entropy ☢️</p>
               <div className="mint-card">
-                <img src="/nft/0.jpg" alt="RISE Phoenix" className="mint-hero-img" />
+                <img src="/nft/475.jpg" alt="RISE Phoenix" className="mint-hero-img" />
                 <div className="mint-info">
                   <div className="mint-specs">
                     <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">Series 1</span></div>
