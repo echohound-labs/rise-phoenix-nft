@@ -163,7 +163,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
   const [txSig, setTxSig] = useState(null);
   const [countdown, setCountdown] = useState(0);
 
-  const GEIGER_PROGRAM = new PublicKey('2dQf9uaCzXewrDNLttmtzQmc3SmqfAHz3qahKQjtGQyY');
+  const GEIGER_PROGRAM = new PublicKey('BxUNg2yo5371BQMZPkfcxdCptFRDHkhvEXNM1QNPBRYU');
   const METADATA_PROGRAM_PUBKEY = new PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
 
   const [oracleStatePDA] = PublicKey.findProgramAddressSync([Buffer.from('oracle_state')], GEIGER_PROGRAM);
