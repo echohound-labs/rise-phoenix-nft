@@ -328,7 +328,9 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       const txDetails = await connection.confirmTransaction(sig2, "confirmed");
       const tx = await connection.getTransaction(sig2, { maxSupportedTransactionVersion: 0 });
       // Parse MintEvent from base64-encoded "Program data" log
-      const eventLog = tx?.meta?.logMessages?.find(log => log.startsWith("Program data: "));
+      const logs = tx?.meta?.logMessages || [];
+      const riseProgIdx = logs.findLastIndex(l => l.includes("5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb") && l.includes("invoke"));
+      const eventLog = logs.slice(riseProgIdx).find(log => log.startsWith("Program data: "));
       let mintNumber = 0;
       if (eventLog) {
         const base64 = eventLog.replace("Program data: ", "");
