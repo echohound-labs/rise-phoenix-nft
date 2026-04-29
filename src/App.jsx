@@ -147,50 +147,125 @@ function MintReveal({ mintNumber, onClose, onViewGallery }) {
 function MintButton({ onMintSuccess, onViewGallery }) {
   const wallet = useWallet();
   const { connection } = useConnection();
-  const [loading, setLoading] = useState(false);
-  const [txSig, setTxSig] = useState(null);
+  const [step, setStep] = useState('idle'); // idle | requesting | waiting | fulfilling | done
   const [error, setError] = useState(null);
-  const [minted, setMinted] = useState(0);
   const [revealNumber, setRevealNumber] = useState(null);
+  const [txSig, setTxSig] = useState(null);
+  const [countdown, setCountdown] = useState(0);
+
+  const GEIGER_PROGRAM = new PublicKey('2dQf9uaCzXewrDNLttmtzQmc3SmqfAHz3qahKQjtGQyY');
+  const METADATA_PROGRAM_PUBKEY = new PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
+
+  const [oracleStatePDA] = PublicKey.findProgramAddressSync([Buffer.from('oracle_state')], GEIGER_PROGRAM);
+  const [entropyPoolPDA] = PublicKey.findProgramAddressSync([Buffer.from('entropy_pool')], GEIGER_PROGRAM);
+
+  const pollRandomness = useCallback(async (randomnessRequestPDA) => {
+    let attempts = 0;
+    const maxAttempts = 60; // 120 seconds max
+    setCountdown(120);
+    
+    const interval = setInterval(() => {
+      setCountdown(c => Math.max(0, c - 2));
+    }, 2000);
+
+    while (attempts < maxAttempts) {
+      await new Promise(r => setTimeout(r, 2000));
+      attempts++;
+      try {
+        const acc = await connection.getAccountInfo(randomnessRequestPDA);
+        if (!acc) continue;
+        const data = acc.data;
+        // offset 72 = discriminator(8) + requester(32) + user_seed(32)
+        const status = data[104];
+        if (status === 1) { // Fulfilled
+          clearInterval(interval);
+          return data.slice(72, 104); // result bytes
+        }
+      } catch(e) { /* keep polling */ }
+    }
+    clearInterval(interval);
+    throw new Error('Randomness timed out — try again');
+  }, [connection]);
 
   const mint = useCallback(async () => {
     if (!wallet.publicKey || !wallet.signTransaction) return;
-    setLoading(true);
     setError(null);
-    setTxSig(null);
-    try {
-      // Read total_minted from MintState
-      const mintStateAccount = await connection.getAccountInfo(MINT_STATE_PDA);
-      let mintNumber = 0;
-      if (mintStateAccount && mintStateAccount.data.length >= 8) {
-        const data = mintStateAccount.data;
-        mintNumber = data[8] | (data[9] << 8) | (data[10] << 16) | (data[11] << 24);
-      }
+    setRevealNumber(null);
 
-      // Generate new NFT mint keypair
+    try {
+      // ── STEP 1: Request Randomness ──
+      setStep('requesting');
+
+      const [pendingMintPDA] = PublicKey.findProgramAddressSync(
+        [Buffer.from('pending_mint'), wallet.publicKey.toBuffer()],
+        RISE_PROGRAM
+      );
+
+      // Derive randomness request PDA
+      const mintStateAccount = await connection.getAccountInfo(MINT_STATE_PDA);
+      const oracleAcc = await connection.getAccountInfo(oracleStatePDA);
+      // total_requests is at offset 8+4+32+8+8 = 60 in OracleState
+      const totalRequests = oracleAcc ? 
+        Number(oracleAcc.data.readBigUInt64LE(60)) : 0;
+
+      const [randomnessRequestPDA] = PublicKey.findProgramAddressSync(
+        [
+          Buffer.from('rand_request'),
+          wallet.publicKey.toBuffer(),
+          Buffer.from(new Uint8Array(new BigUint64Array([BigInt(totalRequests)]).buffer))
+        ],
+        GEIGER_PROGRAM
+      );
+
+      // request_mint discriminator
+      const requestDiscriminator = Buffer.from([130, 38, 27, 69, 46, 211, 135, 145]);
+
+      const requestIx = new TransactionInstruction({
+        keys: [
+          { pubkey: MINT_STATE_PDA, isSigner: false, isWritable: true },
+          { pubkey: wallet.publicKey, isSigner: true, isWritable: true },
+          { pubkey: pendingMintPDA, isSigner: false, isWritable: true },
+          { pubkey: oracleStatePDA, isSigner: false, isWritable: true },
+          { pubkey: entropyPoolPDA, isSigner: false, isWritable: false },
+          { pubkey: randomnessRequestPDA, isSigner: false, isWritable: true },
+          { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
+        ],
+        programId: RISE_PROGRAM,
+        data: requestDiscriminator,
+      });
+
+      const tx1 = new Transaction().add(requestIx);
+      const { blockhash: bh1 } = await connection.getLatestBlockhash();
+      tx1.recentBlockhash = bh1;
+      tx1.feePayer = wallet.publicKey;
+      const signed1 = await wallet.signTransaction(tx1);
+      const sig1 = await connection.sendRawTransaction(signed1.serialize());
+      await connection.confirmTransaction(sig1, 'confirmed');
+
+      // ── STEP 2: Wait for Geiger to fulfill ──
+      setStep('waiting');
+      const resultBytes = await pollRandomness(randomnessRequestPDA);
+
+      // ── STEP 3: Fulfill Mint ──
+      setStep('fulfilling');
+
       const nftMintKeypair = Keypair.generate();
       const nftMint = nftMintKeypair.publicKey;
-
-      // Derive metadata PDA
-      const METADATA_PROGRAM_PUBKEY = new PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
       const [metadataPDA] = PublicKey.findProgramAddressSync(
         [Buffer.from('metadata'), METADATA_PROGRAM_PUBKEY.toBuffer(), nftMint.toBuffer()],
         METADATA_PROGRAM_PUBKEY
       );
-
-      // Derive minter ATA
       const minterAta = getAssociatedTokenAddressSync(nftMint, wallet.publicKey);
 
-      // Build Anchor discriminator for mint_phoenix
-      const discriminator = Buffer.from([208, 178, 215, 136, 161, 240, 220, 24]);
+      // fulfill_mint discriminator  
+      const fulfillDiscriminator = Buffer.from([57, 64, 56, 56, 44, 114, 224, 165]);
 
-      // Build instruction data
-      const data = discriminator;
-
-      const ix = new TransactionInstruction({
+      const fulfillIx = new TransactionInstruction({
         keys: [
           { pubkey: MINT_STATE_PDA, isSigner: false, isWritable: true },
           { pubkey: wallet.publicKey, isSigner: true, isWritable: true },
+          { pubkey: pendingMintPDA, isSigner: false, isWritable: true },
+          { pubkey: randomnessRequestPDA, isSigner: false, isWritable: false },
           { pubkey: nftMint, isSigner: true, isWritable: true },
           { pubkey: minterAta, isSigner: false, isWritable: true },
           { pubkey: metadataPDA, isSigner: false, isWritable: true },
@@ -202,37 +277,91 @@ function MintButton({ onMintSuccess, onViewGallery }) {
           { pubkey: new PublicKey('SysvarRent111111111111111111111111111111111'), isSigner: false, isWritable: false },
         ],
         programId: RISE_PROGRAM,
-        data,
+        data: fulfillDiscriminator,
       });
 
-      const tx = new Transaction().add(ix);
-      const { blockhash } = await connection.getLatestBlockhash();
-      tx.recentBlockhash = blockhash;
-      tx.feePayer = wallet.publicKey;
-      tx.partialSign(nftMintKeypair);
-      const signed = await wallet.signTransaction(tx);
-      const sig = await connection.sendRawTransaction(signed.serialize());
-      await connection.confirmTransaction(sig, 'confirmed');
-      setTxSig(sig);
-      setMinted((m) => m + 1);
+      const tx2 = new Transaction().add(fulfillIx);
+      const { blockhash: bh2 } = await connection.getLatestBlockhash();
+      tx2.recentBlockhash = bh2;
+      tx2.feePayer = wallet.publicKey;
+      tx2.partialSign(nftMintKeypair);
+      const signed2 = await wallet.signTransaction(tx2);
+      const sig2 = await connection.sendRawTransaction(signed2.serialize());
+      await connection.confirmTransaction(sig2, 'confirmed');
+
+      // Get mint number from result bytes
+      const random_u32 = resultBytes[0] | (resultBytes[1] << 8) | (resultBytes[2] << 16) | (resultBytes[3] << 24);
+      const mintStateAcc = await connection.getAccountInfo(MINT_STATE_PDA);
+      const totalMinted = mintStateAcc.data[8] | (mintStateAcc.data[9] << 8) | (mintStateAcc.data[10] << 16) | (mintStateAcc.data[11] << 24);
+      const mintNumber = (totalMinted - 1 + (random_u32 % totalMinted)) % 500;
+
+      setTxSig(sig2);
       setRevealNumber(mintNumber);
+      setStep('done');
       if (onMintSuccess) onMintSuccess();
+
     } catch (e) {
       setError(e.message?.slice(0, 300) || 'Transaction failed');
-    } finally {
-      setLoading(false);
+      setStep('idle');
     }
-  }, [wallet, connection]);
+  }, [wallet, connection, pollRandomness]);
 
   if (!wallet.connected) return null;
 
+  const buttonLabel = {
+    idle: `🔥 Mint — ${MINT_PRICE} XNT`,
+    requesting: '☢️ Requesting Randomness...',
+    waiting: `⏳ Geiger Generating... ${countdown}s`,
+    fulfilling: '🔥 Minting Your Phoenix...',
+    done: '✅ Minted!',
+  }[step];
+
   return (
     <div className="mint-area">
-      <MintReveal mintNumber={revealNumber} onClose={() => setRevealNumber(null)} onViewGallery={onViewGallery} />
-      <button className="mint-btn" onClick={mint} disabled={loading}>
-        {loading ? '🔥 Minting...' : `🔥 Mint — ${MINT_PRICE} XNT`}
+      <MintReveal mintNumber={revealNumber} onClose={() => { setRevealNumber(null); setStep('idle'); }} onViewGallery={onViewGallery} />
+      
+      {(step === 'waiting' || step === 'requesting' || step === 'fulfilling') && (
+        <div className="geiger-waiting">
+          <div className="geiger-pulse">☢️</div>
+          <div className="geiger-steps">
+            <div className={`geiger-step ${step === 'requesting' ? 'active' : step !== 'idle' ? 'done' : ''}`}>
+              <span className="geiger-step-icon">1</span>
+              <span>Randomness Requested</span>
+            </div>
+            <div className="geiger-step-line" />
+            <div className={`geiger-step ${step === 'waiting' ? 'active' : step === 'fulfilling' || step === 'done' ? 'done' : ''}`}>
+              <span className="geiger-step-icon">2</span>
+              <span>☢️ Geiger Decay Event</span>
+            </div>
+            <div className="geiger-step-line" />
+            <div className={`geiger-step ${step === 'fulfilling' ? 'active' : step === 'done' ? 'done' : ''}`}>
+              <span className="geiger-step-icon">3</span>
+              <span>Quantum Reveal</span>
+            </div>
+          </div>
+          {step === 'waiting' && (
+            <>
+              <p style={{color:'var(--text2)', fontSize:'.9rem', margin:'.75rem 0 .25rem'}}>
+                Waiting for radioactive decay event on-chain...
+              </p>
+              <p className="geiger-countdown">{countdown}s</p>
+              <div className="geiger-bar"><div className="geiger-bar-fill" style={{width: `${((120-countdown)/120)*100}%`}}/></div>
+              <p style={{color:'var(--text2)', fontSize:'.75rem', marginTop:'.5rem', opacity:.6}}>
+                Your NFT number is being determined by physical quantum randomness — verifiable on-chain
+              </p>
+            </>
+          )}
+          {step === 'fulfilling' && (
+            <p style={{color:'var(--accent)', fontWeight:700, marginTop:'1rem'}}>🔥 Minting your phoenix...</p>
+          )}
+        </div>
+      )}
+
+      <button className="mint-btn" onClick={mint} disabled={step !== 'idle' && step !== 'done'}>
+        {buttonLabel}
       </button>
-      {txSig && !revealNumber && revealNumber !== 0 && (
+
+      {txSig && step === 'done' && (
         <p className="mint-success">
           ✅ Minted! Tx:{' '}
           <a href={`https://explorer.x1.xyz/tx/${txSig}`} target="_blank" rel="noopener noreferrer">
@@ -240,7 +369,6 @@ function MintButton({ onMintSuccess, onViewGallery }) {
           </a>
         </p>
       )}
-      {minted > 1 && <p className="mint-count">🔥 You've minted {minted} phoenixes</p>}
       {error && <p className="mint-error">❌ {error}</p>}
     </div>
   );

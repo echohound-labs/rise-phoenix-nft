@@ -7,64 +7,16 @@
   },
   "instructions": [
     {
-      "name": "initialize",
+      "name": "fulfill_mint",
       "discriminator": [
-        175,
-        175,
-        109,
-        31,
-        13,
-        152,
-        155,
-        237
-      ],
-      "accounts": [
-        {
-          "name": "mint_state",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  109,
-                  105,
-                  110,
-                  116,
-                  95,
-                  115,
-                  116,
-                  97,
-                  116,
-                  101
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "authority",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "system_program",
-          "address": "11111111111111111111111111111111"
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "mint_phoenix",
-      "discriminator": [
-        208,
-        178,
-        215,
-        136,
-        161,
-        240,
-        220,
-        24
+        57,
+        64,
+        56,
+        56,
+        44,
+        114,
+        224,
+        165
       ],
       "accounts": [
         {
@@ -94,6 +46,38 @@
           "name": "minter",
           "writable": true,
           "signer": true
+        },
+        {
+          "name": "pending_mint",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  101,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "minter"
+              }
+            ]
+          }
+        },
+        {
+          "name": "randomness_request"
         },
         {
           "name": "nft_mint",
@@ -221,6 +205,142 @@
         }
       ],
       "args": []
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "mint_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "request_mint",
+      "discriminator": [
+        130,
+        38,
+        27,
+        69,
+        46,
+        211,
+        135,
+        145
+      ],
+      "accounts": [
+        {
+          "name": "mint_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  116,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "minter",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pending_mint",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  101,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "minter"
+              }
+            ]
+          }
+        },
+        {
+          "name": "oracle_state",
+          "writable": true
+        },
+        {
+          "name": "entropy_pool"
+        },
+        {
+          "name": "randomness_request",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
     }
   ],
   "accounts": [
@@ -235,6 +355,19 @@
         57,
         22,
         117
+      ]
+    },
+    {
+      "name": "PendingMint",
+      "discriminator": [
+        49,
+        154,
+        10,
+        122,
+        115,
+        84,
+        32,
+        175
       ]
     }
   ],
@@ -258,6 +391,11 @@
       "code": 6000,
       "name": "SoldOut",
       "msg": "All 500 phoenixes have been minted"
+    },
+    {
+      "code": 6001,
+      "name": "RandomnessNotReady",
+      "msg": "Randomness not yet fulfilled by Geiger Oracle"
     }
   ],
   "types": [
@@ -297,6 +435,30 @@
           {
             "name": "bump",
             "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PendingMint",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "minter",
+            "type": "pubkey"
+          },
+          {
+            "name": "randomness_request",
+            "type": "pubkey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "slot_requested",
+            "type": "u64"
           }
         ]
       }

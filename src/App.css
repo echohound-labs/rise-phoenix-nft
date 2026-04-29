@@ -254,3 +254,17 @@ footer p{color:var(--text2);font-size:.85rem;margin-bottom:.5rem}
 .tier-prog-row span:last-child{min-width:55px;text-align:right}
 .tier-prog-bar{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
 .tier-prog-fill{height:100%;border-radius:4px;transition:width .5s ease}
+.geiger-waiting{text-align:center;padding:1.5rem;background:rgba(255,107,53,.05);border:1px solid rgba(255,107,53,.2);border-radius:12px;margin-bottom:1rem}
+.geiger-pulse{font-size:2.5rem;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.2)}}
+.geiger-countdown{font-size:1.5rem;font-weight:900;color:var(--accent);margin:.5rem 0}
+.geiger-bar{background:rgba(255,255,255,.08);border-radius:8px;height:8px;overflow:hidden;margin-top:.75rem}
+.geiger-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#ff8c42);border-radius:8px;transition:width 2s linear}
+.geiger-steps{display:flex;align-items:center;justify-content:center;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.geiger-step{display:flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;color:var(--text2);transition:color .3s}
+.geiger-step.active{color:var(--accent)}
+.geiger-step.done{color:#22c55e}
+.geiger-step-icon{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;flex-shrink:0}
+.geiger-step.active .geiger-step-icon{background:var(--accent);color:#fff}
+.geiger-step.done .geiger-step-icon{background:#22c55e;color:#fff}
+.geiger-step-line{width:20px;height:2px;background:rgba(255,255,255,.1);flex-shrink:0}
