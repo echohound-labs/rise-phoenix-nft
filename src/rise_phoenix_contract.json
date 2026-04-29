@@ -435,6 +435,15 @@
           {
             "name": "bump",
             "type": "u8"
+          },
+          {
+            "name": "minted_bitmap",
+            "type": {
+              "array": [
+                "u64",
+                8
+              ]
+            }
           }
         ]
       }
