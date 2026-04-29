@@ -1,5 +1,4 @@
 // RISE Phoenix NFT Metadata — Vercel API Route
-// Image CIDs from Lighthouse/IPFS — one per NFT
 const IMAGE_CIDS = [
   "QmaKeKBCULt7PoXdvwdmxKAiXy1S9GYUZTQM2vSodD8BY7",
   "QmdCFAuqDeKFXd3s7Yj9fHSCu5MtfdropKqxePYLJJrWbt",
@@ -543,9 +542,10 @@ export default function handler(req, res) {
     return res.status(404).json({ error: 'Invalid token ID' });
   }
 
-  const cid = IMAGE_CIDS[numId];
-  const imageUrl = `https://gateway.lighthouse.storage/ipfs/${cid}`;
   const palette = PALETTES[numId % PALETTES.length];
+  // Use Vercel CDN for reliable image serving
+  const imageUrl = `/nft/${numId}.jpg`;
+  const fullImageUrl = `https://rise-phoenix-nft.vercel.app/nft/${numId}.jpg`;
 
   let tier, tierDesc;
   if (numId < 400) {
@@ -563,7 +563,7 @@ export default function handler(req, res) {
     name: `RISE Phoenix #${numId + 1}`,
     symbol: 'RISE',
     description: `${tierDesc} Palette: ${palette.name}. Every phoenix is a 1-of-1 — same bird, different fire.`,
-    image: imageUrl,
+    image: fullImageUrl,
     external_url: 'https://rise-phoenix-nft.vercel.app',
     attributes: [
       { trait_type: 'Tier', value: tier },
@@ -576,7 +576,7 @@ export default function handler(req, res) {
     ],
     properties: {
       category: 'image',
-      files: [{ uri: imageUrl, type: 'image/jpeg' }],
+      files: [{ uri: fullImageUrl, type: 'image/jpeg' }],
       creators: [{ address: 'DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG', share: 100 }],
     },
   });

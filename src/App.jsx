@@ -100,6 +100,28 @@ const PALETTES = [
   { name: 'Teal Storm', accent: '#44ffcc' },
 ];
 
+
+function useMintStats() {
+  const { connection } = useConnection();
+  const [stats, setStats] = useState({ total: 0, ember: 0, blaze: 0, genesis: 0, loaded: false });
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const acc = await connection.getAccountInfo(MINT_STATE_PDA);
+        if (!acc || acc.data.length < 12) return;
+        const total = acc.data[8] | (acc.data[9] << 8) | (acc.data[10] << 16) | (acc.data[11] << 24);
+        const ember = Math.min(total, 400);
+        const blaze = Math.max(0, Math.min(total - 400, 75));
+        const genesis = Math.max(0, total - 475);
+        if (!cancelled) setStats({ total, ember, blaze, genesis, loaded: true });
+      } catch(e) {}
+    })();
+    return () => { cancelled = true; };
+  }, [connection]);
+  return stats;
+}
+
 function MintReveal({ mintNumber, onClose, onViewGallery }) {
   if (mintNumber === null) return null;
   const palette = PALETTES[mintNumber % PALETTES.length];
@@ -456,6 +478,44 @@ function AllGallery() {
   );
 }
 
+
+function MintStats() {
+  const stats = useMintStats();
+  const remaining = 500 - stats.total;
+  const emberLeft = 400 - stats.ember;
+  const blazeLeft = 75 - stats.blaze;
+  const genesisLeft = 25 - stats.genesis;
+  return (
+    <div className="mint-stats-block">
+      <div className="mint-specs">
+        <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">Series 1</span></div>
+        <div className="mint-spec"><span className="mint-spec-label">Minted</span><span className="mint-spec-value" style={{color:'var(--accent)'}}>{stats.loaded ? `${stats.total} / 500` : '...'}</span></div>
+        <div className="mint-spec"><span className="mint-spec-label">Price</span><span className="mint-spec-value">10 XNT</span></div>
+        <div className="mint-spec"><span className="mint-spec-label">Remaining</span><span className="mint-spec-value" style={{color:'#22c55e'}}>{stats.loaded ? remaining : '...'}</span></div>
+      </div>
+      {stats.loaded && (
+        <div className="tier-progress">
+          <div className="tier-prog-row">
+            <span style={{color:'#ff6b35'}}>🔥 Ember</span>
+            <div className="tier-prog-bar"><div className="tier-prog-fill" style={{width:`${(stats.ember/400)*100}%`, background:'#ff6b35'}}/></div>
+            <span style={{color:'#ff6b35'}}>{emberLeft} left</span>
+          </div>
+          <div className="tier-prog-row">
+            <span style={{color:'#8800ff'}}>⚡ Blaze</span>
+            <div className="tier-prog-bar"><div className="tier-prog-fill" style={{width:`${(stats.blaze/75)*100}%`, background:'#8800ff'}}/></div>
+            <span style={{color:'#8800ff'}}>{blazeLeft} left</span>
+          </div>
+          <div className="tier-prog-row">
+            <span style={{color:'#ffdd00'}}>✨ Genesis</span>
+            <div className="tier-prog-bar"><div className="tier-prog-fill" style={{width:`${(stats.genesis/25)*100}%`, background:'#ffdd00'}}/></div>
+            <span style={{color:'#ffdd00'}}>{genesisLeft} left</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function App() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [agreed, setAgreed] = useState(false);
@@ -612,12 +672,7 @@ function App() {
               <div className="mint-card">
                 <img src="/nft/475.jpg" alt="RISE Phoenix" className="mint-hero-img" />
                 <div className="mint-info">
-                  <div className="mint-specs">
-                    <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">Series 1</span></div>
-                    <div className="mint-spec"><span className="mint-spec-label">Supply</span><span className="mint-spec-value">500</span></div>
-                    <div className="mint-spec"><span className="mint-spec-label">Price</span><span className="mint-spec-value">10 XNT</span></div>
-                    <div className="mint-spec"><span className="mint-spec-label">Randomness</span><span className="mint-spec-value">☢️ Geiger Oracle</span></div>
-                  </div>
+                  <MintStats />
                   <ul className="mint-perks">
                     <li>Every phoenix is a 1-of-1 — 3 tiers, 500 unique color variants, zero duplicates</li>
                     <li>Mint order determined by quantum radioactive decay on-chain — verifiable, not manipulable</li>
