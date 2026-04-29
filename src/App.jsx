@@ -100,7 +100,7 @@ const PALETTES = [
   { name: 'Teal Storm', accent: '#44ffcc' },
 ];
 
-function MintReveal({ mintNumber, onClose }) {
+function MintReveal({ mintNumber, onClose, onViewGallery }) {
   if (mintNumber === null) return null;
   const palette = PALETTES[mintNumber % PALETTES.length];
   const IPFS_BASE = '/nft';
@@ -116,13 +116,13 @@ function MintReveal({ mintNumber, onClose }) {
           <span className="reveal-tier-name">{palette.name}</span> · <span>Unique 1-of-1</span>
         </div>
         <p className="reveal-desc" style={{ color: palette.accent }}>Same bird. Different fire. This phoenix is one of 500 — no two alike.</p>
-        <button className="reveal-close" onClick={onClose} style={{ background: palette.accent }}>🦅 View in Gallery</button>
+        <button className="reveal-close" onClick={() => { onClose(); onViewGallery && onViewGallery(); }} style={{ background: palette.accent }}>🦅 View in Gallery</button>
       </div>
     </div>
   );
 }
 
-function MintButton({ onMintSuccess }) {
+function MintButton({ onMintSuccess, onViewGallery }) {
   const wallet = useWallet();
   const { connection } = useConnection();
   const [loading, setLoading] = useState(false);
@@ -206,7 +206,7 @@ function MintButton({ onMintSuccess }) {
 
   return (
     <div className="mint-area">
-      <MintReveal mintNumber={revealNumber} onClose={() => setRevealNumber(null)} />
+      <MintReveal mintNumber={revealNumber} onClose={() => setRevealNumber(null)} onViewGallery={onViewGallery} />
       <button className="mint-btn" onClick={mint} disabled={loading}>
         {loading ? '🔥 Minting...' : `🔥 Mint — ${MINT_PRICE} XNT`}
       </button>
@@ -629,7 +629,7 @@ function App() {
                       <button className="disclaimer-btn" onClick={() => setShowDisclaimer(true)}>Read Disclaimer</button>
                     </div>
                   ) : (
-                    <MintButton onMintSuccess={() => {}} />
+                    <MintButton onMintSuccess={() => {}} onViewGallery={() => setPage('gallery')} />
                   )}
                 </div>
               </div>
