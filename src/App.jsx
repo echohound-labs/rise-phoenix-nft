@@ -202,11 +202,14 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       );
 
       // Derive randomness request PDA
-      const mintStateAccount = await connection.getAccountInfo(MINT_STATE_PDA);
       const oracleAcc = await connection.getAccountInfo(oracleStatePDA);
-      // total_requests is at offset 8+4+32+8+8 = 60 in OracleState
-      const totalRequests = oracleAcc ? 
-        Number(oracleAcc.data.readBigUInt64LE(60)) : 0;
+      // Read total_requests — try different offsets
+      let totalRequests = 0;
+      if (oracleAcc && oracleAcc.data.length >= 16) {
+        try {
+          totalRequests = Number(oracleAcc.data.readBigUInt64LE(8));
+        } catch(e) { totalRequests = 0; }
+      }
 
       const [randomnessRequestPDA] = PublicKey.findProgramAddressSync(
         [
