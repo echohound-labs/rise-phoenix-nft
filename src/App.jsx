@@ -326,7 +326,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       setError(e.message?.slice(0, 300) || 'Transaction failed');
       setStep('idle');
     }
-  }, [wallet, connection, pollRandomness]);
+  }, [wallet, connection]);
 
   if (!wallet.connected) return null;
 
