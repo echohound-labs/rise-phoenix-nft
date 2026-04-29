@@ -292,13 +292,10 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       tx2.partialSign(nftMintKeypair);
       const signed2 = await wallet.signTransaction(tx2);
       const sig2 = await connection.sendRawTransaction(signed2.serialize());
-      await connection.confirmTransaction(sig2, 'confirmed');
-
-      // Get mint number from result bytes
-      const random_u32 = resultBytes[0] | (resultBytes[1] << 8) | (resultBytes[2] << 16) | (resultBytes[3] << 24);
-      const mintStateAcc = await connection.getAccountInfo(MINT_STATE_PDA);
-      const totalMinted = mintStateAcc.data[8] | (mintStateAcc.data[9] << 8) | (mintStateAcc.data[10] << 16) | (mintStateAcc.data[11] << 24);
-      const mintNumber = (totalMinted - 1 + (random_u32 % totalMinted)) % 500;
+      const txDetails = await connection.confirmTransaction(sig2, "confirmed");
+      const tx = await connection.getTransaction(sig2, { maxSupportedTransactionVersion: 0 });
+      const eventLog = tx?.meta?.logMessages?.find(log => log.includes("MintEvent"));
+      const mintNumber = eventLog ? parseInt(eventLog.match(/"mint_number":(\d+)/)?.[1] || "0") : 0;
 
       setTxSig(sig2);
       setRevealNumber(mintNumber);
