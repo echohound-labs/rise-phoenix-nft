@@ -251,12 +251,25 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       const sig1 = await connection.sendRawTransaction(signed1.serialize());
       await connection.confirmTransaction(sig1, 'confirmed');
 
-      // ── STEP 2: Wait for entropy, then fulfill ──
+      // ── STEP 2: Poll until randomness is fulfilled ──
       setStep('waiting');
       setCountdown(85);
-      // Wait ~85s for daemon's commit-reveal cycle to complete
       const interval = setInterval(() => setCountdown(c => Math.max(0, c - 1)), 1000);
-      await new Promise(r => setTimeout(r, 85000));
+      // Poll every 3s until status byte = 1 (fulfilled), max 120s
+      await new Promise((resolve) => {
+        let elapsed = 0;
+        const poll = setInterval(async () => {
+          elapsed += 3;
+          try {
+            const reqAcc = await connection.getAccountInfo(randomnessRequestPDA);
+            if (reqAcc && reqAcc.data[104] === 1) {
+              clearInterval(poll);
+              resolve();
+            }
+          } catch(e) {}
+          if (elapsed >= 120) { clearInterval(poll); resolve(); }
+        }, 3000);
+      });
       clearInterval(interval);
       
       // Call Geiger's fulfillRandomness
