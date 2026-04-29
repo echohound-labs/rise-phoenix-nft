@@ -389,7 +389,7 @@ function AllGallery() {
     (async () => {
       try {
         const mintStateAccount = await connection.getAccountInfo(MINT_STATE_PDA);
-        if (!mintStateAccount || mintStateAccount.data.length < 85) {
+        if (!mintStateAccount || mintStateAccount.data.length < 12) {
           setLoading(false);
           return;
         }
