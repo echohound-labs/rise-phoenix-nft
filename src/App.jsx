@@ -169,33 +169,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
   const [oracleStatePDA] = PublicKey.findProgramAddressSync([Buffer.from('oracle_state')], GEIGER_PROGRAM);
   const [entropyPoolPDA] = PublicKey.findProgramAddressSync([Buffer.from('entropy_pool')], GEIGER_PROGRAM);
 
-  const pollRandomness = useCallback(async (randomnessRequestPDA) => {
-    let attempts = 0;
-    const maxAttempts = 60; // 120 seconds max
-    setCountdown(120);
-    
-    const interval = setInterval(() => {
-      setCountdown(c => Math.max(0, c - 2));
-    }, 2000);
-
-    while (attempts < maxAttempts) {
-      await new Promise(r => setTimeout(r, 2000));
-      attempts++;
-      try {
-        const acc = await connection.getAccountInfo(randomnessRequestPDA);
-        if (!acc) continue;
-        const data = acc.data;
-        // offset 72 = discriminator(8) + requester(32) + user_seed(32)
-        const status = data[104];
-        if (status === 1) { // Fulfilled
-          clearInterval(interval);
-          return data.slice(72, 104); // result bytes
-        }
-      } catch(e) { /* keep polling */ }
-    }
-    clearInterval(interval);
-    throw new Error('Randomness timed out — try again');
-  }, [connection]);
+  
 
   const mint = useCallback(async () => {
     if (!wallet.publicKey || !wallet.signTransaction) return;
@@ -256,9 +230,38 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       const sig1 = await connection.sendRawTransaction(signed1.serialize());
       await connection.confirmTransaction(sig1, 'confirmed');
 
-      // ── STEP 2: Wait for Geiger to fulfill ──
+      // ── STEP 2: Wait for entropy, then fulfill ──
       setStep('waiting');
-      const resultBytes = await pollRandomness(randomnessRequestPDA);
+      setCountdown(85);
+      // Wait ~85s for daemon's commit-reveal cycle to complete
+      const interval = setInterval(() => setCountdown(c => Math.max(0, c - 1)), 1000);
+      await new Promise(r => setTimeout(r, 85000));
+      clearInterval(interval);
+      
+      // Call Geiger's fulfillRandomness
+      const fulfillDiscrim = Buffer.from([235, 105, 140, 46, 40, 88, 117, 2]);
+      const fulfillGeigerIx = new TransactionInstruction({
+        keys: [
+          { pubkey: oracleStatePDA, isSigner: false, isWritable: true },
+          { pubkey: entropyPoolPDA, isSigner: false, isWritable: false },
+          { pubkey: randomnessRequestPDA, isSigner: false, isWritable: true },
+          { pubkey: wallet.publicKey, isSigner: false, isWritable: false },
+          { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
+        ],
+        programId: GEIGER_PROGRAM,
+        data: fulfillDiscrim,
+      });
+      const txFulfill = new Transaction().add(fulfillGeigerIx);
+      const { blockhash: bhF } = await connection.getLatestBlockhash();
+      txFulfill.recentBlockhash = bhF;
+      txFulfill.feePayer = wallet.publicKey;
+      const signedF = await wallet.signTransaction(txFulfill);
+      const sigF = await connection.sendRawTransaction(signedF.serialize());
+      await connection.confirmTransaction(sigF, 'confirmed');
+      
+      // Read result
+      const reqData = await connection.getAccountInfo(randomnessRequestPDA);
+      const resultBytes = reqData.data.slice(72, 104);
 
       // ── STEP 3: Fulfill Mint ──
       setStep('fulfilling');
@@ -364,7 +367,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
                 Waiting for radioactive decay event on-chain...
               </p>
               <p className="geiger-countdown">{countdown}s</p>
-              <div className="geiger-bar"><div className="geiger-bar-fill" style={{width: `${((120-countdown)/120)*100}%`}}/></div>
+              <div className="geiger-bar"><div className="geiger-bar-fill" style={{width: `${((85-countdown)/85)*100}%`}}/></div>
               <p style={{color:'var(--text2)', fontSize:'.75rem', marginTop:'.5rem', opacity:.6}}>
                 Your NFT number is being determined by physical quantum randomness — verifiable on-chain
               </p>
