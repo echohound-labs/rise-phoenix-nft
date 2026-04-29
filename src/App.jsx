@@ -49,13 +49,13 @@ const CONFIG = {
   testnet: {
     rpc: 'https://rpc.testnet.x1.xyz',
     program: '5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb',
-    mintState: 'GyBELkR4XF4o297rGyZXgk1ESjPfVzLkWT4tuLJ8VVJk',
+    mintState: '7m8h2Rf5w4UzPqS9EVMVkHwaKhhfvrJiwoc8Qvapkxoh',
     treasury: 'DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG',
   },
   mainnet: {
     rpc: 'https://rpc.mainnet.x1.xyz',
     program: '5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb',
-    mintState: 'GyBELkR4XF4o297rGyZXgk1ESjPfVzLkWT4tuLJ8VVJk',
+    mintState: '7m8h2Rf5w4UzPqS9EVMVkHwaKhhfvrJiwoc8Qvapkxoh',
     treasury: 'DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG',
   },
 };
