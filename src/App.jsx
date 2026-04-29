@@ -204,6 +204,27 @@ function MintButton({ onMintSuccess, onViewGallery }) {
         GEIGER_PROGRAM
       );
 
+      // Check for stuck pending mint and close it first
+      const existingPending = await connection.getAccountInfo(pendingMintPDA);
+      if (existingPending) {
+        const closeDiscriminator = Buffer.from([128, 201, 19, 78, 249, 231, 10, 165]);
+        const closeIx = new TransactionInstruction({
+          keys: [
+            { pubkey: pendingMintPDA, isSigner: false, isWritable: true },
+            { pubkey: wallet.publicKey, isSigner: true, isWritable: true },
+          ],
+          programId: RISE_PROGRAM,
+          data: closeDiscriminator,
+        });
+        const closeTx = new Transaction().add(closeIx);
+        const { blockhash: bhClose } = await connection.getLatestBlockhash();
+        closeTx.recentBlockhash = bhClose;
+        closeTx.feePayer = wallet.publicKey;
+        const signedClose = await wallet.signTransaction(closeTx);
+        const sigClose = await connection.sendRawTransaction(signedClose.serialize());
+        await connection.confirmTransaction(sigClose, 'confirmed');
+      }
+
       // request_mint discriminator
       const requestDiscriminator = Buffer.from([130, 38, 27, 69, 46, 211, 135, 145]);
 
