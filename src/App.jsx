@@ -133,8 +133,8 @@ function MintReveal({ mintNumber, onClose, onViewGallery }) {
     <div className="reveal-overlay" onClick={onClose}>
       <div className="reveal-modal" onClick={(e) => e.stopPropagation()} style={{ boxShadow: `0 0 80px ${palette.accent}80, 0 0 160px ${palette.accent}33` }}>
         <div className="reveal-badge" style={{ color: palette.accent, borderColor: palette.accent }}>1 OF 1</div>
-        <h2 className="reveal-title" style={{ color: palette.accent }}>RISE Phoenix #{mintNumber + 1}</h2>
-        <img src={imgUrl} alt={`Phoenix #${mintNumber + 1}`} className="reveal-img" />
+        <h2 className="reveal-title" style={{ color: palette.accent }}>RISE Phoenix #{mintNumber}</h2>
+        <img src={imgUrl} alt={`Phoenix #${mintNumber}`} className="reveal-img" />
         <div className="reveal-tier-info" style={{ color: palette.accent }}>
           <span className="reveal-tier-name">{palette.name}</span> · <span>Unique 1-of-1</span>
         </div>
@@ -296,6 +296,8 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       const tx = await connection.getTransaction(sig2, { maxSupportedTransactionVersion: 0 });
       const eventLog = tx?.meta?.logMessages?.find(log => log.includes("MintEvent"));
       const mintNumber = eventLog ? parseInt(eventLog.match(/"mint_number":(\d+)/)?.[1] || "0") : 0;
+      console.log("Event log:", eventLog);
+      console.log("Parsed mintNumber:", mintNumber);
 
       setTxSig(sig2);
       setRevealNumber(mintNumber);
