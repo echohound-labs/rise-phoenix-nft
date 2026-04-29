@@ -294,8 +294,14 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       const sig2 = await connection.sendRawTransaction(signed2.serialize());
       const txDetails = await connection.confirmTransaction(sig2, "confirmed");
       const tx = await connection.getTransaction(sig2, { maxSupportedTransactionVersion: 0 });
-      const eventLog = tx?.meta?.logMessages?.find(log => log.includes("MintEvent"));
-      const mintNumber = eventLog ? parseInt(eventLog.match(/"mint_number":(\d+)/)?.[1] || "0") : 0;
+      // Parse MintEvent from base64-encoded "Program data" log
+      const eventLog = tx?.meta?.logMessages?.find(log => log.startsWith("Program data: "));
+      let mintNumber = 0;
+      if (eventLog) {
+        const base64 = eventLog.replace("Program data: ", "");
+        const decoded = Buffer.from(base64, 'base64');
+        mintNumber = decoded.readUInt32LE(8); // Skip 8-byte discriminator, read u32
+      }
       console.log("Event log:", eventLog);
       console.log("Parsed mintNumber:", mintNumber);
 
