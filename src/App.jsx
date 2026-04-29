@@ -112,9 +112,18 @@ function useMintStats() {
         const acc = await connection.getAccountInfo(MINT_STATE_PDA);
         if (!acc || acc.data.length < 12) return;
         const total = acc.data[8] | (acc.data[9] << 8) | (acc.data[10] << 16) | (acc.data[11] << 24);
-        const ember = Math.min(total, 400);
-        const blaze = Math.max(0, Math.min(total - 400, 75));
-        const genesis = Math.max(0, total - 475);
+        // Count actual minted tiers from bitmap (offset 45-108, 64 bytes)
+        const bitmap = acc.data.slice(45, 109);
+        let ember = 0, blaze = 0, genesis = 0;
+        for (let i = 0; i < 500; i++) {
+          const byteIdx = Math.floor(i / 8);
+          const bitIdx = i % 8;
+          if (bitmap[byteIdx] & (1 << bitIdx)) {
+            if (i < 400) ember++;
+            else if (i < 475) blaze++;
+            else genesis++;
+          }
+        }
         if (!cancelled) setStats({ total, ember, blaze, genesis, loaded: true });
       } catch(e) {}
     })();
@@ -463,9 +472,10 @@ function NFTGallery() {
             if (!metaAccount) continue;
             // Parse metadata — skip first 8 bytes (discriminator) + 4 bytes (key length) + key
             const data = metaAccount.data;
-            let offset = 65; // skip to name field
+            let offset = 65; // skip to name field (after key)
             const nameLen = data.readUInt32LE(offset); offset += 4;
-            const name = data.slice(offset, offset + nameLen).toString('utf8').replace(/\0+$/, ''); offset += nameLen;
+            const nameBytes = data.slice(offset, offset + nameLen);
+            const name = String.fromCharCode(...nameBytes).split('\0')[0]; offset += nameLen;
             const symbolLen = data.readUInt32LE(offset); offset += 4;
             const symbol = data.slice(offset, offset + symbolLen).toString('utf8').replace(/\0+$/, ''); offset += symbolLen;
             const uriLen = data.readUInt32LE(offset); offset += 4;
@@ -480,7 +490,7 @@ function NFTGallery() {
               } catch (e) { /* use defaults */ }
               // Extract number from name for palette
               const numMatch = name.match(/#(\d+)/);
-              const numId = numMatch ? parseInt(numMatch[1]) - 1 : 0;
+              const numId = numMatch ? parseInt(numMatch[1]) : 0;
               const tierName = numId < 400 ? "Ember" : numId < 475 ? "Blaze" : "Genesis";
               const palette = PALETTES[numId % PALETTES.length];
               phoenixNfts.push({
