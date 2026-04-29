@@ -13,6 +13,7 @@ import {
   LAMPORTS_PER_SOL,
   PublicKey,
   Keypair,
+  ComputeBudgetProgram,
 } from '@solana/web3.js';
 import {
   TOKEN_PROGRAM_ID,
