@@ -394,7 +394,7 @@ function AllGallery() {
           return;
         }
         const dv = new DataView(mintStateAccount.data.buffer || mintStateAccount.data);
-        const totalMinted = dv.getUint32(84, true);
+        const totalMinted = dv.getUint32(8, true);
         if (totalMinted === 0) { if (!cancelled) { setLoading(false); setNfts([]); } return; }
 
         const items = [];
