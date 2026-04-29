@@ -207,7 +207,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       let totalRequests = 0;
       if (oracleAcc && oracleAcc.data.length >= 16) {
         try {
-          totalRequests = Number(oracleAcc.data.readBigUInt64LE(8));
+          totalRequests = Number(oracleAcc.data.readBigUInt64LE(48));
         } catch(e) { totalRequests = 0; }
       }
 
