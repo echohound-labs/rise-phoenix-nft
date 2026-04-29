@@ -232,6 +232,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
           { pubkey: entropyPoolPDA, isSigner: false, isWritable: false },
           { pubkey: randomnessRequestPDA, isSigner: false, isWritable: true },
           { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
+          { pubkey: GEIGER_PROGRAM, isSigner: false, isWritable: false },
         ],
         programId: RISE_PROGRAM,
         data: requestDiscriminator,
