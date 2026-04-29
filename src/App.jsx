@@ -251,7 +251,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
         programId: GEIGER_PROGRAM,
         data: fulfillDiscrim,
       });
-      const txFulfill = new Transaction().add(fulfillGeigerIx);
+      const txFulfill = new Transaction().add(ComputeBudgetProgram.setComputeUnitLimit({ units: 1400000 })).add(fulfillGeigerIx);
       const { blockhash: bhF } = await connection.getLatestBlockhash();
       txFulfill.recentBlockhash = bhF;
       txFulfill.feePayer = wallet.publicKey;
@@ -297,7 +297,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
         data: fulfillDiscriminator,
       });
 
-      const tx2 = new Transaction().add(fulfillIx);
+      const tx2 = new Transaction().add(ComputeBudgetProgram.setComputeUnitLimit({ units: 400000 })).add(fulfillIx);
       const { blockhash: bh2 } = await connection.getLatestBlockhash();
       tx2.recentBlockhash = bh2;
       tx2.feePayer = wallet.publicKey;
