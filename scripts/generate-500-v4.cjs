@@ -17,10 +17,8 @@ const GENESIS_BASE = path.join(__dirname, '..', 'public', 'genesis-base.jpg');
 function getTransform(id) {
   if (id < 400) {
     // Ember: full 360 degree hue rotation for maximum variety
-    const huePos = id % 20;
-    const satPos = Math.floor(id / 20);
-    const hueShift = huePos * 18;          // 0, 18, 36... full 360 degrees
-    const satBoost = 0.8 + satPos * 0.03;
+    const hueShift = (id * 19) % 360;
+    const satBoost = 0.8 + (id % 20) * 0.01;
     const bright = 0.85 + (id % 7) * 0.02;
     return { hueShift, satBoost, bright };
   }
