@@ -272,26 +272,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       });
       clearInterval(interval);
       
-      // Call Geiger's fulfillRandomness
-      const fulfillDiscrim = Buffer.from([235, 105, 140, 46, 40, 88, 117, 2]);
-      const fulfillGeigerIx = new TransactionInstruction({
-        keys: [
-          { pubkey: oracleStatePDA, isSigner: false, isWritable: true },
-          { pubkey: entropyPoolPDA, isSigner: false, isWritable: false },
-          { pubkey: randomnessRequestPDA, isSigner: false, isWritable: true },
-          { pubkey: wallet.publicKey, isSigner: false, isWritable: false },
-          { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
-        ],
-        programId: GEIGER_PROGRAM,
-        data: fulfillDiscrim,
-      });
-      const txFulfill = new Transaction().add(ComputeBudgetProgram.setComputeUnitLimit({ units: 1400000 })).add(fulfillGeigerIx);
-      const { blockhash: bhF } = await connection.getLatestBlockhash();
-      txFulfill.recentBlockhash = bhF;
-      txFulfill.feePayer = wallet.publicKey;
-      const signedF = await wallet.signTransaction(txFulfill);
-      const sigF = await connection.sendRawTransaction(signedF.serialize());
-      await connection.confirmTransaction(sigF, 'confirmed');
+      // Daemon auto-fulfills randomness — no user tx needed
       
       // Read result
       const reqData = await connection.getAccountInfo(randomnessRequestPDA);
