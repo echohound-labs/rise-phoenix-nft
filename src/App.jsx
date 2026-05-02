@@ -537,18 +537,19 @@ function NFTGallery() {
             const uriLen = data.readUInt32LE(offset); offset += 4;
             const uri = data.slice(offset, offset + uriLen).toString('utf8').replace(/\0+$/, '');
             if (symbol === 'RISE' || name.startsWith('RISE Phoenix')) {
+              // Extract number from name for palette
+              const numMatch = name.match(/#(\d+)/);
+              const numId = numMatch ? parseInt(numMatch[1]) : 0;
+              const numIdx = numId - 1;
+              const tierName = numIdx < 400 ? "Ember" : numIdx < 475 ? "Blaze" : "Genesis";
+              const palette = PALETTES[NFT_PALETTE_MAP[numIdx] ?? numIdx % PALETTES.length];
               // Try to fetch JSON metadata for image
-              let image = phoenixImg(numId - 1);
+              let image = phoenixImg(numIdx);
               try {
                 const res = await fetch(uri);
                 const json = await res.json();
                 if (json.image) image = json.image;
               } catch (e) { /* use defaults */ }
-              // Extract number from name for palette
-              const numMatch = name.match(/#(\d+)/);
-              const numId = numMatch ? parseInt(numMatch[1]) : 0;
-              const tierName = numIdx < 400 ? "Ember" : numIdx < 475 ? "Blaze" : "Genesis";
-              const numIdx = numId - 1; const palette = PALETTES[NFT_PALETTE_MAP[numIdx] ?? numIdx % PALETTES.length];
               phoenixNfts.push({
                 mint: mint.toBase58(),
                 name,
