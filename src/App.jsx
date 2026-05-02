@@ -599,13 +599,9 @@ function NFTGallery() {
 }
 
 function phoenixImg(id) {
-  const [imageCids, setImageCids] = React.useState({});
-  const [metaCids, setMetaCids] = React.useState({});
-  React.useEffect(() => {
-    fetch('/image-cids.json').then(r=>r.json()).then(setImageCids);
-    fetch('/metadata-cids.json').then(r=>r.json()).then(setMetaCids);
-  }, []);
-  return imageCids[id] ? ipfsUrl(imageCids[id]) : `/nft/${id}.jpg`;
+  const cids = window.__imageCids__ || {};
+  const cid = cids[String(id)];
+  return cid ? `https://w3s.link/ipfs/${cid}` : `/nft/${id}.jpg`;
 }
 
 function AllGallery() {
@@ -726,6 +722,10 @@ function MintStats() {
 
 function App() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [imageCids, setImageCids] = useState({});
+  React.useEffect(() => {
+    fetch('/image-cids.json').then(r=>r.json()).then(d => { window.__imageCids__ = d; setImageCids(d); });
+  }, []);
   const [agreed, setAgreed] = useState(false);
   const [page, setPage] = useState('mint');
 
@@ -878,7 +878,7 @@ function App() {
               <h2>Mint Your Phoenix — Series 1</h2>
               <p className="section-sub">10 XNT · 500 total · Every phoenix is 1-of-1 · Powered by Geiger Entropy ☢️</p>
               <div className="mint-card">
-                <img src={imageCids["475"] ? ipfsUrl(imageCids["475"]) : "/nft/475.jpg"} alt="RISE Phoenix" className="mint-hero-img" />
+                <img src={phoenixImg(475)} alt="RISE Phoenix" className="mint-hero-img" />
                 <div className="mint-info">
                   <MintStats />
                   <ul className="mint-perks">
