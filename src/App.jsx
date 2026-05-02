@@ -625,15 +625,23 @@ function AllGallery() {
         const totalMinted = dv.getUint32(8, true);
         if (totalMinted === 0) { if (!cancelled) { setLoading(false); setNfts([]); } return; }
 
+        // Read bitmap to find actually minted NFT IDs
+        const bitmap = mintStateAccount.data.slice(45, 109);
         const items = [];
-        for (let i = 0; i < totalMinted; i++) {
-          const palette = PALETTES[i % PALETTES.length];
-          items.push({
-            id: i,
-            number: i + 1,
-            palette,
-            image: phoenixImg(i),
-          });
+        for (let i = 0; i < 500; i++) {
+          const byteIdx = Math.floor(i / 8);
+          const bitIdx = i % 8;
+          if (bitmap[byteIdx] & (1 << bitIdx)) {
+            const palette = PALETTES[NFT_PALETTE_MAP[i] ?? i % PALETTES.length];
+            const tierName = i < 400 ? "Ember" : i < 475 ? "Blaze" : "Genesis";
+            items.push({
+              id: i,
+              number: i + 1,
+              palette,
+              tierName,
+              image: phoenixImg(i),
+            });
+          }
         }
         if (!cancelled) setNfts(items);
       } catch (e) {
