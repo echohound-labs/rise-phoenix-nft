@@ -1,8 +1,8 @@
 {
-  "framework": "vite",
-  "buildCommand": "npx vite build",
-  "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/metadata/:id", "destination": "/api/metadata/:id" }
+    {
+      "source": "/api/metadata/:id",
+      "destination": "/metadata/:id-v3.json"
+    }
   ]
 }
