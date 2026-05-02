@@ -163,7 +163,13 @@ function useMintStats() {
 function MintReveal({ mintNumber, onClose, onViewGallery }) {
   if (mintNumber === null) return null;
   const palette = PALETTES[NFT_PALETTE_MAP[mintNumber] ?? mintNumber % PALETTES.length];
-  const IPFS_BASE = '/nft';
+  const IPFS_GATEWAYS = [
+    'https://w3s.link/ipfs',
+    'https://cloudflare-ipfs.com/ipfs',
+    'https://nftstorage.link/ipfs',
+    'https://gateway.lighthouse.storage/ipfs',
+  ];
+  const ipfsUrl = (cid) => `${IPFS_GATEWAYS[0]}/${cid}`;
   const imgUrl = `${IPFS_BASE}/${mintNumber}.jpg`;
 
   return (
@@ -530,7 +536,7 @@ function NFTGallery() {
             const uri = data.slice(offset, offset + uriLen).toString('utf8').replace(/\0+$/, '');
             if (symbol === 'RISE' || name.startsWith('RISE Phoenix')) {
               // Try to fetch JSON metadata for image
-              let image = `${'/nft'}/0.jpg`;
+              let image = `/nft/0.jpg`;
               try {
                 const res = await fetch(uri);
                 const json = await res.json();
@@ -593,7 +599,13 @@ function NFTGallery() {
 }
 
 function phoenixImg(id) {
-  return `/nft/${id}.jpg`;
+  const [imageCids, setImageCids] = React.useState({});
+  const [metaCids, setMetaCids] = React.useState({});
+  React.useEffect(() => {
+    fetch('/image-cids.json').then(r=>r.json()).then(setImageCids);
+    fetch('/metadata-cids.json').then(r=>r.json()).then(setMetaCids);
+  }, []);
+  return imageCids[id] ? ipfsUrl(imageCids[id]) : `/nft/${id}.jpg`;
 }
 
 function AllGallery() {
@@ -866,7 +878,7 @@ function App() {
               <h2>Mint Your Phoenix — Series 1</h2>
               <p className="section-sub">10 XNT · 500 total · Every phoenix is 1-of-1 · Powered by Geiger Entropy ☢️</p>
               <div className="mint-card">
-                <img src="/nft/475.jpg" alt="RISE Phoenix" className="mint-hero-img" />
+                <img src={imageCids["475"] ? ipfsUrl(imageCids["475"]) : "/nft/475.jpg"} alt="RISE Phoenix" className="mint-hero-img" />
                 <div className="mint-info">
                   <MintStats />
                   <ul className="mint-perks">

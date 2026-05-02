@@ -1,0 +1,50 @@
+{
+  "name": "RISE Phoenix #475",
+  "symbol": "RISE",
+  "description": "A unique RISE Phoenix \u2014 500 1-of-1 phoenixes rising from the flames on X1 Network. Every one is different.",
+  "image": "ipfs://QmSPxh1kJ1w25jg8eDwFMWpuZxhZCvw8cTs3yqKpL7xQiP",
+  "external_url": "https://rise-phoenix-nft.vercel.app",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Blaze"
+    },
+    {
+      "trait_type": "Creature",
+      "value": "Storm Phoenix"
+    },
+    {
+      "trait_type": "Element",
+      "value": "Storm"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "Dawn"
+    },
+    {
+      "trait_type": "Max Supply",
+      "value": 75
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1
+    },
+    {
+      "trait_type": "Number",
+      "value": 475
+    }
+  ],
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "ipfs://QmSPxh1kJ1w25jg8eDwFMWpuZxhZCvw8cTs3yqKpL7xQiP",
+        "type": "image/jpeg"
+      }
+    ]
+  }
+}

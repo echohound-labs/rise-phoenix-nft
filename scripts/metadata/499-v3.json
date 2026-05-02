@@ -1,0 +1,50 @@
+{
+  "name": "RISE Phoenix #500",
+  "symbol": "RISE",
+  "description": "A unique RISE Phoenix \u2014 500 1-of-1 phoenixes rising from the flames on X1 Network. Every one is different.",
+  "image": "ipfs://QmdzBX4XQp9R1xKLLCxV33W2ntep3pyddoqoSCRJtiwdfy",
+  "external_url": "https://rise-phoenix-nft.vercel.app",
+  "attributes": [
+    {
+      "trait_type": "Tier",
+      "value": "Genesis"
+    },
+    {
+      "trait_type": "Creature",
+      "value": "Genesis Phoenix"
+    },
+    {
+      "trait_type": "Element",
+      "value": "Cosmic"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "Inferno"
+    },
+    {
+      "trait_type": "Max Supply",
+      "value": 25
+    },
+    {
+      "trait_type": "Generation",
+      "value": 1
+    },
+    {
+      "trait_type": "Number",
+      "value": 500
+    }
+  ],
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "ipfs://QmdzBX4XQp9R1xKLLCxV33W2ntep3pyddoqoSCRJtiwdfy",
+        "type": "image/jpeg"
+      }
+    ]
+  }
+}
