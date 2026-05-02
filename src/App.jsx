@@ -170,7 +170,7 @@ function MintReveal({ mintNumber, onClose, onViewGallery }) {
     'https://gateway.lighthouse.storage/ipfs',
   ];
   const ipfsUrl = (cid) => `${IPFS_GATEWAYS[0]}/${cid}`;
-  const imgUrl = `${IPFS_BASE}/${mintNumber}.jpg`;
+  const imgUrl = phoenixImg(mintNumber);
 
   return (
     <div className="reveal-overlay" onClick={onClose}>
