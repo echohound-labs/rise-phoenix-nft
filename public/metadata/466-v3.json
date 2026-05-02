@@ -2,7 +2,7 @@
   "name": "RISE Phoenix #467",
   "symbol": "RISE",
   "description": "A unique RISE Phoenix \u2014 500 1-of-1 phoenixes rising from the flames on X1 Network. Every one is different.",
-  "image": "ipfs://Qme8AX6nE5yhZcFk9wJG6dkf3emnX1FyD3seFGGGc6AuF5",
+  "image": "https://gateway.lighthouse.storage/ipfs/Qme8AX6nE5yhZcFk9wJG6dkf3emnX1FyD3seFGGGc6AuF5",
   "external_url": "https://rise-phoenix-nft.vercel.app",
   "attributes": [
     {
@@ -42,7 +42,7 @@
     "category": "image",
     "files": [
       {
-        "uri": "ipfs://Qme8AX6nE5yhZcFk9wJG6dkf3emnX1FyD3seFGGGc6AuF5",
+        "uri": "https://gateway.lighthouse.storage/ipfs/Qme8AX6nE5yhZcFk9wJG6dkf3emnX1FyD3seFGGGc6AuF5",
         "type": "image/jpeg"
       }
     ]

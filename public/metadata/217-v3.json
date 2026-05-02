@@ -2,7 +2,7 @@
   "name": "RISE Phoenix #218",
   "symbol": "RISE",
   "description": "A unique RISE Phoenix \u2014 500 1-of-1 phoenixes rising from the flames on X1 Network. Every one is different.",
-  "image": "ipfs://QmYodXqst8RHtyspgyj5jDLRg3qF2nM3pugjBhXMCf8gAZ",
+  "image": "https://gateway.lighthouse.storage/ipfs/QmYodXqst8RHtyspgyj5jDLRg3qF2nM3pugjBhXMCf8gAZ",
   "external_url": "https://rise-phoenix-nft.vercel.app",
   "attributes": [
     {
@@ -42,7 +42,7 @@
     "category": "image",
     "files": [
       {
-        "uri": "ipfs://QmYodXqst8RHtyspgyj5jDLRg3qF2nM3pugjBhXMCf8gAZ",
+        "uri": "https://gateway.lighthouse.storage/ipfs/QmYodXqst8RHtyspgyj5jDLRg3qF2nM3pugjBhXMCf8gAZ",
         "type": "image/jpeg"
       }
     ]
