@@ -723,7 +723,7 @@ function MintStats() {
 function App() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [imageCids, setImageCids] = useState({});
-  React.useEffect(() => {
+  useEffect(() => {
     fetch('/image-cids.json').then(r=>r.json()).then(d => { window.__imageCids__ = d; setImageCids(d); });
   }, []);
   const [agreed, setAgreed] = useState(false);
