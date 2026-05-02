@@ -602,7 +602,7 @@ function NFTGallery() {
 
 function phoenixImg(id) {
   const cid = IMAGE_CIDS[String(id)];
-  return cid ? `https://w3s.link/ipfs/${cid}` : `/nft/${id}.jpg`;
+  return cid ? `https://gateway.lighthouse.storage/ipfs/${cid}` : `/nft/${id}.jpg`;
 }
 
 function AllGallery() {
