@@ -1,6 +1,6 @@
-import metadataCids from '../../public/metadata-cids.json';
+const metadataCids = require('../../public/metadata-cids.json');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const { id } = req.query;
   const num = parseInt(id);
   
@@ -15,8 +15,9 @@ export default async function handler(req, res) {
     const response = await fetch(`https://gateway.lighthouse.storage/ipfs/${cid}`);
     const metadata = await response.json();
     res.setHeader('Cache-Control', 's-maxage=86400');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(200).json(metadata);
   } catch (e) {
-    return res.status(500).json({ error: 'Failed to fetch metadata' });
+    return res.status(500).json({ error: e.message });
   }
 }
