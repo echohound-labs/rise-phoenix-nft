@@ -292,9 +292,9 @@ function MintButton({ onMintSuccess, onViewGallery }) {
 
       // ── STEP 2: Poll until randomness is fulfilled ──
       setStep('waiting');
-      setCountdown(85);
+      setCountdown(30);
       const interval = setInterval(() => setCountdown(c => Math.max(0, c - 1)), 1000);
-      // Poll every 3s until status byte = 1 (fulfilled), max 120s
+      // Poll every 3s until status byte = 1 (fulfilled), max 180s
       await new Promise((resolve) => {
         let elapsed = 0;
         const poll = setInterval(async () => {
@@ -306,7 +306,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
               resolve();
             }
           } catch(e) {}
-          if (elapsed >= 120) { clearInterval(poll); resolve(); }
+          if (elapsed >= 180) { clearInterval(poll); resolve(); }
         }, 3000);
       });
       clearInterval(interval);
