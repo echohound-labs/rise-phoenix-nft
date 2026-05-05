@@ -50,13 +50,15 @@ const CONFIG = {
     rpc: 'https://rpc.testnet.x1.xyz',
     program: '5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb',
     mintState: '7m8h2Rf5w4UzPqS9EVMVkHwaKhhfvrJiwoc8Qvapkxoh',
-    treasury: 'DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG',
+    treasury: 'Gowv5PDb7K4a5PwjubWegvBT4CDfjjJcG4QAZWa9yUob',
+    geiger: '2dQf9uaCzXewrDNLttmtzQmc3SmqfAHz3qahKQjtGQyY',
   },
   mainnet: {
     rpc: 'https://rpc.mainnet.x1.xyz',
     program: '5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb',
     mintState: '7m8h2Rf5w4UzPqS9EVMVkHwaKhhfvrJiwoc8Qvapkxoh',
-    treasury: 'DBvfCPxj2gSo4dbHxwMrLRhy9fCmbHLrWJUDkUny8hBG',
+    treasury: 'Gowv5PDb7K4a5PwjubWegvBT4CDfjjJcG4QAZWa9yUob',
+    geiger: 'BxUNg2yo5371BQMZPkfcxdCptFRDHkhvEXNM1QNPBRYU',
   },
 };
 
@@ -202,7 +204,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
   const [txSig, setTxSig] = useState(null);
   const [countdown, setCountdown] = useState(0);
 
-  const GEIGER_PROGRAM = new PublicKey('2dQf9uaCzXewrDNLttmtzQmc3SmqfAHz3qahKQjtGQyY');
+  const GEIGER_PROGRAM = new PublicKey(CONFIG[NETWORK].geiger);
   const METADATA_PROGRAM_PUBKEY = new PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
 
   const [oracleStatePDA] = PublicKey.findProgramAddressSync([Buffer.from('oracle_state')], GEIGER_PROGRAM);
@@ -362,7 +364,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       const tx = await connection.getTransaction(sig2, { maxSupportedTransactionVersion: 0 });
       // Parse MintEvent from base64-encoded "Program data" log
       const logs = tx?.meta?.logMessages || [];
-      const riseProgIdx = logs.findLastIndex(l => l.includes("5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb") && l.includes("invoke"));
+      const riseProgIdx = logs.findLastIndex(l => l.includes(CONFIG[NETWORK].program) && l.includes("invoke"));
       const eventLog = logs.slice(riseProgIdx).find(log => log.startsWith("Program data: "));
       let mintNumber = 0;
       if (eventLog) {
@@ -423,7 +425,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
                 Waiting for radioactive decay event on-chain...
               </p>
               <p className="geiger-countdown">{countdown}s</p>
-              <div className="geiger-bar"><div className="geiger-bar-fill" style={{width: `${((85-countdown)/85)*100}%`}}/></div>
+              <div className="geiger-bar"><div className="geiger-bar-fill" style={{width: `${((30-countdown)/30)*100}%`}}/></div>
               <p style={{color:'var(--text2)', fontSize:'.75rem', marginTop:'.5rem', opacity:.6}}>
                 Your NFT number is being determined by physical quantum randomness — verifiable on-chain
               </p>
@@ -442,7 +444,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
       {txSig && step === 'done' && (
         <p className="mint-success">
           ✅ Minted! Tx:{' '}
-          <a href={`https://explorer.x1.xyz/tx/${txSig}`} target="_blank" rel="noopener noreferrer">
+          <a href={`${NETWORK === 'mainnet' ? 'https://explorer.x1.xyz' : 'https://explorer.testnet.x1.xyz'}/tx/${txSig}`} target="_blank" rel="noopener noreferrer">
             {txSig.slice(0, 12)}...
           </a>
         </p>
@@ -593,7 +595,7 @@ function NFTGallery() {
             <div className="gallery-info">
               <h3 style={{ color: nft.palette.accent }}>{nft.name}</h3>
               <p className="gallery-tier" style={{ color: nft.palette.accent }}>{nft.tierName} Tier</p>
-              <a href={`https://explorer.x1.xyz/address/${nft.mint}`} target="_blank" rel="noopener noreferrer" className="gallery-link">
+              <a href={`${NETWORK === 'mainnet' ? 'https://explorer.x1.xyz' : 'https://explorer.testnet.x1.xyz'}/address/${nft.mint}`} target="_blank" rel="noopener noreferrer" className="gallery-link">
                 View on Explorer ↗
               </a>
             </div>
