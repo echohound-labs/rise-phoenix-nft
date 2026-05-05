@@ -143,12 +143,15 @@ function useMintStats() {
         if (!acc || acc.data.length < 12) return;
         const total = acc.data[8] | (acc.data[9] << 8) | (acc.data[10] << 16) | (acc.data[11] << 24);
         // Count actual minted tiers from bitmap (offset 45-108, 64 bytes)
-        const bitmap = acc.data.slice(45, 109);
+        const bitmapRaw = acc.data.slice(45, 109);
         let ember = 0, blaze = 0, genesis = 0;
         for (let i = 0; i < 500; i++) {
-          const byteIdx = Math.floor(i / 8);
-          const bitIdx = i % 8;
-          if (bitmap[byteIdx] & (1 << bitIdx)) {
+          const u64Idx = Math.floor(i / 64);
+          const bitIdx = i % 64;
+          const lo = bitmapRaw.readUInt32LE(u64Idx * 8);
+          const hi = bitmapRaw.readUInt32LE(u64Idx * 8 + 4);
+          const isMinted = bitIdx < 32 ? (lo & (1 << bitIdx)) !== 0 : (hi & (1 << (bitIdx - 32))) !== 0;
+          if (isMinted) {
             if (i < 400) ember++;
             else if (i < 475) blaze++;
             else genesis++;
@@ -626,12 +629,15 @@ function AllGallery() {
         if (totalMinted === 0) { if (!cancelled) { setLoading(false); setNfts([]); } return; }
 
         // Read bitmap to find actually minted NFT IDs
-        const bitmap = mintStateAccount.data.slice(45, 109);
+        const bitmapData = mintStateAccount.data.slice(45, 109);
         const items = [];
         for (let i = 0; i < 500; i++) {
-          const byteIdx = Math.floor(i / 8);
-          const bitIdx = i % 8;
-          if (bitmap[byteIdx] & (1 << bitIdx)) {
+          const u64Idx = Math.floor(i / 64);
+          const bitIdx = i % 64;
+          const lo = bitmapData.readUInt32LE(u64Idx * 8);
+          const hi = bitmapData.readUInt32LE(u64Idx * 8 + 4);
+          const isMinted = bitIdx < 32 ? (lo & (1 << bitIdx)) !== 0 : (hi & (1 << (bitIdx - 32))) !== 0;
+          if (isMinted) {
             const palette = PALETTES[NFT_PALETTE_MAP[i] ?? i % PALETTES.length];
             const tierName = i < 400 ? "Ember" : i < 475 ? "Blaze" : "Genesis";
             items.push({
