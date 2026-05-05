@@ -52,6 +52,7 @@ const CONFIG = {
     mintState: '7m8h2Rf5w4UzPqS9EVMVkHwaKhhfvrJiwoc8Qvapkxoh',
     treasury: 'Gowv5PDb7K4a5PwjubWegvBT4CDfjjJcG4QAZWa9yUob',
     geiger: '2dQf9uaCzXewrDNLttmtzQmc3SmqfAHz3qahKQjtGQyY',
+    burnWallet: 'C2viBvQtHtSXKATzqfLiZ99RCnVKziBgF7m7dAKFCMU5',
   },
   mainnet: {
     rpc: 'https://rpc.mainnet.x1.xyz',
@@ -59,6 +60,7 @@ const CONFIG = {
     mintState: '7m8h2Rf5w4UzPqS9EVMVkHwaKhhfvrJiwoc8Qvapkxoh',
     treasury: 'Gowv5PDb7K4a5PwjubWegvBT4CDfjjJcG4QAZWa9yUob',
     geiger: 'BxUNg2yo5371BQMZPkfcxdCptFRDHkhvEXNM1QNPBRYU',
+    burnWallet: 'C2viBvQtHtSXKATzqfLiZ99RCnVKziBgF7m7dAKFCMU5',
   },
 };
 
@@ -134,6 +136,21 @@ const PALETTES = [
 ];
 
 
+function BurnProgress() {
+  const burnStats = useBurnStats();
+  const xnt = burnStats.loaded ? burnStats.xntCollected.toFixed(2) : '...';
+  return (
+    <>
+      <div className="progress-bar">
+        <div className="progress-fill" style={{ width: burnStats.loaded ? `${Math.min((burnStats.xntCollected / 5000) * 100, 100)}%` : '0%' }}>
+          {burnStats.loaded ? `${xnt} XNT collected` : 'Loading...'}
+        </div>
+      </div>
+      <p className="burn-status">🔥 {xnt} XNT collected for buyback & burn</p>
+    </>
+  );
+}
+
 function useMintStats() {
   const { connection } = useConnection();
   const [stats, setStats] = useState({ total: 0, ember: 0, blaze: 0, genesis: 0, loaded: false });
@@ -165,6 +182,24 @@ function useMintStats() {
     return () => { cancelled = true; };
   }, [connection]);
   return stats;
+}
+
+function useBurnStats() {
+  const { connection } = useConnection();
+  const [burnStats, setBurnStats] = useState({ xntCollected: 0, loaded: false });
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const burnWallet = new PublicKey(CONFIG[NETWORK].burnWallet);
+        const balance = await connection.getBalance(burnWallet);
+        const xntCollected = balance / 1e9; // lamports to XNT
+        if (!cancelled) setBurnStats({ xntCollected, loaded: true });
+      } catch(e) {}
+    })();
+    return () => { cancelled = true; };
+  }, [connection]);
+  return burnStats;
 }
 
 function MintReveal({ mintNumber, onClose, onViewGallery }) {
@@ -870,8 +905,7 @@ function App() {
               </div>
               <div className="burn-progress">
                 <h3>Burn Progress</h3>
-                <div className="progress-bar"><div className="progress-fill" style={{ width: '40%' }}>80M / 200M burned</div></div>
-                <p className="burn-status">🔥 8% of total supply already burned · 12% remaining in Phase 1</p>
+                <BurnProgress />
               </div>
               <div className="nft-engine">
                 <h3>NFT Mint Engine</h3>
