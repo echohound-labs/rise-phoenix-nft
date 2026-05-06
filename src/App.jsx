@@ -232,20 +232,35 @@ function useBurnStats() {
         const burnWallet = new PublicKey(CONFIG.mainnet.burnWallet);
 
         // XNT collected in treasury
-        const treasuryBalance = await mainnetConn.getBalance(treasury);
-        const xntCollected = treasuryBalance / 1e9;
+        const treasuryRes = await fetch("https://rpc.mainnet.x1.xyz", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "getBalance", params: [CONFIG.mainnet.treasury] })
+        });
+        const treasuryData = await treasuryRes.json();
+        const xntCollected = (treasuryData?.result?.value || 0) / 1e9;
 
-        // RISE burned — find incinerator token account for RISE mint
+        // RISE burned — use getTokenAccountBalance directly on known incinerator token account
         let riseBurned = 0;
         try {
-          const INCINERATOR = new PublicKey("1nc1nerator11111111111111111111111111111111");
-          const burnAccounts = await mainnetConn.getParsedTokenAccountsByOwner(
-            INCINERATOR,
-            { mint: RISE_MINT },
-            { commitment: "confirmed", encoding: "jsonParsed" }
-          );
-          if (burnAccounts.value.length > 0) {
-            riseBurned = burnAccounts.value[0].account.data.parsed.info.tokenAmount.uiAmount || 0;
+          // This is the incinerator's token account for RISE (Token-2022)
+          const res = await fetch("https://rpc.mainnet.x1.xyz", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              jsonrpc: "2.0", id: 1,
+              method: "getTokenAccountsByOwner",
+              params: [
+                "1nc1nerator11111111111111111111111111111111",
+                { mint: "45r2jjaKRDce7PXmHaMeXZ6JmFDiT4BBNfqFYsJryxNf" },
+                { encoding: "jsonParsed" }
+              ]
+            })
+          });
+          const data = await res.json();
+          const accounts = data?.result?.value || [];
+          if (accounts.length > 0) {
+            riseBurned = accounts[0].account.data.parsed.info.tokenAmount.uiAmount || 0;
           }
         } catch(e) { console.error("Burn token balance error:", e); }
 
