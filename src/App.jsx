@@ -961,9 +961,9 @@ function App() {
                   <div className="engine-step">☢️ <br/>Geiger Oracle<br/>Assigns #</div>
                   <div className="engine-arrow">→</div>
                   <div className="engine-split">
-                    <div className="engine-step burn">🔥 2.7 XNT<br/>Buy & Burn</div>
-                    <div className="engine-step lp">💧 6.3 XNT<br/>→ Liquidity + 150M RISE</div>
-                    <div className="engine-step" style={{background:'rgba(255,200,0,0.1)', border:'1px solid rgba(255,200,0,0.3)'}}>☢️ 1 XNT<br/>Geiger Oracle</div>
+                    <div className="engine-step burn">🔥 30%<br/>Buy & Burn</div>
+                    <div className="engine-step lp">💧 60%<br/>→ Liquidity + 150M RISE</div>
+                    <div className="engine-step" style={{background:'rgba(255,200,0,0.1)', border:'1px solid rgba(255,200,0,0.3)'}}>☢️ 10%<br/>Geiger Oracle</div>
                   </div>
                 </div>
                 <p className="engine-note">500 NFTs · 9 XNT to treasury + 1 XNT to Geiger Oracle per mint · 30% buys & burns RISE · 70% → LP with 150M RISE</p>
