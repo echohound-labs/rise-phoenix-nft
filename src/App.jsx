@@ -43,7 +43,7 @@ class ErrorBoundary extends Component {
 }
 
 // Network config — switch NETWORK to 'mainnet' for production
-const NETWORK = 'testnet';
+const NETWORK = 'mainnet';
 
 const CONFIG = {
   testnet: {
