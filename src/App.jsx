@@ -157,9 +157,26 @@ function BurnProgress() {
           <div className="burn-stat-label">of Total Supply Burned</div>
         </div>
       </div>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: burnStats.loaded ? `${Math.min(parseFloat(pct) / 20 * 100, 100)}%` : '0%' }}>
-          {burnStats.loaded ? `${pct}% burned` : 'Loading...'}
+      <div style={{marginBottom: '0.5rem'}}>
+        <div style={{display:'flex', justifyContent:'space-between', fontSize:'.8rem', color:'#aaa', marginBottom:'0.25rem'}}>
+          <span>🔥 RISE Burned</span>
+          <span>{pct}% of supply</span>
+        </div>
+        <div className="progress-bar">
+          <div className="progress-fill" style={{ width: burnStats.loaded ? `${Math.min(parseFloat(pct) / 20 * 100, 100)}%` : '0%', background: '#ff2222' }}>
+            {burnStats.loaded ? `${burned} RISE` : 'Loading...'}
+          </div>
+        </div>
+      </div>
+      <div style={{marginTop: '0.75rem'}}>
+        <div style={{display:'flex', justifyContent:'space-between', fontSize:'.8rem', color:'#aaa', marginBottom:'0.25rem'}}>
+          <span>💰 XNT Collected from Mints</span>
+          <span>{burnStats.loaded ? `${xnt} / 5,000 XNT` : '...'}</span>
+        </div>
+        <div className="progress-bar">
+          <div className="progress-fill" style={{ width: burnStats.loaded ? `${Math.min((burnStats.xntCollected / 5000) * 100, 100)}%` : '0%', background: '#ff6b35' }}>
+            {burnStats.loaded ? `${xnt} XNT` : 'Loading...'}
+          </div>
         </div>
       </div>
       <p className="burn-status">🔥 {burned} RISE burned · {xnt} XNT collected for buyback</p>
@@ -218,11 +235,18 @@ function useBurnStats() {
         const treasuryBalance = await mainnetConn.getBalance(treasury);
         const xntCollected = treasuryBalance / 1e9;
 
-        // RISE burned — read token account balance directly
+        // RISE burned — find incinerator token account for RISE mint
         let riseBurned = 0;
         try {
-          const burnTokenBalance = await mainnetConn.getTokenAccountBalance(burnWallet);
-          riseBurned = burnTokenBalance?.value?.uiAmount || 0;
+          const INCINERATOR = new PublicKey("1nc1nerator11111111111111111111111111111111");
+          const burnAccounts = await mainnetConn.getParsedTokenAccountsByOwner(
+            INCINERATOR,
+            { mint: RISE_MINT },
+            { commitment: "confirmed", encoding: "jsonParsed" }
+          );
+          if (burnAccounts.value.length > 0) {
+            riseBurned = burnAccounts.value[0].account.data.parsed.info.tokenAmount.uiAmount || 0;
+          }
         } catch(e) { console.error("Burn token balance error:", e); }
 
         const burnPct = ((riseBurned / TOTAL_SUPPLY) * 100).toFixed(2);
