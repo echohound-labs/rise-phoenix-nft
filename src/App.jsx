@@ -953,7 +953,6 @@ function App() {
                 <h3>Burn Progress</h3>
                 <BurnProgress />
               </div>
-              </div>
             </section>
 
             {/* Mint Section */}
