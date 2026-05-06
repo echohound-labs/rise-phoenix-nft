@@ -35,6 +35,16 @@ a{color:var(--accent);text-decoration:none}
 .token-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem}
 .token-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;transition:transform .2s}
 .token-card:hover{transform:translateY(-3px)}
+.tokenomics-chart{display:flex;gap:3rem;align-items:center;margin-bottom:3rem}
+.donut-wrap{flex-shrink:0;width:220px;height:220px}
+.donut-svg{width:100%;height:100%}
+.donut-legend{display:flex;flex-direction:column;gap:1rem;flex:1}
+.legend-item{display:flex;align-items:flex-start;gap:0.75rem}
+.legend-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.legend-text{display:flex;flex-direction:column}
+.legend-pct{font-size:1.1rem;font-weight:900}
+.legend-label{font-size:0.95rem;font-weight:600;color:var(--text)}
+.legend-detail{font-size:0.8rem;color:var(--text2);margin-top:2px}
 .token-pct{font-size:2.5rem;font-weight:900;color:var(--accent)}
 .token-label{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:1px}
 .token-detail{font-size:.8rem;color:var(--text2);line-height:1.5}

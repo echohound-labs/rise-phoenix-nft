@@ -922,31 +922,58 @@ function App() {
             <section className="tokenomics" id="tokenomics">
               <h2>$RISE Tokenomics</h2>
               <p className="section-sub">1,000,000,000 total supply · Built to shrink</p>
-              <div className="token-grid">
-                <div className="token-card">
-                  <div className="token-pct">20%</div>
-                  <div className="token-label">Burned</div>
-                  <div className="token-detail">200M RISE permanently removed. Front-loaded W1–W4. Creates immediate scarcity.</div>
+              <div className="tokenomics-chart">
+                <div className="donut-wrap">
+                  <svg viewBox="0 0 200 200" className="donut-svg">
+                    {(() => {
+                      const slices = [
+                        { pct: 60, color: '#ff6b35', label: 'Degen LP' },
+                        { pct: 20, color: '#ff2222', label: 'Burned' },
+                        { pct: 15, color: '#8800ff', label: 'NFT LP Engine' },
+                        { pct: 3,  color: '#ffdd00', label: 'Staking' },
+                        { pct: 2,  color: '#00ffaa', label: 'Airdrop' },
+                      ];
+                      const cx = 100, cy = 100, r = 80, ir = 50;
+                      let angle = -90;
+                      return slices.map((s, i) => {
+                        const start = angle;
+                        const end = angle + (s.pct / 100) * 360;
+                        const toRad = d => (d * Math.PI) / 180;
+                        const x1 = cx + r * Math.cos(toRad(start));
+                        const y1 = cy + r * Math.sin(toRad(start));
+                        const x2 = cx + r * Math.cos(toRad(end));
+                        const y2 = cy + r * Math.sin(toRad(end));
+                        const ix1 = cx + ir * Math.cos(toRad(start));
+                        const iy1 = cy + ir * Math.sin(toRad(start));
+                        const ix2 = cx + ir * Math.cos(toRad(end));
+                        const iy2 = cy + ir * Math.sin(toRad(end));
+                        const large = end - start > 180 ? 1 : 0;
+                        const d = `M ${x1} ${y1} A ${r} ${r} 0 ${large} 1 ${x2} ${y2} L ${ix2} ${iy2} A ${ir} ${ir} 0 ${large} 0 ${ix1} ${iy1} Z`;
+                        angle = end;
+                        return <path key={i} d={d} fill={s.color} stroke="#0a0a1a" strokeWidth="1.5" opacity="0.9" />;
+                      });
+                    })()}
+                    <text x="100" y="95" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="bold">1B RISE</text>
+                    <text x="100" y="112" textAnchor="middle" fill="#aaa" fontSize="8">Total Supply</text>
+                  </svg>
                 </div>
-                <div className="token-card">
-                  <div className="token-pct">2%</div>
-                  <div className="token-label">Airdrop</div>
-                  <div className="token-detail">20M RISE distributed to early supporters.</div>
-                </div>
-                <div className="token-card">
-                  <div className="token-pct">15%</div>
-                  <div className="token-label">Where Your XNT Goes</div>
-                  <div className="token-detail">150M RISE reserved for liquidity. 70% of XNT from each mint is paired with RISE to build the LP progressively. 30% buys and burns RISE. Any unpaired RISE rolls over to future mint rounds.</div>
-                </div>
-                <div className="token-card">
-                  <div className="token-pct">3%</div>
-                  <div className="token-label">Staking Rewards</div>
-                  <div className="token-detail">30M RISE distributed to stakers. Reward long-term holders.</div>
-                </div>
-                <div className="token-card">
-                  <div className="token-pct">60%</div>
-                  <div className="token-label">Degen Launch Pad + LP</div>
-                  <div className="token-detail">600M RISE for launchpad and liquidity pools.</div>
+                <div className="donut-legend">
+                  {[
+                    { pct: '60%', color: '#ff6b35', label: 'Degen Launch Pad + LP', detail: '600M RISE for launchpad and liquidity pools.' },
+                    { pct: '20%', color: '#ff2222', label: 'Burned', detail: '200M RISE permanently removed. Front-loaded W1–W4.' },
+                    { pct: '15%', color: '#8800ff', label: 'NFT LP Engine', detail: '150M RISE paired with XNT mint proceeds for LP. Any unpaired rolls over.' },
+                    { pct: '3%',  color: '#ffdd00', label: 'Staking Rewards', detail: '30M RISE distributed to long-term stakers.' },
+                    { pct: '2%',  color: '#00ffaa', label: 'Airdrop', detail: '20M RISE distributed to early supporters.' },
+                  ].map((s, i) => (
+                    <div key={i} className="legend-item">
+                      <div className="legend-dot" style={{background: s.color}} />
+                      <div className="legend-text">
+                        <span className="legend-pct" style={{color: s.color}}>{s.pct}</span>
+                        <span className="legend-label"> {s.label}</span>
+                        <div className="legend-detail">{s.detail}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="burn-progress">
