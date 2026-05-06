@@ -218,18 +218,16 @@ function useBurnStats() {
         const treasuryBalance = await mainnetConn.getBalance(treasury);
         const xntCollected = treasuryBalance / 1e9;
 
-        // RISE burned — get token balance of burn wallet
+        // RISE burned — read token account balance directly
         let riseBurned = 0;
         try {
-          const tokenAccounts = await mainnetConn.getParsedTokenAccountsByOwner(burnWallet, { mint: RISE_MINT });
-          if (tokenAccounts.value.length > 0) {
-            riseBurned = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.uiAmount || 0;
-          }
-        } catch(e) {}
+          const burnTokenBalance = await mainnetConn.getTokenAccountBalance(burnWallet);
+          riseBurned = burnTokenBalance?.value?.uiAmount || 0;
+        } catch(e) { console.error("Burn token balance error:", e); }
 
         const burnPct = ((riseBurned / TOTAL_SUPPLY) * 100).toFixed(2);
         if (!cancelled) setBurnStats({ xntCollected, riseBurned, burnPct, loaded: true });
-      } catch(e) {}
+      } catch(e) { console.error("Burn stats error:", e); }
     })();
     return () => { cancelled = true; };
   }, [connection]);
