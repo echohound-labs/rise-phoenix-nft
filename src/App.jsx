@@ -935,7 +935,7 @@ function App() {
                 </div>
                 <div className="token-card">
                   <div className="token-pct">15%</div>
-                  <div className="token-label">NFT / Liquidity Engine</div>
+                  <div className="token-label">Where Your XNT Goes</div>
                   <div className="token-detail">150M RISE reserved for liquidity. 70% of XNT from each mint is paired with RISE to build the LP progressively. 30% buys and burns RISE. Any unpaired RISE rolls over to future mint rounds.</div>
                 </div>
                 <div className="token-card">
@@ -981,7 +981,7 @@ function App() {
                   <ul className="mint-perks">
                     <li>Every phoenix is a 1-of-1 — 3 tiers, 500 unique color variants, zero duplicates</li>
                     <li>Mint order determined by quantum radioactive decay on-chain — verifiable, not manipulable</li>
-                    <li>100% of mint revenue → buy back and burn RISE</li>
+                    <li>30% of your XNT buys and burns RISE · 70% goes to LP with RISE</li>
                   </ul>
                   {!agreed ? (
                     <div className="disclaimer-banner">
@@ -997,16 +997,16 @@ function App() {
 
             {/* Buyback */}
             <section className="buyback">
-              <h2>100% → Buy & Burn RISE</h2>
-              <p>Every XNT from minting goes to the buyback wallet. It buys RISE on the open market and burns it. No team allocation. Pure deflationary pressure.</p>
+              <h2>Where Your XNT Goes</h2>
+              <p>30% of all XNT goes to buy and burn RISE on the open market. 70% is added to liquidity paired with RISE. LP tokens are burned. No team allocation. Pure community value.</p>
               <div className="buyback-flow">
                 <div className="buyback-step"><div className="buyback-step-icon">🪙</div><div className="buyback-step-text">You Mint<br/>a Phoenix</div></div>
                 <div className="buyback-arrow">→</div>
-                <div className="buyback-step"><div className="buyback-step-icon">💰</div><div className="buyback-step-text">XNT →<br/>Buyback Wallet</div></div>
+                <div className="buyback-step"><div className="buyback-step-icon">🔥</div><div className="buyback-step-text">30% Buys<br/>& Burns RISE</div></div>
                 <div className="buyback-arrow">→</div>
-                <div className="buyback-step"><div className="buyback-step-icon">🔥</div><div className="buyback-step-text">Buys RISE<br/>on DEX</div></div>
+                <div className="buyback-step"><div className="buyback-step-icon">💧</div><div className="buyback-step-text">70% → LP<br/>with RISE</div></div>
                 <div className="buyback-arrow">→</div>
-                <div className="buyback-step"><div className="buyback-step-icon">☠️</div><div className="buyback-step-text">RISE<br/>Burned Forever</div></div>
+                <div className="buyback-step"><div className="buyback-step-icon">☠️</div><div className="buyback-step-text">LP Tokens<br/>Burned</div></div>
               </div>
             </section>
 
