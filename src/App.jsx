@@ -966,7 +966,7 @@ function App() {
                     <div className="engine-step" style={{background:'rgba(255,200,0,0.1)', border:'1px solid rgba(255,200,0,0.3)'}}>☢️ 1 XNT<br/>Geiger Oracle</div>
                   </div>
                 </div>
-                <p className="engine-note">500 NFTs · 4,500 XNT total · 1,350 XNT burned · 3,150 XNT → LP + 150M RISE · 500 XNT → Geiger Oracle</p>
+                <p className="engine-note">500 NFTs · 9 XNT to treasury + 1 XNT to Geiger Oracle per mint · 30% buys & burns RISE · 70% → LP with 150M RISE</p>
               </div>
             </section>
 
@@ -998,7 +998,7 @@ function App() {
             {/* Buyback */}
             <section className="buyback">
               <h2>Where Your XNT Goes</h2>
-              <p>30% of all XNT goes to buy and burn RISE on the open market. 70% is added to liquidity paired with RISE. LP tokens are burned. No team allocation. Pure community value.</p>
+              <p>9 XNT from every mint goes to the treasury — 30% buys and burns RISE, 70% adds to liquidity paired with RISE. 1 XNT per mint goes directly to the Geiger Oracle node keeping randomness running. LP tokens are burned. No team allocation.</p>
               <div className="buyback-flow">
                 <div className="buyback-step"><div className="buyback-step-icon">🪙</div><div className="buyback-step-text">You Mint<br/>a Phoenix</div></div>
                 <div className="buyback-arrow">→</div>
