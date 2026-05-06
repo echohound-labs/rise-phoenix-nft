@@ -856,7 +856,7 @@ function App() {
                   <div className="stat"><div className="stat-num">500</div><div className="stat-label">Total NFTs</div></div>
                   <div className="stat"><div className="stat-num">10</div><div className="stat-label">XNT Per Mint</div></div>
                   <div className="stat"><div className="stat-num">☢️</div><div className="stat-label">Geiger Random</div></div>
-                  <div className="stat"><div className="stat-num">100%</div><div className="stat-label">→ Buy & Burn</div></div>
+                  <div className="stat"><div className="stat-num">100%</div><div className="stat-label">☢️ Geiger Powered</div></div>
                 </div>
                 <a href="#mint" className="cta">Mint Your Phoenix ↓</a>
               </div>
@@ -956,18 +956,17 @@ function App() {
               <div className="nft-engine">
                 <h3>NFT Mint Engine</h3>
                 <div className="engine-flow">
-                  <div className="engine-step">🪙 <br/>You Mint<br/>a Phoenix</div>
+                  <div className="engine-step">🪙 <br/>You Mint<br/>10 XNT</div>
                   <div className="engine-arrow">→</div>
                   <div className="engine-step">☢️ <br/>Geiger Oracle<br/>Assigns #</div>
                   <div className="engine-arrow">→</div>
-                  <div className="engine-step">💰 <br/>$RISE<br/>Collected</div>
-                  <div className="engine-arrow">→</div>
                   <div className="engine-split">
-                    <div className="engine-step burn">🔥 30%<br/>Buy & Burn</div>
-                    <div className="engine-step lp">💧 70%<br/>→ Liquidity</div>
+                    <div className="engine-step burn">🔥 2.7 XNT<br/>Buy & Burn</div>
+                    <div className="engine-step lp">💧 6.3 XNT<br/>→ Liquidity + 150M RISE</div>
+                    <div className="engine-step" style={{background:'rgba(255,200,0,0.1)', border:'1px solid rgba(255,200,0,0.3)'}}>☢️ 1 XNT<br/>Geiger Oracle</div>
                   </div>
                 </div>
-                <p className="engine-note">Supply decreases · Liquidity increases · Every phoenix is 1-of-1</p>
+                <p className="engine-note">500 NFTs · 4,500 XNT total · 1,350 XNT burned · 3,150 XNT → LP + 150M RISE · 500 XNT → Geiger Oracle</p>
               </div>
             </section>
 
