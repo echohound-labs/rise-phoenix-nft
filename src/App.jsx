@@ -209,17 +209,19 @@ function useBurnStats() {
       try {
         const RISE_MINT = new PublicKey('45r2jjaKRDce7PXmHaMeXZ6JmFDiT4BBNfqFYsJryxNf');
         const TOTAL_SUPPLY = 1_000_000_000;
-        const treasury = new PublicKey(CONFIG[NETWORK].treasury);
-        const burnWallet = new PublicKey(CONFIG[NETWORK].burnWallet);
+        // Always read burn stats from mainnet — real data regardless of network
+        const mainnetConn = new Connection('https://rpc.mainnet.x1.xyz', 'confirmed');
+        const treasury = new PublicKey(CONFIG.mainnet.treasury);
+        const burnWallet = new PublicKey(CONFIG.mainnet.burnWallet);
 
         // XNT collected in treasury
-        const treasuryBalance = await connection.getBalance(treasury);
+        const treasuryBalance = await mainnetConn.getBalance(treasury);
         const xntCollected = treasuryBalance / 1e9;
 
         // RISE burned — get token balance of burn wallet
         let riseBurned = 0;
         try {
-          const tokenAccounts = await connection.getParsedTokenAccountsByOwner(burnWallet, { mint: RISE_MINT });
+          const tokenAccounts = await mainnetConn.getParsedTokenAccountsByOwner(burnWallet, { mint: RISE_MINT });
           if (tokenAccounts.value.length > 0) {
             riseBurned = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.uiAmount || 0;
           }
