@@ -936,7 +936,7 @@ function App() {
                 <div className="token-card">
                   <div className="token-pct">15%</div>
                   <div className="token-label">NFT / Liquidity Engine</div>
-                  <div className="token-detail">150M RISE powers NFT ecosystem. 30% of mints → burn. 70% → LP.</div>
+                  <div className="token-detail">150M RISE reserved for liquidity. 70% of XNT from each mint is paired with RISE to build the LP progressively. 30% buys and burns RISE. Any unpaired RISE rolls over to future mint rounds.</div>
                 </div>
                 <div className="token-card">
                   <div className="token-pct">3%</div>
