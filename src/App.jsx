@@ -139,14 +139,30 @@ const PALETTES = [
 function BurnProgress() {
   const burnStats = useBurnStats();
   const xnt = burnStats.loaded ? burnStats.xntCollected.toFixed(2) : '...';
+  const burned = burnStats.loaded ? burnStats.riseBurned.toLocaleString() : '...';
+  const pct = burnStats.loaded ? burnStats.burnPct : '...';
   return (
     <>
-      <div className="progress-bar">
-        <div className="progress-fill" style={{ width: burnStats.loaded ? `${Math.min((burnStats.xntCollected / 5000) * 100, 100)}%` : '0%' }}>
-          {burnStats.loaded ? `${xnt} XNT collected` : 'Loading...'}
+      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+        <div className="burn-stat">
+          <div className="burn-stat-value" style={{ color: '#ff6b35' }}>{xnt} XNT</div>
+          <div className="burn-stat-label">Collected from Mints</div>
+        </div>
+        <div className="burn-stat">
+          <div className="burn-stat-value" style={{ color: '#ff2222' }}>{burned} RISE</div>
+          <div className="burn-stat-label">Burned Forever</div>
+        </div>
+        <div className="burn-stat">
+          <div className="burn-stat-value" style={{ color: '#ffdd00' }}>{pct}%</div>
+          <div className="burn-stat-label">of Total Supply Burned</div>
         </div>
       </div>
-      <p className="burn-status">🔥 {xnt} XNT collected for buyback & burn</p>
+      <div className="progress-bar">
+        <div className="progress-fill" style={{ width: burnStats.loaded ? `${Math.min(parseFloat(pct) / 20 * 100, 100)}%` : '0%' }}>
+          {burnStats.loaded ? `${pct}% burned` : 'Loading...'}
+        </div>
+      </div>
+      <p className="burn-status">🔥 {burned} RISE burned · {xnt} XNT collected for buyback</p>
     </>
   );
 }
@@ -186,15 +202,31 @@ function useMintStats() {
 
 function useBurnStats() {
   const { connection } = useConnection();
-  const [burnStats, setBurnStats] = useState({ xntCollected: 0, loaded: false });
+  const [burnStats, setBurnStats] = useState({ xntCollected: 0, riseBurned: 0, burnPct: 0, loaded: false });
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
+        const RISE_MINT = new PublicKey('45r2jjaKRDce7PXmHaMeXZ6JmFDiT4BBNfqFYsJryxNf');
+        const TOTAL_SUPPLY = 1_000_000_000;
+        const treasury = new PublicKey(CONFIG[NETWORK].treasury);
         const burnWallet = new PublicKey(CONFIG[NETWORK].burnWallet);
-        const balance = await connection.getBalance(burnWallet);
-        const xntCollected = balance / 1e9; // lamports to XNT
-        if (!cancelled) setBurnStats({ xntCollected, loaded: true });
+
+        // XNT collected in treasury
+        const treasuryBalance = await connection.getBalance(treasury);
+        const xntCollected = treasuryBalance / 1e9;
+
+        // RISE burned — get token balance of burn wallet
+        let riseBurned = 0;
+        try {
+          const tokenAccounts = await connection.getParsedTokenAccountsByOwner(burnWallet, { mint: RISE_MINT });
+          if (tokenAccounts.value.length > 0) {
+            riseBurned = tokenAccounts.value[0].account.data.parsed.info.tokenAmount.uiAmount || 0;
+          }
+        } catch(e) {}
+
+        const burnPct = ((riseBurned / TOTAL_SUPPLY) * 100).toFixed(2);
+        if (!cancelled) setBurnStats({ xntCollected, riseBurned, burnPct, loaded: true });
       } catch(e) {}
     })();
     return () => { cancelled = true; };
