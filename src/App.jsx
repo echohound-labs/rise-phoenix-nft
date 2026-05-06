@@ -928,14 +928,19 @@ function App() {
                   <div className="token-detail">200M RISE permanently removed. Front-loaded W1–W4. Creates immediate scarcity.</div>
                 </div>
                 <div className="token-card">
-                  <div className="token-pct">10%</div>
+                  <div className="token-pct">2%</div>
                   <div className="token-label">Airdrop</div>
-                  <div className="token-detail">100M RISE distributed W4–W12. Rewards early supporters.</div>
+                  <div className="token-detail">20M RISE distributed to early supporters.</div>
                 </div>
                 <div className="token-card">
-                  <div className="token-pct">10%</div>
+                  <div className="token-pct">15%</div>
                   <div className="token-label">NFT / Liquidity Engine</div>
-                  <div className="token-detail">100M RISE powers NFT ecosystem. 30% of mints → burn. 70% → LP.</div>
+                  <div className="token-detail">150M RISE powers NFT ecosystem. 30% of mints → burn. 70% → LP.</div>
+                </div>
+                <div className="token-card">
+                  <div className="token-pct">3%</div>
+                  <div className="token-label">Staking Rewards</div>
+                  <div className="token-detail">30M RISE distributed to stakers. Reward long-term holders.</div>
                 </div>
                 <div className="token-card">
                   <div className="token-pct">60%</div>
