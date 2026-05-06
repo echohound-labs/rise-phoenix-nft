@@ -218,60 +218,29 @@ function useMintStats() {
 }
 
 function useBurnStats() {
-  const { connection } = useConnection();
   const [burnStats, setBurnStats] = useState({ xntCollected: 0, riseBurned: 0, burnPct: 0, loaded: false });
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const RISE_MINT = new PublicKey('45r2jjaKRDce7PXmHaMeXZ6JmFDiT4BBNfqFYsJryxNf');
-        const TOTAL_SUPPLY = 1_000_000_000;
-        // Always read burn stats from mainnet — real data regardless of network
-        const mainnetConn = new Connection('https://rpc.mainnet.x1.xyz', 'confirmed');
-        const treasury = new PublicKey(CONFIG.mainnet.treasury);
-        const burnWallet = new PublicKey(CONFIG.mainnet.burnWallet);
-
-        // XNT collected in treasury
-        const treasuryRes = await fetch("https://rpc.mainnet.x1.xyz", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "getBalance", params: [CONFIG.mainnet.treasury] })
+        const res = await fetch('/api/burn-stats');
+        const data = await res.json();
+        if (!cancelled) setBurnStats({
+          xntCollected: data.xntCollected || 0,
+          riseBurned: data.riseBurned || 0,
+          burnPct: data.burnPct || '0.00',
+          loaded: true
         });
-        const treasuryData = await treasuryRes.json();
-        const xntCollected = (treasuryData?.result?.value || 0) / 1e9;
-
-        // RISE burned — use getTokenAccountBalance directly on known incinerator token account
-        let riseBurned = 0;
-        try {
-          // This is the incinerator's token account for RISE (Token-2022)
-          const res = await fetch("https://rpc.mainnet.x1.xyz", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              jsonrpc: "2.0", id: 1,
-              method: "getTokenAccountsByOwner",
-              params: [
-                "1nc1nerator11111111111111111111111111111111",
-                { mint: "45r2jjaKRDce7PXmHaMeXZ6JmFDiT4BBNfqFYsJryxNf" },
-                { encoding: "jsonParsed" }
-              ]
-            })
-          });
-          const data = await res.json();
-          const accounts = data?.result?.value || [];
-          if (accounts.length > 0) {
-            riseBurned = accounts[0].account.data.parsed.info.tokenAmount.uiAmount || 0;
-          }
-        } catch(e) { console.error("Burn token balance error:", e); }
-
-        const burnPct = ((riseBurned / TOTAL_SUPPLY) * 100).toFixed(2);
-        if (!cancelled) setBurnStats({ xntCollected, riseBurned, burnPct, loaded: true });
-      } catch(e) { console.error("Burn stats error:", e); }
+      } catch(e) {
+        console.error("Burn stats error:", e);
+        if (!cancelled) setBurnStats({ xntCollected: 0, riseBurned: 0, burnPct: '0.00', loaded: true });
+      }
     })();
     return () => { cancelled = true; };
-  }, [connection]);
+  }, []);
   return burnStats;
 }
+
 
 function MintReveal({ mintNumber, onClose, onViewGallery }) {
   if (mintNumber === null) return null;
