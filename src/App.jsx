@@ -953,20 +953,6 @@ function App() {
                 <h3>Burn Progress</h3>
                 <BurnProgress />
               </div>
-              <div className="nft-engine">
-                <h3>NFT Mint Engine</h3>
-                <div className="engine-flow">
-                  <div className="engine-step">🪙 <br/>You Mint<br/>10 XNT</div>
-                  <div className="engine-arrow">→</div>
-                  <div className="engine-step">☢️ <br/>Geiger Oracle<br/>Assigns #</div>
-                  <div className="engine-arrow">→</div>
-                  <div className="engine-split">
-                    <div className="engine-step burn">🔥 30%<br/>Buy & Burn</div>
-                    <div className="engine-step lp">💧 60%<br/>→ Liquidity + 150M RISE</div>
-                    <div className="engine-step" style={{background:'rgba(255,200,0,0.1)', border:'1px solid rgba(255,200,0,0.3)'}}>☢️ 10%<br/>Geiger Oracle</div>
-                  </div>
-                </div>
-                <p className="engine-note">500 NFTs · 9 XNT to treasury + 1 XNT to Geiger Oracle per mint · 30% buys & burns RISE · 70% → LP with 150M RISE</p>
               </div>
             </section>
 
