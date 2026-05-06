@@ -418,6 +418,7 @@ function MintButton({ onMintSuccess, onViewGallery }) {
           { pubkey: minterAta, isSigner: false, isWritable: true },
           { pubkey: metadataPDA, isSigner: false, isWritable: true },
           { pubkey: RISE_RECEIVER, isSigner: false, isWritable: true },
+          { pubkey: new PublicKey("HGFisVbULNKqogtPuGTfcHG9y6i5nboZabYwifkiiodo"), isSigner: false, isWritable: true },
           { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
           { pubkey: ASSOCIATED_TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
           { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
