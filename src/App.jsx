@@ -70,7 +70,7 @@ const MINT_STATE_PDA = new PublicKey(CONFIG[NETWORK].mintState);
 const TOKEN_METADATA_PROGRAM_ID = METADATA_PROGRAM_ID;
 const METAPLEX_METADATA = METADATA_PROGRAM_ID;
 const RPC = CONFIG[NETWORK].rpc;
-const MINT_PRICE = 10;
+const MINT_PRICE = 1;
 
 const NFT_PALETTE_MAP = [
   0, 12, 19, 15, 20, 11, 17, 2, 25, 6, 4, 13, 18, 1, 10, 7, 16, 21, 14, 0,
@@ -712,7 +712,7 @@ function MintStats() {
   return (
     <div className="mint-stats-block">
       <div className="mint-specs">
-        <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">Genesis Collection</span></div>
+        <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">RISE Phoenix</span></div>
         <div className="mint-spec"><span className="mint-spec-label">Minted</span><span className="mint-spec-value" style={{color:'var(--accent)'}}>{stats.loaded ? `${stats.total} / 500` : '...'}</span></div>
         <div className="mint-spec"><span className="mint-spec-label">Price</span><span className="mint-spec-value">1 XNT</span></div>
         <div className="mint-spec"><span className="mint-spec-label">Remaining</span><span className="mint-spec-value" style={{color:'#22c55e'}}>{stats.loaded ? remaining : '...'}</span></div>
