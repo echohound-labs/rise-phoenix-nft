@@ -671,6 +671,38 @@ function AllGallery() {
 }
 
 
+function useMintStats() {
+  const { connection } = useConnection();
+  const [stats, setStats] = useState({ total: 0, ember: 0, blaze: 0, genesis: 0, loaded: false });
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const acc = await connection.getAccountInfo(MINT_STATE_PDA);
+        if (!acc) { if (!cancelled) setStats(s => ({ ...s, loaded: true })); return; }
+        const total = acc.data[8] | (acc.data[9] << 8) | (acc.data[10] << 16) | (acc.data[11] << 24);
+        const bitmapRaw = acc.data.slice(45, 109);
+        let ember = 0, blaze = 0, genesis = 0;
+        for (let i = 0; i < 500; i++) {
+          const u64Idx = Math.floor(i / 64);
+          const bitIdx = i % 64;
+          const lo = bitmapRaw.readUInt32LE(u64Idx * 8);
+          const hi = bitmapRaw.readUInt32LE(u64Idx * 8 + 4);
+          const isMinted = bitIdx < 32 ? (lo & (1 << bitIdx)) !== 0 : (hi & (1 << (bitIdx - 32))) !== 0;
+          if (isMinted) {
+            if (i < 400) ember++;
+            else if (i < 475) blaze++;
+            else genesis++;
+          }
+        }
+        if (!cancelled) setStats({ total, ember, blaze, genesis, loaded: true });
+      } catch(e) { if (!cancelled) setStats(s => ({ ...s, loaded: true })); }
+    })();
+    return () => { cancelled = true; };
+  }, [connection]);
+  return stats;
+}
+
 function MintStats() {
   const stats = useMintStats();
   const remaining = 500 - stats.total;
