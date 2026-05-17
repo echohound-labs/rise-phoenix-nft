@@ -712,7 +712,7 @@ function MintStats() {
   return (
     <div className="mint-stats-block">
       <div className="mint-specs">
-        <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">Series 1</span></div>
+        <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">Genesis Collection</span></div>
         <div className="mint-spec"><span className="mint-spec-label">Minted</span><span className="mint-spec-value" style={{color:'var(--accent)'}}>{stats.loaded ? `${stats.total} / 500` : '...'}</span></div>
         <div className="mint-spec"><span className="mint-spec-label">Price</span><span className="mint-spec-value">1 XNT</span></div>
         <div className="mint-spec"><span className="mint-spec-label">Remaining</span><span className="mint-spec-value" style={{color:'#22c55e'}}>{stats.loaded ? remaining : '...'}</span></div>
@@ -775,9 +775,9 @@ function App() {
             <section className="hero">
               <div className="particles">{Array.from({ length: 20 }).map((_, i) => <span key={i} className="particle" style={{ left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 6}s`, animationDuration: `${4 + Math.random() * 4}s` }} />)}</div>
               <div className="hero-content">
-                <span className="hero-badge">X1 Network · Series 1 of 3 · Powered by Geiger Entropy Oracle ☢️</span>
+                <span className="hero-badge">X1 Network · Powered by Geiger Entropy Oracle ☢️</span>
                 <h1>RISE Phoenix</h1>
-                <p>500 unique 1-of-1 phoenixes. Same bird, different fire, different color, different cosmos. Mint for 10 XNT. Every single one is one-of-a-kind.</p>
+                <p>500 unique 1-of-1 phoenixes. Same bird, different fire, different color, different cosmos. Every single one is one-of-a-kind. Mint for 1 XNT.</p>
                 <div className="stats">
                   <div className="stat"><div className="stat-num">500</div><div className="stat-label">Total NFTs</div></div>
                   <div className="stat"><div className="stat-num">10</div><div className="stat-label">XNT Per Mint</div></div>
@@ -856,7 +856,7 @@ function App() {
             </section>
             {/* Mint Section */}
             <section className="mint-section" id="mint">
-              <h2>Mint Your Phoenix — Series 1</h2>
+              <h2>Mint Your Phoenix</h2>
               <p className="section-sub">1 XNT · 500 total · Every phoenix is 1-of-1 · Powered by Geiger Entropy ☢️</p>
               <div className="mint-card">
                 <img src={phoenixImg(475)} alt="RISE Phoenix" className="mint-hero-img" />
@@ -898,7 +898,7 @@ function App() {
             {page === 'mint' && <NFTGallery />}
             <footer>
               <p className="footer-disclaimer">⚠️ RISE Phoenix NFTs are digital collectibles, not securities. Tier determination is random and final. No guarantees of value. By using this site you accept the <a href="#" onClick={(e) => { e.preventDefault(); setShowDisclaimer(true); }}>full disclaimer</a>.</p>
-              <p>RISE Phoenix Collection · Series 1 of 3 · X1 Network · DGN 🦅🔥☢️</p>
+              <p>RISE Phoenix · X1 Network · Powered by Geiger Entropy 🦅🔥☢️</p>
             </footer>
 
             <DisclaimerModal open={showDisclaimer} onClose={handleAgree} />
