@@ -780,7 +780,7 @@ function App() {
                 <p>500 unique 1-of-1 phoenixes. Same bird, different fire, different color, different cosmos. Every single one is one-of-a-kind. Mint for 1 XNT.</p>
                 <div className="stats">
                   <div className="stat"><div className="stat-num">500</div><div className="stat-label">Total NFTs</div></div>
-                  <div className="stat"><div className="stat-num">10</div><div className="stat-label">XNT Per Mint</div></div>
+                  <div className="stat"><div className="stat-num">1</div><div className="stat-label">XNT Per Mint</div></div>
                   <div className="stat"><div className="stat-num">☢️</div><div className="stat-label">Geiger Random</div></div>
                   <div className="stat"><div className="stat-num">100%</div><div className="stat-label">☢️ Geiger Powered</div></div>
                 </div>
