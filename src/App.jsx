@@ -50,7 +50,7 @@ const CONFIG = {
     rpc: 'https://rpc.testnet.x1.xyz',
     program: '5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb',
     mintState: '7m8h2Rf5w4UzPqS9EVMVkHwaKhhfvrJiwoc8Qvapkxoh',
-    treasury: 'Gowv5PDb7K4a5PwjubWegvBT4CDfjjJcG4QAZWa9yUob',
+    treasury: 'HGFisVbULNKqogtPuGTfcHG9y6i5nboZabYwifkiiodo',
     geiger: '2dQf9uaCzXewrDNLttmtzQmc3SmqfAHz3qahKQjtGQyY',
     burnWallet: 'C2viBvQtHtSXKATzqfLiZ99RCnVKziBgF7m7dAKFCMU5',
   },
@@ -58,7 +58,7 @@ const CONFIG = {
     rpc: 'https://rpc.mainnet.x1.xyz',
     program: '5QUVVnm1duiRazqa69KW9ZQhCCZcg5GBUKkUn5avA8Gb',
     mintState: '7m8h2Rf5w4UzPqS9EVMVkHwaKhhfvrJiwoc8Qvapkxoh',
-    treasury: 'Gowv5PDb7K4a5PwjubWegvBT4CDfjjJcG4QAZWa9yUob',
+    treasury: 'HGFisVbULNKqogtPuGTfcHG9y6i5nboZabYwifkiiodo',
     geiger: 'BxUNg2yo5371BQMZPkfcxdCptFRDHkhvEXNM1QNPBRYU',
     burnWallet: 'C2viBvQtHtSXKATzqfLiZ99RCnVKziBgF7m7dAKFCMU5',
   },
@@ -135,111 +135,6 @@ const PALETTES = [
   { name: 'Teal Storm', accent: '#44ffcc' },
 ];
 
-
-function BurnProgress() {
-  const burnStats = useBurnStats();
-  const xnt = burnStats.loaded ? burnStats.xntCollected.toFixed(2) : '...';
-  const burned = burnStats.loaded ? burnStats.riseBurned.toLocaleString() : '...';
-  const pct = burnStats.loaded ? burnStats.burnPct : '...';
-  return (
-    <>
-      <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-        <div className="burn-stat">
-          <div className="burn-stat-value" style={{ color: '#ff6b35' }}>{xnt} XNT</div>
-          <div className="burn-stat-label">Collected from Mints</div>
-        </div>
-        <div className="burn-stat">
-          <div className="burn-stat-value" style={{ color: '#ff2222' }}>{burned} RISE</div>
-          <div className="burn-stat-label">Burned Forever</div>
-        </div>
-        <div className="burn-stat">
-          <div className="burn-stat-value" style={{ color: '#ffdd00' }}>{pct}%</div>
-          <div className="burn-stat-label">of Total Supply Burned</div>
-        </div>
-      </div>
-      <div style={{marginBottom: '0.5rem'}}>
-        <div style={{display:'flex', justifyContent:'space-between', fontSize:'.8rem', color:'#aaa', marginBottom:'0.25rem'}}>
-          <span>🔥 RISE Burned</span>
-          <span>{pct}% of supply</span>
-        </div>
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: burnStats.loaded ? `${Math.min(parseFloat(pct) / 20 * 100, 100)}%` : '0%', background: '#ff2222' }}>
-            {burnStats.loaded ? `${burned} RISE` : 'Loading...'}
-          </div>
-        </div>
-      </div>
-      <div style={{marginTop: '0.75rem'}}>
-        <div style={{display:'flex', justifyContent:'space-between', fontSize:'.8rem', color:'#aaa', marginBottom:'0.25rem'}}>
-          <span>💰 XNT Collected from Mints</span>
-          <span>{burnStats.loaded ? `${xnt} / 5,000 XNT` : '...'}</span>
-        </div>
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: burnStats.loaded ? `${Math.min((burnStats.xntCollected / 5000) * 100, 100)}%` : '0%', background: '#ff6b35' }}>
-            {burnStats.loaded ? `${xnt} XNT` : 'Loading...'}
-          </div>
-        </div>
-      </div>
-      <p className="burn-status">🔥 {burned} RISE burned · {xnt} XNT collected for buyback</p>
-    </>
-  );
-}
-
-function useMintStats() {
-  const { connection } = useConnection();
-  const [stats, setStats] = useState({ total: 0, ember: 0, blaze: 0, genesis: 0, loaded: false });
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const acc = await connection.getAccountInfo(MINT_STATE_PDA);
-        if (!acc || acc.data.length < 12) return;
-        const total = acc.data[8] | (acc.data[9] << 8) | (acc.data[10] << 16) | (acc.data[11] << 24);
-        // Count actual minted tiers from bitmap (offset 45-108, 64 bytes)
-        const bitmapRaw = acc.data.slice(45, 109);
-        let ember = 0, blaze = 0, genesis = 0;
-        for (let i = 0; i < 500; i++) {
-          const u64Idx = Math.floor(i / 64);
-          const bitIdx = i % 64;
-          const lo = bitmapRaw.readUInt32LE(u64Idx * 8);
-          const hi = bitmapRaw.readUInt32LE(u64Idx * 8 + 4);
-          const isMinted = bitIdx < 32 ? (lo & (1 << bitIdx)) !== 0 : (hi & (1 << (bitIdx - 32))) !== 0;
-          if (isMinted) {
-            if (i < 400) ember++;
-            else if (i < 475) blaze++;
-            else genesis++;
-          }
-        }
-        if (!cancelled) setStats({ total, ember, blaze, genesis, loaded: true });
-      } catch(e) {}
-    })();
-    return () => { cancelled = true; };
-  }, [connection]);
-  return stats;
-}
-
-function useBurnStats() {
-  const [burnStats, setBurnStats] = useState({ xntCollected: 0, riseBurned: 0, burnPct: 0, loaded: false });
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const res = await fetch('/api/burn-stats');
-        const data = await res.json();
-        if (!cancelled) setBurnStats({
-          xntCollected: data.xntCollected || 0,
-          riseBurned: data.riseBurned || 0,
-          burnPct: data.burnPct || '0.00',
-          loaded: true
-        });
-      } catch(e) {
-        console.error("Burn stats error:", e);
-        if (!cancelled) setBurnStats({ xntCollected: 0, riseBurned: 0, burnPct: '0.00', loaded: true });
-      }
-    })();
-    return () => { cancelled = true; };
-  }, []);
-  return burnStats;
-}
 
 
 function MintReveal({ mintNumber, onClose, onViewGallery }) {
@@ -417,7 +312,6 @@ function MintButton({ onMintSuccess, onViewGallery }) {
           { pubkey: nftMint, isSigner: true, isWritable: true },
           { pubkey: minterAta, isSigner: false, isWritable: true },
           { pubkey: metadataPDA, isSigner: false, isWritable: true },
-          { pubkey: RISE_RECEIVER, isSigner: false, isWritable: true },
           { pubkey: new PublicKey("HGFisVbULNKqogtPuGTfcHG9y6i5nboZabYwifkiiodo"), isSigner: false, isWritable: true },
           { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
           { pubkey: ASSOCIATED_TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
@@ -788,7 +682,7 @@ function MintStats() {
       <div className="mint-specs">
         <div className="mint-spec"><span className="mint-spec-label">Collection</span><span className="mint-spec-value">Series 1</span></div>
         <div className="mint-spec"><span className="mint-spec-label">Minted</span><span className="mint-spec-value" style={{color:'var(--accent)'}}>{stats.loaded ? `${stats.total} / 500` : '...'}</span></div>
-        <div className="mint-spec"><span className="mint-spec-label">Price</span><span className="mint-spec-value">10 XNT</span></div>
+        <div className="mint-spec"><span className="mint-spec-label">Price</span><span className="mint-spec-value">1 XNT</span></div>
         <div className="mint-spec"><span className="mint-spec-label">Remaining</span><span className="mint-spec-value" style={{color:'#22c55e'}}>{stats.loaded ? remaining : '...'}</span></div>
       </div>
       {stats.loaded && (
@@ -875,7 +769,7 @@ function App() {
                     <p className="tier-card-desc">400 unique Fire Phoenixes. Each one burns a different color — from inferno red to acid green to deep violet. No two are alike.</p>
                     <div className="tier-card-stats">
                       <span>🔥 Rare Tier</span>
-                      <span>10 XNT</span>
+                      <span>1 XNT</span>
                     </div>
                   </div>
                 </div>
@@ -887,7 +781,7 @@ function App() {
                     <p className="tier-card-desc">75 rare Storm Phoenixes cracking with electric energy. Blue lightning, steel frame, pure power.</p>
                     <div className="tier-card-stats">
                       <span>⚡ Epic Tier</span>
-                      <span>10 XNT</span>
+                      <span>1 XNT</span>
                     </div>
                   </div>
                 </div>
@@ -899,7 +793,7 @@ function App() {
                     <p className="tier-card-desc">Only 25 ever minted. Golden cosmic phoenix with holographic frame — the most sought after in the collection.</p>
                     <div className="tier-card-stats">
                       <span>✨ Legendary Tier</span>
-                      <span>10 XNT</span>
+                      <span>1 XNT</span>
                     </div>
                   </div>
                 </div>
@@ -918,74 +812,20 @@ function App() {
 
 
 
-            {/* Tokenomics */}
-            <section className="tokenomics" id="tokenomics">
-              <h2>$RISE Tokenomics</h2>
-              <p className="section-sub">1,000,000,000 total supply · Built to shrink</p>
-              <div className="tokenomics-chart">
-                <div className="donut-wrap">
-                  <svg viewBox="0 0 200 200" className="donut-svg">
-                    {(() => {
-                      const slices = [
-                        { pct: 60, color: '#ff6b35', label: 'Degen LP' },
-                        { pct: 20, color: '#ff2222', label: 'Burned' },
-                        { pct: 15, color: '#8800ff', label: 'NFT LP Engine' },
-                        { pct: 3,  color: '#ffdd00', label: 'Staking' },
-                        { pct: 2,  color: '#00ffaa', label: 'Airdrop' },
-                      ];
-                      const cx = 100, cy = 100, r = 80, ir = 50;
-                      let angle = -90;
-                      return slices.map((s, i) => {
-                        const start = angle;
-                        const end = angle + (s.pct / 100) * 360;
-                        const toRad = d => (d * Math.PI) / 180;
-                        const x1 = cx + r * Math.cos(toRad(start));
-                        const y1 = cy + r * Math.sin(toRad(start));
-                        const x2 = cx + r * Math.cos(toRad(end));
-                        const y2 = cy + r * Math.sin(toRad(end));
-                        const ix1 = cx + ir * Math.cos(toRad(start));
-                        const iy1 = cy + ir * Math.sin(toRad(start));
-                        const ix2 = cx + ir * Math.cos(toRad(end));
-                        const iy2 = cy + ir * Math.sin(toRad(end));
-                        const large = end - start > 180 ? 1 : 0;
-                        const d = `M ${x1} ${y1} A ${r} ${r} 0 ${large} 1 ${x2} ${y2} L ${ix2} ${iy2} A ${ir} ${ir} 0 ${large} 0 ${ix1} ${iy1} Z`;
-                        angle = end;
-                        return <path key={i} d={d} fill={s.color} stroke="#0a0a1a" strokeWidth="1.5" opacity="0.9" />;
-                      });
-                    })()}
-                    <text x="100" y="95" textAnchor="middle" fill="#fff" fontSize="11" fontWeight="bold">1B RISE</text>
-                    <text x="100" y="112" textAnchor="middle" fill="#aaa" fontSize="8">Total Supply</text>
-                  </svg>
-                </div>
-                <div className="donut-legend">
-                  {[
-                    { pct: '60%', color: '#ff6b35', label: 'Degen Launch Pad + LP', detail: '600M RISE for launchpad and liquidity pools.' },
-                    { pct: '20%', color: '#ff2222', label: 'Burned', detail: '200M RISE permanently removed. Front-loaded W1–W4.' },
-                    { pct: '15%', color: '#8800ff', label: 'NFT LP Engine', detail: '150M RISE paired with XNT mint proceeds for LP. Any unpaired rolls over.' },
-                    { pct: '3%',  color: '#ffdd00', label: 'Staking Rewards', detail: '30M RISE distributed to long-term stakers.' },
-                    { pct: '2%',  color: '#00ffaa', label: 'Airdrop', detail: '20M RISE distributed to early supporters.' },
-                  ].map((s, i) => (
-                    <div key={i} className="legend-item">
-                      <div className="legend-dot" style={{background: s.color}} />
-                      <div className="legend-text">
-                        <span className="legend-pct" style={{color: s.color}}>{s.pct}</span>
-                        <span className="legend-label"> {s.label}</span>
-                        <div className="legend-detail">{s.detail}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="burn-progress">
-                <h3>Burn Progress</h3>
-                <BurnProgress />
+            {/* Origin Story */}
+            <section className="tokenomics" id="origin">
+              <h2>🔥 Born from the Ashes</h2>
+              <p className="section-sub">500 phoenixes rising from the ruins — powered by quantum entropy</p>
+              <div style={{maxWidth:'680px',margin:'0 auto',textAlign:'center',lineHeight:'1.8',color:'#ccc',fontSize:'1.05rem'}}>
+                <p>RISE Phoenix was born from the ashes of rugged tokens — abandoned by its original developer. The NFT collection survived, stripped of all tokenomics baggage, and reborn as something pure.</p>
+                <p style={{marginTop:'1rem'}}>500 unique phoenixes. No team allocation. No treasury. No token. Just quantum radioactive decay determining which phoenix you get — verifiable on-chain, impossible to manipulate.</p>
+                <p style={{marginTop:'1rem',color:'#ff6b35',fontWeight:'bold'}}>What was burned became fire. 🔥</p>
               </div>
             </section>
-
             {/* Mint Section */}
             <section className="mint-section" id="mint">
               <h2>Mint Your Phoenix — Series 1</h2>
-              <p className="section-sub">10 XNT · 500 total · Every phoenix is 1-of-1 · Powered by Geiger Entropy ☢️</p>
+              <p className="section-sub">1 XNT · 500 total · Every phoenix is 1-of-1 · Powered by Geiger Entropy ☢️</p>
               <div className="mint-card">
                 <img src={phoenixImg(475)} alt="RISE Phoenix" className="mint-hero-img" />
                 <div className="mint-info">
@@ -993,7 +833,7 @@ function App() {
                   <ul className="mint-perks">
                     <li>Every phoenix is a 1-of-1 — 3 tiers, 500 unique color variants, zero duplicates</li>
                     <li>Mint order determined by quantum radioactive decay on-chain — verifiable, not manipulable</li>
-                    <li>30% of your XNT buys and burns RISE · 70% goes to LP with RISE</li>
+                    <li>1 XNT mint fee funds the Geiger Entropy Oracle node — the quantum randomness engine powering every mint</li>
                   </ul>
                   {!agreed ? (
                     <div className="disclaimer-banner">
@@ -1009,16 +849,16 @@ function App() {
 
             {/* Buyback */}
             <section className="buyback">
-              <h2>Where Your XNT Goes</h2>
-              <p>9 XNT from every mint goes to the treasury — 30% buys and burns RISE, 70% adds to liquidity paired with RISE. 1 XNT per mint goes directly to the Geiger Oracle node keeping randomness running. LP tokens are burned. No team allocation.</p>
+              <h2>⚡ Where Your XNT Goes</h2>
+              <p>1 XNT from every mint goes directly to the Geiger Oracle node — funding the quantum randomness that powers every mint. No team allocation. No treasury. Pure entropy.</p>
               <div className="buyback-flow">
                 <div className="buyback-step"><div className="buyback-step-icon">🪙</div><div className="buyback-step-text">You Mint<br/>a Phoenix</div></div>
                 <div className="buyback-arrow">→</div>
-                <div className="buyback-step"><div className="buyback-step-icon">🔥</div><div className="buyback-step-text">30% Buys<br/>& Burns RISE</div></div>
+                <div className="buyback-step"><div className="buyback-step-icon">☢️</div><div className="buyback-step-text">1 XNT →<br/>Geiger Node</div></div>
                 <div className="buyback-arrow">→</div>
-                <div className="buyback-step"><div className="buyback-step-icon">💧</div><div className="buyback-step-text">70% → LP<br/>with RISE</div></div>
+                <div className="buyback-step"><div className="buyback-step-icon">⚡</div><div className="buyback-step-text">Funds<br/>Entropy Oracle</div></div>
                 <div className="buyback-arrow">→</div>
-                <div className="buyback-step"><div className="buyback-step-icon">☠️</div><div className="buyback-step-text">LP Tokens<br/>Burned</div></div>
+                <div className="buyback-step"><div className="buyback-step-icon">🦅</div><div className="buyback-step-text">Your Phoenix<br/>is Born</div></div>
               </div>
             </section>
 
