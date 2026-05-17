@@ -849,7 +849,7 @@ function App() {
               <h2>🔥 Born from the Ashes</h2>
               <p className="section-sub">500 phoenixes rising from the ruins — powered by quantum entropy</p>
               <div style={{maxWidth:'680px',margin:'0 auto',textAlign:'center',lineHeight:'1.8',color:'#ccc',fontSize:'1.05rem'}}>
-                <p>RISE Phoenix was born from the ashes of rugged tokens — abandoned by its original developer. The NFT collection survived, stripped of all tokenomics baggage, and reborn as something pure.</p>
+                <p>RISE Phoenix was born from the ashes of three rugged tokens — RISE, NOVA, and AURA — abandoned by their developer DGN King. The NFT collection survived, stripped of all tokenomics baggage, and reborn as something pure. The name stayed. The fire stayed. Everything else burned.</p>
                 <p style={{marginTop:'1rem'}}>500 unique phoenixes. No team allocation. No treasury. No token. Just quantum radioactive decay determining which phoenix you get — verifiable on-chain, impossible to manipulate.</p>
                 <p style={{marginTop:'1rem',color:'#ff6b35',fontWeight:'bold'}}>What was burned became fire. 🔥</p>
               </div>
