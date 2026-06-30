@@ -298,6 +298,16 @@ function MintButton({ onMintSuccess, onViewGallery }) {
         [Buffer.from('metadata'), METADATA_PROGRAM_PUBKEY.toBuffer(), nftMint.toBuffer()],
         METADATA_PROGRAM_PUBKEY
       );
+      // Phase 2: collection accounts so the mint auto-joins the RISE collection
+      const COLLECTION_MINT = new PublicKey('hzdZak4qN9bZ93ztu4bTBmDwx6F3XNyieFG5SQqCsJm');
+      const [collectionMetadataPDA] = PublicKey.findProgramAddressSync(
+        [Buffer.from('metadata'), METADATA_PROGRAM_PUBKEY.toBuffer(), COLLECTION_MINT.toBuffer()],
+        METADATA_PROGRAM_PUBKEY
+      );
+      const [collectionMasterEditionPDA] = PublicKey.findProgramAddressSync(
+        [Buffer.from('metadata'), METADATA_PROGRAM_PUBKEY.toBuffer(), COLLECTION_MINT.toBuffer(), Buffer.from('edition')],
+        METADATA_PROGRAM_PUBKEY
+      );
       const minterAta = getAssociatedTokenAddressSync(nftMint, wallet.publicKey);
 
       // fulfill_mint discriminator  
@@ -318,6 +328,9 @@ function MintButton({ onMintSuccess, onViewGallery }) {
           { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },
           { pubkey: METADATA_PROGRAM_PUBKEY, isSigner: false, isWritable: false },
           { pubkey: new PublicKey('SysvarRent111111111111111111111111111111111'), isSigner: false, isWritable: false },
+          { pubkey: COLLECTION_MINT, isSigner: false, isWritable: false },
+          { pubkey: collectionMetadataPDA, isSigner: false, isWritable: true },
+          { pubkey: collectionMasterEditionPDA, isSigner: false, isWritable: false },
         ],
         programId: RISE_PROGRAM,
         data: fulfillDiscriminator,
