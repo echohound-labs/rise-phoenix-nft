@@ -331,12 +331,14 @@ function MintButton({ onMintSuccess, onViewGallery }) {
           { pubkey: COLLECTION_MINT, isSigner: false, isWritable: false },
           { pubkey: collectionMetadataPDA, isSigner: false, isWritable: true },
           { pubkey: collectionMasterEditionPDA, isSigner: false, isWritable: false },
+          // ── member master edition (LAST — matches FulfillMint struct) ──
+          { pubkey: PublicKey.findProgramAddressSync([Buffer.from('metadata'), METADATA_PROGRAM_PUBKEY.toBuffer(), nftMint.toBuffer(), Buffer.from('edition')], METADATA_PROGRAM_PUBKEY)[0], isSigner: false, isWritable: true },
         ],
         programId: RISE_PROGRAM,
         data: fulfillDiscriminator,
       });
 
-      const tx2 = new Transaction().add(ComputeBudgetProgram.setComputeUnitLimit({ units: 400000 })).add(fulfillIx);
+      const tx2 = new Transaction().add(ComputeBudgetProgram.setComputeUnitLimit({ units: 600000 })).add(fulfillIx);
       const { blockhash: bh2 } = await connection.getLatestBlockhash();
       tx2.recentBlockhash = bh2;
       tx2.feePayer = wallet.publicKey;
