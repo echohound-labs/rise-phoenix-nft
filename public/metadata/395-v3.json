@@ -2,7 +2,7 @@
   "name": "RISE Phoenix #396",
   "symbol": "RISE",
   "description": "A unique RISE Phoenix \u2014 500 1-of-1 phoenixes rising from the flames on X1 Network. Every one is different.",
-  "image": "https://gateway.lighthouse.storage/ipfs/QmRxUdo92RYfBRQDXxYJmT4kBGWCdyQcPeTWw1Xa6gQAWC",
+  "image": "https://ipfs.x1forge.xyz/ipfs/QmccfDuPMyoM3tLFEY79Ed14kDbs49J5JYzrnYysfwm5Wh",
   "external_url": "https://rise-phoenix-nft.vercel.app",
   "attributes": [
     {
@@ -23,7 +23,7 @@
     },
     {
       "trait_type": "Palette",
-      "value": "Sakura"
+      "value": "Ultraviolet"
     },
     {
       "trait_type": "Max Supply",
@@ -42,7 +42,7 @@
     "category": "image",
     "files": [
       {
-        "uri": "https://gateway.lighthouse.storage/ipfs/QmRxUdo92RYfBRQDXxYJmT4kBGWCdyQcPeTWw1Xa6gQAWC",
+        "uri": "https://ipfs.x1forge.xyz/ipfs/QmccfDuPMyoM3tLFEY79Ed14kDbs49J5JYzrnYysfwm5Wh",
         "type": "image/jpeg"
       }
     ]

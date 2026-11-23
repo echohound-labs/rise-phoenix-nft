@@ -2,7 +2,7 @@
   "name": "RISE Phoenix #379",
   "symbol": "RISE",
   "description": "A unique RISE Phoenix \u2014 500 1-of-1 phoenixes rising from the flames on X1 Network. Every one is different.",
-  "image": "https://gateway.lighthouse.storage/ipfs/QmajK3s4fV5Ly3JFTMXFvzL8pqFLEDLUVVDw5JWUivixA6",
+  "image": "https://ipfs.x1forge.xyz/ipfs/QmZ2rKQb3CCZr7XxHNyPe5tD9zL6Z4z87eexcFMvkPpoGG",
   "external_url": "https://rise-phoenix-nft.vercel.app",
   "attributes": [
     {
@@ -23,7 +23,7 @@
     },
     {
       "trait_type": "Palette",
-      "value": "Blood Fire"
+      "value": "Red Shift"
     },
     {
       "trait_type": "Max Supply",
@@ -42,7 +42,7 @@
     "category": "image",
     "files": [
       {
-        "uri": "https://gateway.lighthouse.storage/ipfs/QmajK3s4fV5Ly3JFTMXFvzL8pqFLEDLUVVDw5JWUivixA6",
+        "uri": "https://ipfs.x1forge.xyz/ipfs/QmZ2rKQb3CCZr7XxHNyPe5tD9zL6Z4z87eexcFMvkPpoGG",
         "type": "image/jpeg"
       }
     ]
